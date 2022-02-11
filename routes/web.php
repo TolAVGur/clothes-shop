@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\HomeComponent;
 use App\Http\Livewire\ShopComponent;
+use App\Http\Livewire\ContactsComponent;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,3 +22,4 @@ use App\Http\Livewire\ShopComponent;
 
 Route::get('/', HomeComponent::class);
 Route::get('/shop', ShopComponent::class);
+Route::get('/contacts', ContactsComponent::class);
