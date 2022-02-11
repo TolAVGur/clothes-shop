@@ -10,6 +10,7 @@ use App\Http\Livewire\CheckoutComponent;
 use App\Http\Livewire\DetailsComponent;
 use App\Http\Livewire\LoginComponent;
 use App\Http\Livewire\RegistrationComponent;
+use App\Http\Livewire\AdminComponent;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,3 +36,4 @@ Route::get('/checkout', CheckoutComponent::class);
 Route::get('/details', DetailsComponent::class);
 Route::get('/login', LoginComponent::class);
 Route::get('/registration', RegistrationComponent::class);
+Route::get('/admin', AdminComponent::class);

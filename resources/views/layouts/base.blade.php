@@ -91,6 +91,7 @@
                             <div class="shop-menu pull-right">
                                 <ul class="nav navbar-nav">
                                     <li><a href="/account"><i class="fa fa-user"></i> Кабинет</a></li>
+                                    <li><a href="/admin"><i class="fa fa-user"></i> Админ-панель</a></li>
                                     <!--<li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>-->
                                     <li><a href="/checkout"><i class="fa fa-crosshairs"></i> Заказ</a></li>
                                     <li><a href="/cart"><i class="fa fa-shopping-cart"></i> Корзина</a></li>
