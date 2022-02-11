@@ -93,7 +93,7 @@
                                     <li><a href="#"><i class="fa fa-user"></i> Кабинет</a></li>
                                     <!--<li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>-->
                                     <li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Заказ</a></li>
-                                    <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Корзина</a></li>
+                                    <li><a href="/cart"><i class="fa fa-shopping-cart"></i> Корзина</a></li>
                                     <li><a href="login.html"><i class="fa fa-lock"></i> Вход</a></li>
                                 </ul>
                             </div>
