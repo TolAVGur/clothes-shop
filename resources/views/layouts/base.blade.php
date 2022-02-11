@@ -118,10 +118,10 @@
                             </div>
                             <div class="mainmenu pull-left">
                                 <ul class="nav navbar-nav collapse navbar-collapse">
-                                    <li><a href="index.html" class="active">Главная</a></li>
-                                    <li><a href="shop.html">Каталог</a></li>
-                                    <li><a href="contact-us.html">Контакты</a></li>
-                                    <li><a href="help.html">Помощь</a></li>
+                                    <li><a href="/" class="active">Главная</a></li>
+                                    <li><a href="/shop">Каталог</a></li>
+                                    <li><a href="/contacts">Контакты</a></li>
+                                    <li><a href="/help">Помощь</a></li>
                                 </ul>
                             </div>
                         </div>
