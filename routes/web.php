@@ -6,6 +6,10 @@ use App\Http\Livewire\ShopComponent;
 use App\Http\Livewire\ContactsComponent;
 use App\Http\Livewire\HelppageComponent;
 use App\Http\Livewire\CartComponent;
+use App\Http\Livewire\CheckoutComponent;
+use App\Http\Livewire\DetailsComponent;
+use App\Http\Livewire\LoginComponent;
+use App\Http\Livewire\RegistrationComponent;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,3 +31,7 @@ Route::get('/shop', ShopComponent::class);
 Route::get('/contacts', ContactsComponent::class);
 Route::get('/help', HelppageComponent::class);
 Route::get('/cart', CartComponent::class);
+Route::get('/checkout', CheckoutComponent::class);
+Route::get('/details', DetailsComponent::class);
+Route::get('/login', LoginComponent::class);
+Route::get('/registration', RegistrationComponent::class);
