@@ -39,3 +39,6 @@ Route::get('/login', LoginComponent::class);
 Route::get('/registration', RegistrationComponent::class);
 Route::get('/admin', AdminComponent::class);
 Route::get('/account', AccountComponent::class);
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
