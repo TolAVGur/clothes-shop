@@ -8,8 +8,6 @@ use App\Http\Livewire\HelppageComponent;
 use App\Http\Livewire\CartComponent;
 use App\Http\Livewire\CheckoutComponent;
 use App\Http\Livewire\DetailsComponent;
-use App\Http\Livewire\LoginComponent;
-use App\Http\Livewire\RegistrationComponent;
 use App\Http\Livewire\AdminComponent;
 use App\Http\Livewire\AccountComponent;
 
@@ -35,10 +33,18 @@ Route::get('/help', HelppageComponent::class);
 Route::get('/cart', CartComponent::class);
 Route::get('/checkout', CheckoutComponent::class);
 Route::get('/details', DetailsComponent::class);
-Route::get('/login', LoginComponent::class);
-Route::get('/registration', RegistrationComponent::class);
 Route::get('/admin', AdminComponent::class);
 Route::get('/account', AccountComponent::class);
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+/*Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
-})->name('dashboard');
+})->name('dashboard');*/
+
+// For USR:
+Route::middleware(['auth:sanctum', 'verified'])->group(function() {
+
+});
+
+// For ADM:
+Route::middleware(['auth:sanctum', 'verified'])->group(function() {
+
+});
