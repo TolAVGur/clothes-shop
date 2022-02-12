@@ -72,42 +72,59 @@
                                 <li><a href="/cart"><i class="fa fa-shopping-cart"></i> Корзина</a></li>
                                 
                                 @if (Route::has('login'))
-                                    @auth
-                                        @if (Auth::user()->role_id === 'ADM')
-                                            <li>
-                                                <div class="btn-group pull-right">
-                                                    Вы вошли как:
-                                                    <div class="btn-group">
-                                                        <button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
-                                                            {{ Auth::user()->name }}
-                                                            <span class="caret"></span>
-                                                        </button>
-                                                        <ul class="dropdown-menu">
-                                                            <li><a href="{{ route('admin.dashboard') }}"><i class="fa fa-user"></i> Админ-панель</a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        @else
-                                        <li>
-                                        <div class="btn-group pull-right">
-                                            Вы вошли как:
-                                            <div class="btn-group">
-                                                <button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
-                                                    {{ Auth::user()->name }}
-                                                    <span class="caret"></span>
-                                                </button>
-                                                <ul class="dropdown-menu">
-                                                    <li><a href="{{ route('user.dashboard') }}"><i class="fa fa-user"></i> Кабинет</a></li>
-                                                </ul>
-                                            </div>
+                                @auth
+                                @if (Auth::user()->role_id === 'ADM')
+                                
+                                <li>
+                                    <div class="btn-group pull-right">
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
+                                                <i class="fa fa-user"></i>
+                                                {{ Auth::user()->name }}
+                                                <span class="caret"></span>
+                                            </button>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="{{ route('admin.dashboard') }}">Админ-панель</a></li>
+                                                <li><a href="{{ route('logout') }}"
+                                                        onclick="event.preventDefault(); 
+                                                        document.getElementById('logout-form').submit();" >
+                                                        Выйти
+                                                    </a></li>
+                                                    <form id="logout-form" method="POST" action="{{ route('logout') }}">
+                                                        @csrf
+                                                    </form>
+                                            </ul>
                                         </div>
-                                        </li>
-                                        @endif
-                                    @else
-                                        <li><a href="{{ route('login') }}"><i class="fa fa-lock"></i> Вход</a></li>
-                                        <li><a href="{{ route('register') }}"><i class="fa fa-star"></i> Регистрация</a></li>
-                                    @endif
+                                    </div>
+                                </li>
+                                @else
+                                <li>
+                                    <div class="btn-group pull-right">
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
+                                                <i class="fa fa-user"></i>
+                                                {{ Auth::user()->name }}
+                                                <span class="caret"></span>
+                                            </button>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="{{ route('user.dashboard') }}"></i>Кабинет</a></li>
+                                                <li><a href="{{ route('logout') }}"
+                                                        onclick="event.preventDefault(); 
+                                                        document.getElementById('logout-form').submit();" >
+                                                        Выйти
+                                                    </a></li>
+                                                    <form id="logout-form" method="POST" action="{{ route('logout') }}">
+                                                        @csrf
+                                                    </form>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                                @endif
+                                @else
+                                <li><a href="{{ route('login') }}"><i class="fa fa-lock"></i> Вход</a></li>
+                                <li><a href="{{ route('register') }}"><i class="fa fa-star"></i> Регистрация</a></li>
+                                @endif
                                 @endif
                             </ul>
                         </div>
