@@ -83,7 +83,7 @@
                                                             <span class="caret"></span>
                                                         </button>
                                                         <ul class="dropdown-menu">
-                                                            <li><a href="/admin"><i class="fa fa-user"></i> Админ-панель</a></li>
+                                                            <li><a href="{{ route('admin.dashboard') }}"><i class="fa fa-user"></i> Админ-панель</a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -98,7 +98,7 @@
                                                     <span class="caret"></span>
                                                 </button>
                                                 <ul class="dropdown-menu">
-                                                    <li><a href="/account"><i class="fa fa-user"></i> Кабинет</a></li>
+                                                    <li><a href="{{ route('user.dashboard') }}"><i class="fa fa-user"></i> Кабинет</a></li>
                                                 </ul>
                                             </div>
                                         </div>
