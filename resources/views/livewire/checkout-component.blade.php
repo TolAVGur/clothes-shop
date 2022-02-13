@@ -80,17 +80,22 @@
                         <h2 class="heading">ШАГ 3: выбор доставки</h2>
                     </div>
                     <div class="shopper-informations">
-                        <div class="row">
-                            <div style="text-align: center; margin-bottom: 15px;">
+                        <div class="row" style="text-align: center; margin-bottom: 15px;">
+                            <div class="col-md-4">
                                 <input type="radio" id="shipping_1" name="contact" value="">
                                 <label style="margin-right: 20px;" for="shipping_1"> Самовывоз</label>
+                            </div>
 
+                            <div class="col-md-4">
                                 <input type="radio" id="shipping_2" name="contact" value="">
                                 <label style="margin-right: 20px;" for="shipping_2"> Курьером по Киеву</label>
+                            </div>
 
+                            <div class="col-md-4">
                                 <input type="radio" id="shipping_3" name="contact" value="">
                                 <label for="shipping_3"> Почтой по Украине</label>
                             </div>
+
                             <div class="col-sm-8 clearfix">
                                 <div class="bill-to">
                                     <div class="form-one">
