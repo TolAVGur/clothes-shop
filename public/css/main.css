@@ -2520,4 +2520,6 @@ h2.title {
   color: #FE980F;
 }
 
-
+.text-red-600 {
+  color: red;
+}
