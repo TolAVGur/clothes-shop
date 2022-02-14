@@ -50,27 +50,29 @@
 --}}
 
 <x-guest-layout>
-
+    @section('title')
+    Авторизация
+    @endsection
     <section>
         <div class="container">
             <div class="row">
-                <div class="col-sm-7 col-sm-offset-1">
+                <div class="col-sm-6 col-sm-offset-1">
                     <div class="login-form">
                         <!--login form-->
-                            <h3>Вход в аккаунт</h3>
-                        
+                        <h2>Вход в аккаунт</h2>
+
                         <x-jet-validation-errors class="mb-4" />
                         <form name="frm-login" action="{{ route('login') }}" method="POST">
                             @csrf
                             <input type="email" name="email" placeholder="Email" :value="old('email')" required autofocus />
 
-                            <input type="password" name="pass" placeholder="**********" required autocomplete="current-password" />
+                            <input type="password" name="password" placeholder="**********" required autocomplete="current-password" />
 
                             <span>
                                 <input type="checkbox" name="remember" class="checkbox" value="forever">
                                 Запомнить меня
                             </span>
-                            <button type="submit" class="btn btn-default">Войти</button>
+                            <button type="submit" class="btn btn-default" name="login">Войти</button>
                         </form>
                     </div>
                 </div>
