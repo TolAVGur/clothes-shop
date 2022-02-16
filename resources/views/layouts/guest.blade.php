@@ -100,7 +100,7 @@
                                 
                                 @if (Route::has('login'))
                                 @auth
-                                @if (Auth::user()->role_id === 'ADM')
+                                @if (Auth::user()->role_name === 'ADM')
                                 
                                 <li>
                                     <div class="btn-group pull-right">
