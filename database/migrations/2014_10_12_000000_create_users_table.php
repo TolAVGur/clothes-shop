@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('profile_photo_path', 2048)->nullable();
             $table->string('address')->nullable();
             $table->string('status_id')->nullable()->comment('еще нет таблицы, ключь к таблице statuses'); // еще нет таблицы, ключь к таблице statuses
-            $table->string('role_id')->default('USR')->comment('ADM - for Admin, USR - for Users'); // еще нет таблицы, ключь к таблице roles
+            $table->string('role_name')->default('USR')->comment('ADM - Admin, USR - User, MDR - Moder');
             $table->timestamps();
         });
     }
