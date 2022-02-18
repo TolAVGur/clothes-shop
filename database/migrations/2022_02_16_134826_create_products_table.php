@@ -19,6 +19,7 @@ class CreateProductsTable extends Migration
             $table->string('slug')->unique();                           // алеас/псевдоним
             $table->string('short_description')->nullable();            // не обязательное свойство
             $table->text('description');                                // описание
+            $table->text('sizes')->nullable();                          // размеры, через "," (парсить по ",")
             $table->decimal('sale_price');                              // розничная цена
             $table->decimal('discount')->nullable();                    // скидка
             $table->string('SKU');                                      // артикул-идентификатор
