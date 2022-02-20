@@ -2,44 +2,73 @@
 Управление контентом
 @endsection
 
-<div style="text-align: center;">
+<div>
     <div class="container">
+
         <div class="row">
             <div class="col-sm-4">
-                <h5>Управление пользователями</h5>
-                <ol style="text-align: left; background:thistle">
-                    @foreach ($users as $user)
-                    <li>
-                        <label>{{ $user->name }}</label>
-                        <label>{{ $user->email }}</label>
-                        <label>{{ $user->role_name }}</label>
-                    </li>
-                    @endforeach
-                </ol>
+                <caption>Пользователи</caption>
+                <div class="row">
+                    <div class="col-sm-11">
+                        <table cellpadding="5" border="1" width="100%">
+                            <tr>
+                                <th>Имя </th>
+                                <th>email</th>
+                                <th>права доступа</th>
+                            </tr>
+                            @foreach ($users as $user)
+                            <tr>
+                                <td>{{ $user->name }}</td>
+                                <td>{{ $user->email }}</td>
+                                <td>{{ $user->role_name }}</td>
+                            </tr>
+                            @endforeach
+                        </table>
+                    </div>
+                </div>
             </div>
+
             <div class="col-sm-4">
-                <h5>Управление Категориями</h5>
-                <ol style="text-align: left; background:thistle">
-                    @foreach ($categories as $category)
-                    <li>
-                        <label>{{ $category->name }}</label>
-                        <label>{{ $category->slug }}</label>
-                    </li>
-                    @endforeach
-                </ol>
+                <caption>Категории</caption>
+                <div class="row">
+                    <div class="col-sm-11">
+                        <table cellpadding="5" border="1" width="100%">
+                            <tr>
+                                <th>Название</th>
+                                <th>определение</th>
+                            </tr>
+                            @foreach ($categories as $category)
+                            <tr>
+                                <td>{{ $category->name }}</td>
+                                <td>{{ $category->slug }}</td>
+                            </tr>
+                            @endforeach
+                        </table>
+                    </div>
+                </div>
             </div>
+
             <div class="col-sm-4">
-                <h5>Управление Брендами</h5>
-                <ol style="text-align: left; background:thistle">
-                    @foreach ($brands as $brand)
-                    <li>
-                        <label>{{ $brand->name }}</label>
-                        <label>{{ $brand->country }}</label>
-                    </li>
-                    @endforeach
-                </ol>
+                <caption>Бренды</caption>
+                <div class="row">
+                    <div class="col-sm-11">
+                        <table cellpadding="5" border="1" width="100%">
+                            <tr>
+                                <th>Название</th>
+                                <th>Страна</th>
+                            </tr>
+                            @foreach ($brands as $brand)
+                            <tr>
+                                <td>{{ $brand->name }}</td>
+                                <td>{{ $brand->country }}</td>
+                            </tr>
+                            @endforeach
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
+        <hr>
     </div>
 
 </div>
