@@ -6,11 +6,38 @@
     <div class="container">
 
         <div class="row">
+
+            <div class="col-md-12">
+                <caption>Категории | <a href="{{ route('admin.addcategory') }}" >Добавить категорию</a></caption>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <table cellpadding="5" border="1" width="100%">
+                            <tr>
+                                <th>Название</th>
+                                <th>краткое определение</th>
+                                <th>Управление</th>
+                            </tr>
+                            @foreach ($categories as $category)
+                            <tr>
+                                <td>{{ $category->name }}</td>
+                                <td>{{ $category->slug }}</td>
+                                <td>
+                                    <a href="" class="btn btn-primary">Редактировать</a>
+                                    <a href="" class="btn btn-primary">Удалить</a>
+                                </td>
+                            </tr>
+                            @endforeach
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+
             <div class="col-sm-4">
                 <caption>Пользователи</caption>
                 <div class="row">
                     <div class="col-sm-12">
-                        <table cellpadding="5"  bordercolor="red" border="2" width="100%">
+                        <table cellpadding="5" bordercolor="red" border="2" width="100%">
                             <tr>
                                 <th>Имя </th>
                                 <th>email</th>
@@ -21,26 +48,6 @@
                                 <td>{{ $user->name }}</td>
                                 <td>{{ $user->email }}</td>
                                 <td>{{ $user->role_name }}</td>
-                            </tr>
-                            @endforeach
-                        </table>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-sm-4">
-                <caption>Категории</caption>
-                <div class="row">
-                    <div class="col-sm-12">
-                        <table cellpadding="5" border="1" width="100%">
-                            <tr>
-                                <th>Название</th>
-                                <th>краткое определение</th>
-                            </tr>
-                            @foreach ($categories as $category)
-                            <tr>
-                                <td>{{ $category->name }}</td>
-                                <td>{{ $category->slug }}</td>
                             </tr>
                             @endforeach
                         </table>
