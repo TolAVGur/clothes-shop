@@ -9,8 +9,8 @@
             <div class="col-sm-4">
                 <caption>Пользователи</caption>
                 <div class="row">
-                    <div class="col-sm-11">
-                        <table cellpadding="5" border="1" width="100%">
+                    <div class="col-sm-12">
+                        <table cellpadding="5"  bordercolor="red" border="2" width="100%">
                             <tr>
                                 <th>Имя </th>
                                 <th>email</th>
@@ -31,11 +31,11 @@
             <div class="col-sm-4">
                 <caption>Категории</caption>
                 <div class="row">
-                    <div class="col-sm-11">
+                    <div class="col-sm-12">
                         <table cellpadding="5" border="1" width="100%">
                             <tr>
                                 <th>Название</th>
-                                <th>определение</th>
+                                <th>краткое определение</th>
                             </tr>
                             @foreach ($categories as $category)
                             <tr>
@@ -51,11 +51,11 @@
             <div class="col-sm-4">
                 <caption>Бренды</caption>
                 <div class="row">
-                    <div class="col-sm-11">
+                    <div class="col-sm-12">
                         <table cellpadding="5" border="1" width="100%">
                             <tr>
                                 <th>Название</th>
-                                <th>Страна</th>
+                                <th>Страна производитель</th>
                             </tr>
                             @foreach ($brands as $brand)
                             <tr>
