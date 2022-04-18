@@ -95,8 +95,8 @@
                         <div class="shop-menu pull-right">
                             <ul class="nav navbar-nav">
                                 <!--<li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>-->
-                                <li><a href="/checkout"><i class="fa fa-crosshairs"></i> Заказ</a></li>
-                                <li><a href="/cart"><i class="fa fa-shopping-cart"></i> Корзина</a></li>
+                                <li><a href="/checkout"><i class="fa fa-crosshairs"></i> Замовлення</a></li>
+                                <li><a href="/cart"><i class="fa fa-shopping-cart"></i> Кошик</a></li>
                                 
                                 @if (Route::has('login'))
                                 @auth
@@ -111,7 +111,7 @@
                                                 <span class="caret"></span>
                                             </button>
                                             <ul class="dropdown-menu">
-                                                <li><a href="{{ route('admin.dashboard') }}">Админ-панель</a></li>
+                                                <li><a href="{{ route('admin.dashboard') }}"> Адмін панель</a></li>
                                                 <li><a href="{{ route('logout') }}"
                                                         onclick="event.preventDefault(); 
                                                         document.getElementById('logout-form').submit();" >
@@ -134,7 +134,7 @@
                                                 <span class="caret"></span>
                                             </button>
                                             <ul class="dropdown-menu">
-                                                <li><a href="{{ route('user.dashboard') }}"></i>Кабинет</a></li>
+                                                <li><a href="{{ route('user.dashboard') }}"></i>Кабінет користувача</a></li>
                                                 <li><a href="{{ route('logout') }}"
                                                         onclick="event.preventDefault(); 
                                                         document.getElementById('logout-form').submit();" >
@@ -149,8 +149,8 @@
                                 </li>
                                 @endif
                                 @else
-                                <li><a href="{{ route('login') }}"><i class="fa fa-lock"></i> Вход</a></li>
-                                <li><a href="{{ route('register') }}"><i class="fa fa-star"></i> Регистрация</a></li>
+                                <li><a href="{{ route('login') }}"><i class="fa fa-lock"></i> Увійти</a></li>
+                                <li><a href="{{ route('register') }}"><i class="fa fa-star"></i> Зареєструватись</a></li>
                                 @endif
                                 @endif
                             </ul>
@@ -174,12 +174,13 @@
                                 <span class="icon-bar"></span>
                             </button>
                         </div>
-                        <div class="mainmenu pull-left">
-                            <ul class="nav navbar-nav collapse navbar-collapse">
-                                <li><a href="/" class="active">Главная</a></li>
+                        <div class="mainmenu pull-right">
+                        <ul class="nav navbar-nav collapse navbar-collapse">
+                                <li><a href="/" class="active">Головна</a></li>
                                 <li><a href="/shop">Каталог</a></li>
-                                <li><a href="/contacts">Контакты</a></li>
-                                <li><a href="/help">Помощь</a></li>
+                                <li><a href="/contacts">Контакти</a></li>
+                                <li><a href="/help">Допомога користувачеві</a></li>
+                            </ul>
                             </ul>
                         </div>
                     </div>
