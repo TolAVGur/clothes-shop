@@ -51,7 +51,7 @@
 
 <x-guest-layout>
     @section('title')
-    Авторизация
+    Авторизація
     @endsection
     <section>
         <div class="container">
