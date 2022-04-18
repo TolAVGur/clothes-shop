@@ -59,7 +59,7 @@
                 <div class="col-sm-6 col-sm-offset-1">
                     <div class="login-form">
                         <!--login form-->
-                        <h2>Вход в аккаунт</h2>
+                        <h2>Вхід до облікового запису</h2>
 
                         <x-jet-validation-errors class="mb-4" />
                         <form name="frm-login" action="{{ route('login') }}" method="POST">
@@ -70,9 +70,9 @@
 
                             <span>
                                 <input type="checkbox" name="remember" class="checkbox" value="forever">
-                                Запомнить меня
+                                Запам'ятати мене
                             </span>
-                            <button type="submit" class="btn btn-default" name="login">Войти</button>
+                            <button type="submit" class="btn btn-default" name="login"> Увійти</button>
                         </form>
                     </div>
                 </div>
