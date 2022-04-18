@@ -63,7 +63,7 @@
 
 <x-guest-layout>
     @section('title')
-    Регистрация
+    Реєстрація
     @endsection
 
     <section>
@@ -72,12 +72,12 @@
                 <div class="col-sm-6 col-sm-offset-1">
                     <div class="signup-form">
                         <!--sign up form-->
-                        <h2>Регистрация нового пользователя</h2>
+                        <h2>Реєстрація нового користувача</h2>
                         <x-jet-validation-errors class="mb-4" />
                         <form action="{{ route('register') }}" method="POST" name="frm-login">
                             @csrf
 
-                            <input type="text" name="name" placeholder="ФИО*" required autofocus
+                            <input type="text" name="name" placeholder="ПІБ*" required autofocus
                                 autocomplete="name" :value="name"/>
 
                             <input type="email" name="email" placeholder="Email*" :value="email" />
@@ -85,11 +85,11 @@
                             <input type="password" name="password" placeholder="Пароль*"
                                 required autocomplete="new-password" />
 
-                            <input type="password" name="password_confirmation" placeholder="Повторить пароль*"
+                            <input type="password" name="password_confirmation" placeholder="Повторення паролю*"
                                 required autocomplete="new-password" />
 
                             <button style="margin-top: 30px;" type="submit" class="btn btn-default"
-                                name="register">Регистрироваться</button>
+                                name="register">Реєструватися</button>
 
                         </form>
                     </div>
