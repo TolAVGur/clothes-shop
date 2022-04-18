@@ -1,5 +1,5 @@
 @section('title')
-Управление контентом
+Адмін панель
 @endsection
 
 <div class="container">
@@ -16,14 +16,14 @@
 
             <div class="row">
                 <div class="col-md-12">
-                <caption> Управление Категориями | <a class="btn btn-info btn-sm" href="{{ route('admin.addcategory') }}">Добавить Категорию</a></caption><br><br>
+                    <caption> Управління категоріями | <a href="{{ route('admin.addcategory') }}"> Додати Категорію</a></caption><br><br>
                     <table class="table-striped" width="100%">
                         <thead>
                             <tr>
-                                <th>Название</th>
-                                <th>Краткое определение</th>
-                                <th>обновлено</th>
-                                <th>Управление</th>
+                                <th>Назва</th>
+                                <th>Коротке визначення</th>
+                                <th>Дата оновлення</th>
+                                <th>Управління</th>
                             </tr>
                         </thead>
                         @foreach ($categories as $category)
@@ -32,8 +32,8 @@
                             <td>{{ $category->slug }}</td>
                             <td>{{ $category->updated_at }}</td>
                             <td>
-                                <a class="btn btn btn-warning btn-sm" href="">Редактировать</a>
-                                <a class="btn btn-danger btn-sm" href="">Удалить</a>
+                                <a href="">Редагувати</a> |
+                                <a href="">Видалити</a>
                             </td>
                         </tr>
                         @endforeach
@@ -45,16 +45,16 @@
         </div>
 
         <div class="col-md-12">
-            <caption>Управление Брендами | <a href="">Добавить Бренд</a></caption><br><br>
+            <caption>Управління Брендами | <a href=""> Додати Бренд</a></caption><br><br>
             <div class="row">
                 <div class="col-md-12">
                     <table class="table-striped" width="100%">
                         <thead>
                             <tr>
-                                <th>Название</th>
-                                <th>Страна производитель</th>
-                                <th>обновлено</th>
-                                <th>Управление</th>
+                                <th>Назва</th>
+                                <th>Країна виробник</th>
+                                <th>Дата оновлення</th>
+                                <th>Управління</th>
                             </tr>
                         </thead>
                         @foreach ($brands as $brand)
@@ -63,8 +63,8 @@
                             <td>{{ $brand->country }}</td>
                             <td>{{ $brand->updated_at }}</td>
                             <td>
-                                <a href="">Редактировать</a> |
-                                <a href="">Удалить</a>
+                                <a href="">Редагувати</a> |
+                                <a href="">Видалити</a>
                             </td>
                         </tr>
                         @endforeach
@@ -75,19 +75,19 @@
         </div>
 
         <div class="col-md-12">
-            <caption>Управление Пользователями | <a href="">Добавить Пользователя</a></caption><br><br>
+            <caption>Керування користувачами | <a href=""> Додати Користувача</a></caption><br><br>
             <div class="row">
                 <div class="col-md-12">
                     <table class="table-striped" width="100%">
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>Имя </th>
+                                <th>Ім'я </th>
                                 <th>email</th>
-                                <th>дата регистрации</th>
-                                <th>права доступа</th>
-                                <th>обновлено</th>
-                                <th>Управление</th>
+                                <th>Дата реєстрації</th>
+                                <th>Права доступу</th>
+                                <th>Дата оновлення</th>
+                                <th>Управління</th>
                             </tr>
                         </thead>
                         @foreach ($users as $user)
@@ -99,8 +99,8 @@
                             <td>{{ $user->role_name }}</td>
                             <td>{{ $user->updated_at }}</td>
                             <td>
-                                <a href="">Редактировать</a> |
-                                <a href="">Удалить</a>
+                                <a href="">Редагувати</a> |
+                                <a href="">Видалити</a>
                             </td>
                         </tr>
                         @endforeach
