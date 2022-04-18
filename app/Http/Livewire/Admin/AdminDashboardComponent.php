@@ -7,6 +7,7 @@ use App\Models\Category;
 use Livewire\Component;
 use Livewire\WithPagination;
 use App\Models\User;
+use Illuminate\Http\Request;
 
 class AdminDashboardComponent extends Component
 {
@@ -17,6 +18,7 @@ class AdminDashboardComponent extends Component
         $users = User::orderBy('id', 'DESC')->paginate(10);
         $categories = Category::orderBy('updated_at', 'DESC')->paginate(10);
         $brands = Brand::orderBy('updated_at', 'DESC')->paginate(10);
+        
         return view('livewire.admin.admin-dashboard-component', [
             'users' => $users,
             'categories' => $categories,

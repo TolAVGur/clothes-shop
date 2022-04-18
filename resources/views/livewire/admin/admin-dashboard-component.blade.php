@@ -3,21 +3,26 @@
 @endsection
 
 <div class="container">
-
     <div class="row">
-
         <div class="col-md-12">
-            <caption>Управление Категориями | <a href="{{ route('admin.addcategory') }}">Добавить Категорию</a></caption>
-            <br><br>
+            @if($message = Session::get('success'))
+            <div class="alert alert-success d-flex align-items-center" role="alert">
+                <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:">
+                    <use xlink:href="#check-circle-fill" />
+                </svg>
+                <div>{{ $message }}</div>
+            </div>
+            @endif
 
             <div class="row">
                 <div class="col-md-12">
+                <caption> Управление Категориями | <a class="btn btn-info btn-sm" href="{{ route('admin.addcategory') }}">Добавить Категорию</a></caption><br><br>
                     <table class="table-striped" width="100%">
                         <thead>
                             <tr>
                                 <th>Название</th>
                                 <th>Краткое определение</th>
-                                <th>последние изминения</th>
+                                <th>обновлено</th>
                                 <th>Управление</th>
                             </tr>
                         </thead>
@@ -27,8 +32,8 @@
                             <td>{{ $category->slug }}</td>
                             <td>{{ $category->updated_at }}</td>
                             <td>
-                                <a href="">Редактировать</a> |
-                                <a href="">Удалить</a>
+                                <a class="btn btn btn-warning btn-sm" href="">Редактировать</a>
+                                <a class="btn btn-danger btn-sm" href="">Удалить</a>
                             </td>
                         </tr>
                         @endforeach
@@ -48,7 +53,7 @@
                             <tr>
                                 <th>Название</th>
                                 <th>Страна производитель</th>
-                                <th>последние изминения</th>
+                                <th>обновлено</th>
                                 <th>Управление</th>
                             </tr>
                         </thead>
@@ -81,7 +86,7 @@
                                 <th>email</th>
                                 <th>дата регистрации</th>
                                 <th>права доступа</th>
-                                <th>дата изменения профиля</th>
+                                <th>обновлено</th>
                                 <th>Управление</th>
                             </tr>
                         </thead>
