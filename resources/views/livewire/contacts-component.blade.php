@@ -1,5 +1,5 @@
 @section('title')
-Контакты
+Контакти
 @endsection
 
 <section>
