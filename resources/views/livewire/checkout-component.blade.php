@@ -16,19 +16,17 @@
                         </div><!--/breadcrums-->
 
                     <div class="step-one">
-                        <h2 class="heading">ШАГ 1: авторизация</h2>
+                        <h2 class="heading">КРОК 1: авторизація</h2>
                     </div>
                     <div class="checkout-options">
-                        <h3>Новый пользователь</h3>
-                        <p>Для оформления заказа, Вам необходимо зарегистрироваться или войти в свай аккаунт: </p>
-                        <p>Checkout options</p>
-                        <p>или</p>
-                        <h3>Вы прошли авторизацию пользователя</h3>
+                        <p>Для оформлення замовлення, Вам необхідно зареєструватися або увійти до акаунту: </p>
+                        <p>або</p>
+                        <h3>Ви пройшли авторизацію користувача</h3>
                     </div>
                     <!--/checkout-options-->
 
                     <div class="step-one">
-                        <h2 class="heading">ШАГ 2: проверка корзины</h2>
+                        <h2 class="heading">КРОК 2: перевірка кошика</h2>
                     </div>
                     <div class="container row">
                         <div class="class col-ms-12">
@@ -36,11 +34,11 @@
                                 <table class="table table-condensed">
                                     <thead>
                                         <tr class="cart_menu">
-                                            <td class="image">Изделие</td>
+                                            <td class="image">Виріб</td>
                                             <td class="description"></td>
-                                            <td class="price">Цена</td>
-                                            <td class="quantity">Количество</td>
-                                            <td class="total">Всего</td>
+                                            <td class="price">Ціна</td>
+                                            <td class="quantity">Кількість</td>
+                                            <td class="total">Усього</td>
                                             <td></td>
                                         </tr>
                                     </thead>
@@ -50,11 +48,11 @@
                                                 <a href=""><img src="{{ asset('images/cart/one.png') }}" alt=""></a>
                                             </td>
                                             <td class="cart_description">
-                                                <h4><a href="">Colorblock Scuba</a></h4>
+                                                <h4><a href="">тут короткий опис виробу</a></h4>
                                                 <p>Web ID: 1089772</p>
                                             </td>
                                             <td class="cart_price">
-                                                <p>$59</p>
+                                                <p>500 грн</p>
                                             </td>
                                             <td class="cart_quantity">
                                                 <div class="cart_quantity_button">
@@ -64,7 +62,7 @@
                                                 </div>
                                             </td>
                                             <td class="cart_total">
-                                                <p class="cart_total_price">$59</p>
+                                                <p class="cart_total_price">500 грн</p>
                                             </td>
                                             <td class="cart_delete">
                                                 <a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
@@ -74,34 +72,33 @@
                                 </table>
                             </div>
                         </div>
-
                     </div>
                     <div class="step-one">
-                        <h2 class="heading">ШАГ 3: выбор доставки</h2>
+                        <h2 class="heading">КРОК 3: вибір доставки</h2>
                     </div>
                     <div class="shopper-informations">
                         <div class="row" style="text-align: center">
                             <div class="order-message" style="margin-bottom: 50px;">
                                 <div class="col-sm-4">
                                     <input type="radio" id="shipping_1" name="contact" value="">
-                                    <label style="margin-right: 20px;" for="shipping_1"> Самовывоз</label>
+                                    <label style="margin-right: 20px;" for="shipping_1"> Самовивіз</label>
                                 </div>
 
                                 <div class="col-sm-3">
                                     <input type="radio" id="shipping_2" name="contact" value="">
-                                    <label style="margin-right: 20px;" for="shipping_2"> Курьером по Киеву</label>
+                                    <label style="margin-right: 20px;" for="shipping_2"> Кур'єром по Києву</label>
                                 </div>
 
                                 <div class="col-sm-4">
                                     <input type="radio" id="shipping_3" name="contact" value="">
-                                    <label for="shipping_3"> Почтой по Украине</label>
+                                    <label for="shipping_3"> Поштою по Україні</label>
                                 </div>
                             </div>
                             <div class="col-sm-8 clearfix">
                                 <div class="bill-to">
                                     <div class="form-one">
                                         <form>
-                                            <input type="text" placeholder="ФИО *">
+                                            <input type="text" placeholder="ПІБ *">
                                             <input type="text" placeholder="Email *">
                                             <input type="text" placeholder="Телефон *">
 
@@ -109,46 +106,45 @@
                                     </div>
                                     <div class="form-two">
                                         <form>
-                                            <input type="text" placeholder="Почтовый индекс">
+                                            <input type="text" placeholder="Поштовий індекс">
                                             <select>
-                                                <option>-- Город --</option>
-                                                <option>Киев</option>
-                                                <option>Одесса</option>
-                                                <option>Днепр</option>
-                                                <option>Харьков</option>
-                                                <option>Брвары</option>
-                                                <option>Львов</option>
-                                                <option>Переяслов</option>
-                                                <option>Вышгород</option>
+                                                <option>-- Місто --</option>
+                                                <option>Київ</option>
+                                                <option>Одеса</option>
+                                                <option>Дніпро</option>
+                                                <option>Харків</option>
+                                                <option>Брвари</option>
+                                                <option>Львів</option>
+                                                <option>Переслів</option>
+                                                <option>Вишгород</option>
                                             </select>
-                                            <input type="text" placeholder="Адресс *">
+                                            <input type="text" placeholder="Адреса *">
                                         </form>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-sm-4">
                                 <div class="order-message">
-                                    <textarea name="message" placeholder="Примечания к Вашему заказу. Особые требования к доставке..."></textarea>
+                                    <textarea name="message" placeholder="Примітки до замовлення. Особливі вимоги до доставки..."></textarea>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <div class="step-one">
-                        <h2 class="heading">ШАГ 4: Оформить заказ</h2>
+                        <h2 class="heading">КРОК 4: Оформити замовлення</h2>
                     </div>
                     <div class="col-sm-9">
                         <div class="total_area">
                             <ul>
                                 <li>Доставка<span>0 грн</span></li>
-                                <li>Всего <span>500 грн</span></li>
-
+                                <li>Всього <span>500 грн</span></li>
                             </ul>
 
                         </div>
                     </div>
                     <div class="col-sm-3">
-                        <a class="btn btn-default check_out" href="">Заказать</a>
+                        <a class="btn btn-default check_out" href="">Замовити</a>
                     </div>
                 </div>
             </section>
