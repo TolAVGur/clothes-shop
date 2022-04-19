@@ -206,7 +206,7 @@
                     <div class="col-sm-5">
                         <div class="companyinfo">
                             <h2><span>clothes</span>-shop</h2>
-                            <p>Всякая полезная информация</p>
+                            <p>Будь-яка корисна інформація</p>
                         </div>
                     </div>
                     <div class="col-sm-7">
@@ -220,7 +220,7 @@
                                         <i class="fa fa-play-circle-o"></i>
                                     </div>
                                 </a>
-                                <p>полезная ссылка</p>
+                                <p>корисне посилання</p>
                             </div>
                         </div>
 
@@ -234,7 +234,7 @@
                                         <i class="fa fa-play-circle-o"></i>
                                     </div>
                                 </a>
-                                <p>полезная ссылка</p>
+                                <p>корисне посилання</p>
                             </div>
                         </div>
 
@@ -248,7 +248,7 @@
                                         <i class="fa fa-play-circle-o"></i>
                                     </div>
                                 </a>
-                                <p>полезная ссылка</p>
+                                <p>корисне посилання</p>
                             </div>
                         </div>
 
@@ -262,7 +262,7 @@
                                         <i class="fa fa-play-circle-o"></i>
                                     </div>
                                 </a>
-                                <p>полезная ссылка</p>
+                                <p>корисне посилання</p>
                             </div>
                         </div>
                     </div>
@@ -275,39 +275,43 @@
                 <div class="row">
                     <div class="col-sm-2">
                         <div class="single-widget">
-                            <h2>Сервис</h2>
+                            <h2>Сервіс</h2>
                             <ul class="nav nav-pills nav-stacked">
-                                <li><a href="help.html">Помощь</a></li>
-                                <li><a href="contact-us.html">Связаться с нами</a></li>
+                                <li><a href="help.html">Допомога</a></li>
+                                <li><a href="contact-us.html">Зв'язатися з нами</a></li>
                                 <!--<li><a href="#">Order Status</a></li>-->
                             </ul>
                         </div>
                     </div>
                     <div class="col-sm-2">
                         <div class="single-widget">
-                            <h2>Категории</h2>
+                            <h2>Категорії</h2>
                             <ul class="nav nav-pills nav-stacked">
-                                <li><a href="#">Мужчинам</a></li>
-                                <li><a href="#">Женщинам</a></li>
-                                <li><a href="#">Детская</a></li>
-                                <li><a href="#">Обувь</a></li>
+                                <li><a href="#">Чоловікам</a></li>
+                                <li><a href="#">Жінкам</a></li>
+                                <li><a href="#">Дітям</a></li>
+                                <li><a href="#">Спортивний одяг</a></li>
                             </ul>
                         </div>
                     </div>
                     <div class="col-sm-3">
                         <div class="single-widget">
-                            <h2>Бренды</h2>
+                            <h2>Бренди</h2>
                             <ul class="nav nav-pills nav-stacked">
-                                <li><a href="#">Nike</a></li>
-                                <li><a href="#">Adidas</a></li>
-                                <li><a href="#">Polo</a></li>
+                                <li><a href="#">ACNE</a></li>
+                                <li><a href="#">GRÜNE ERDE</a></li>
+                                <li><a href="#">ALBIRO</a></li>
+                                <li><a href="#">RONHILL</a></li>
+                                <li><a href="#">ODDMOLLY</a></li>
+                                <li><a href="#">BOUDESTIJN</a></li>
+                                <li><a href="#">RÖSCH CREATIVE CULTURE</a></li>
                             </ul>
                         </div>
                     </div>
                     <div class="col-sm-5">
                         <div class="address">
                             <img src="{{ asset('images/home/map.png') }}" alt="" />
-                            <p>02222 Украина, Киев, ул.Уличная, д.1, эт-1</p>
+                            <p>02222 Україна, Київ, вул.Вулична, б.1, пов-1</p>
 
                         </div>
                     </div>
