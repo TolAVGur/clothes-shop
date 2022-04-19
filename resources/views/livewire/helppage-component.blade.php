@@ -1,5 +1,5 @@
 @section('title')
-Помощь
+Допомога
 @endsection
 
 <section>
@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-sm-3">
                 <div class="left-sidebar">
-                    <h2>Категории</h2>
+                    <h2>Категорії</h2>
                     <div class="panel-group category-products" id="accordian">
                         <!--category-productsr-->
                         <div class="panel panel-default">
@@ -15,7 +15,7 @@
                                 <h4 class="panel-title">
                                     <a data-toggle="collapse" data-parent="#accordian" href="#sportswear">
                                         <span class="badge pull-right"><i class="fa fa-plus"></i></span>
-                                        Спортивная одежда
+                                        Спортивний одяг
                                     </a>
                                 </h4>
                             </div>
@@ -36,7 +36,7 @@
                                 <h4 class="panel-title">
                                     <a data-toggle="collapse" data-parent="#accordian" href="#mens">
                                         <span class="badge pull-right"><i class="fa fa-plus"></i></span>
-                                        Мужчинам
+                                        Чоловікам
                                     </a>
                                 </h4>
                             </div>
@@ -63,7 +63,7 @@
                                 <h4 class="panel-title">
                                     <a data-toggle="collapse" data-parent="#accordian" href="#womens">
                                         <span class="badge pull-right"><i class="fa fa-plus"></i></span>
-                                        Женщинам
+                                        Жінкам
                                     </a>
                                 </h4>
                             </div>
@@ -81,22 +81,7 @@
                         </div>
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h4 class="panel-title"><a href="#">Детям</a></h4>
-                            </div>
-                        </div>
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title"><a href="#">Мода</a></h4>
-                            </div>
-                        </div>
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title"><a href="#">Сумки/Рюкзаки</a></h4>
-                            </div>
-                        </div>
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title"><a href="#">Обувь</a></h4>
+                                <h4 class="panel-title"><a href="#">Дітям</a></h4>
                             </div>
                         </div>
                     </div>
@@ -104,7 +89,7 @@
 
                     <div class="brands_products">
                         <!--brands_products-->
-                        <h2>Бренды</h2>
+                        <h2>Бренди</h2>
                         <div class="brands-name">
                             <ul class="nav nav-pills nav-stacked">
                                 <li><a href="#"> <span class="pull-right">(50)</span>Acne</a></li>
@@ -123,17 +108,18 @@
 
             <div class="col-sm-9">
                 <div class="left-sidebar">
-                    <h2>Помощь</h2>
+                    <h2>Допомога</h2>
                     <h4 style="text-align: center; color: darkred;">
-                        Здесь будут часто задаваемые вопросы и ответы на них...
+                        Тут будуть запитання, що часто задаються, і відповіді на них...
                     </h4>
                 </div>
             </div>
 
         </div>
+
         <div class="recommended_items">
             <!--recommended_items-->
-            <h2 class="title text-center">Рекомендуемые товары</h2>
+            <h2 class="title text-center">рекомендовані товари</h2>
 
             <div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
@@ -143,9 +129,9 @@
                                 <div class="single-products">
                                     <div class="productinfo text-center">
                                         <img src="{{ asset('images/home/recommend1.jpg') }}" alt="" />
-                                        <h2>$56</h2>
-                                        <p>Easy Polo Black Edition</p>
-                                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                                        <h2>500 грн</h2>
+                                        <p>Опис виробу</p>
+                                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i> Додати в кошик</a>
                                     </div>
 
                                 </div>
@@ -156,9 +142,9 @@
                                 <div class="single-products">
                                     <div class="productinfo text-center">
                                         <img src="{{ asset('images/home/recommend2.jpg') }}" alt="" />
-                                        <h2>$56</h2>
-                                        <p>Easy Polo Black Edition</p>
-                                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                                        <h2>500 грн</h2>
+                                        <p>Опис виробу</p>
+                                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i> Додати в кошик</a>
                                     </div>
 
                                 </div>
@@ -169,9 +155,9 @@
                                 <div class="single-products">
                                     <div class="productinfo text-center">
                                         <img src="{{ asset('images/home/recommend3.jpg') }}" alt="" />
-                                        <h2>$56</h2>
-                                        <p>Easy Polo Black Edition</p>
-                                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                                        <h2>500 грн</h2>
+                                        <p>Опис виробу</p>
+                                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i> Додати в кошик</a>
                                     </div>
 
                                 </div>
@@ -184,9 +170,9 @@
                                 <div class="single-products">
                                     <div class="productinfo text-center">
                                         <img src="{{ asset('images/home/recommend1.jpg') }}" alt="" />
-                                        <h2>$56</h2>
-                                        <p>Easy Polo Black Edition</p>
-                                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                                        <h2>500 грн</h2>
+                                        <p>Опис виробу</p>
+                                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i> Додати в кошик</a>
                                     </div>
 
                                 </div>
@@ -197,9 +183,9 @@
                                 <div class="single-products">
                                     <div class="productinfo text-center">
                                         <img src="{{ asset('images/home/recommend2.jpg') }}" alt="" />
-                                        <h2>$56</h2>
-                                        <p>Easy Polo Black Edition</p>
-                                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                                        <h2>500 грн</h2>
+                                        <p>Опис виробу</p>
+                                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i> Додати в кошик</a>
                                     </div>
 
                                 </div>
@@ -210,9 +196,9 @@
                                 <div class="single-products">
                                     <div class="productinfo text-center">
                                         <img src="{{ asset('images/home/recommend3.jpg') }}" alt="" />
-                                        <h2>$56</h2>
-                                        <p>Easy Polo Black Edition</p>
-                                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                                        <h2>500 грн</h2>
+                                        <p>Опис виробу</p>
+                                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i> Додати в кошик</a>
                                     </div>
 
                                 </div>
