@@ -10,6 +10,13 @@ class AdminCategoryComponent extends Component
 {
     use WithPagination;
 
+    public function delete_category($id) {
+        $category = Category::find($id);
+        $category->delete();
+        session()->flash('message', 'Категорія "'.$this->name.'" видалена!');
+
+    }
+
     public function render()
     {
         $categories = Category::orderBy('updated_at', 'DESC')->paginate(5);
