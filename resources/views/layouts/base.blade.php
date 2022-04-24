@@ -14,10 +14,6 @@
     <link href="{{ asset('css/animate.css') }}" rel="stylesheet">
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
     <link href="{{ asset('css/responsive.css') }}" rel="stylesheet">
-    <!--[if lt IE 9]>
-        <script src="{{ asset('js/html5shiv.js') }}"></script>
-        <script src="{{ asset('js/respond.min.js') }}"></script>
-        <![endif]-->
     <link rel="shortcut icon" href="{{ asset('images/ico/favicon.ico') }}">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ asset('images/ico/apple-touch-icon-144-precomposed.png') }}">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ asset('images/ico/apple-touch-icon-114-precomposed.png') }}">
@@ -85,6 +81,7 @@
                                             </button>
                                             <ul class="dropdown-menu">
                                                 <li><a href="{{ route('admin.dashboard') }}"> Адмін панель</a></li>
+                                                <li><a href="{{ route('admin.categories') }}"> Управління категоріями</a></li>
                                                 <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); 
                                                         document.getElementById('logout-form').submit();">
                                                         Вийти
