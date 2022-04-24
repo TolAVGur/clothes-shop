@@ -13,23 +13,31 @@
                         </div>
                         <div class="col-md-6">
                             <a href="{{ route('admin.categories')}}" class="btn btn-warning pull-right">
-                                    До списку категорій
+                                До списку
                             </a>
                         </div>
                     </div>
                 </div>
                 <div class="panel-body">
-                    <form class="form-horizontal">
+
+                    @if (Session::has('message'))
+                    <div class="alert alert-success" role="alert">
+                        {{ Session::get('message') }}
+                    </div>
+                    @endif
+
+                    <form class="form-horizontal" wire:submit.prevent="store_category">
                         <div class="form-group">
                             <label class="col-md-4 control-label">Назва: </label>
                             <div class="col-md-4">
-                                <input type="text" placeholder="Введіть назву..." class="form-control input-md">
+                                <input type="text" placeholder="Введіть назву..." class="form-control input-md" wire:model="name" wire:keyup="generate_slug">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-4 control-label">Опис: </label>
+                            <label class="col-md-4 control-label"></label>
                             <div class="col-md-4">
-                                <input type="text" placeholder="Введіть опис..." class="form-control input-md">
+                                <input type="text" placeholder="" class="form-control input-md" readonly 
+                                    wire:model="slug">
                             </div>
                         </div>
                         <div class="form-group">

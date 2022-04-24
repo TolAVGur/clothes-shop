@@ -12,7 +12,7 @@ class Category extends Model
     protected $table = 'categories';
 
     // какие поля можем заполнять
-    protected $fillable = [
+    /*protected $fillable = [
         'name', 'slug',
-    ];
+    ];*/
 }
