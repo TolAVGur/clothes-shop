@@ -33,7 +33,9 @@
                             <td>{{ $category->name }}</td>
                             <td>{{ $category->slug }}</td>
                             <td>
-                                <a href="">Редагувати</a> |
+                                <a href="{{ route('admin.editcategory', ['category_slug' => $category->slug]) }}">
+                                    <i class="fa fa-edit fa-2x"></i>
+                                </a> |
                                 <a href="">Видалити</a>
                             </td>
                             <td>{{ $category->updated_at }}</td>
