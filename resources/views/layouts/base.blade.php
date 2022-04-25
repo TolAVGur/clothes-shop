@@ -81,7 +81,8 @@
                                             </button>
                                             <ul class="dropdown-menu">
                                                 <li><a href="{{ route('admin.dashboard') }}"> Адмін панель</a></li>
-                                                <li><a href="{{ route('admin.categories') }}"> Управління категоріями</a></li>
+                                                <li><a href="{{ route('admin.categories') }}"> Управління Категоріями</a></li>
+                                                <li><a href="{{ route('admin.brands') }}"> Управління Брендами</a></li>
                                                 <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); 
                                                         document.getElementById('logout-form').submit();">
                                                         Вийти

@@ -5,46 +5,6 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            @if($message = Session::get('success'))
-            <div class="alert alert-success d-flex align-items-center" role="alert">
-                <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:">
-                    <use xlink:href="#check-circle-fill" />
-                </svg>
-                <div>{{ $message }}</div>
-            </div>
-            @endif
-
-            <div class="row">
-                <div class="col-md-12">
-                    <caption> Управління категоріями | <a href="{{ route('admin.addcategory') }}"> Додати Категорію</a></caption><br><br>
-                    <table class="table-striped" width="100%">
-                        <thead>
-                            <tr>
-                                <th>Назва</th>
-                                <th>Коротке визначення</th>
-                                <th>Дата оновлення</th>
-                                <th>Управління</th>
-                            </tr>
-                        </thead>
-                        @foreach ($categories as $category)
-                        <tr>
-                            <td>{{ $category->name }}</td>
-                            <td>{{ $category->slug }}</td>
-                            <td>{{ $category->updated_at }}</td>
-                            <td>
-                                <a href="">Редагувати</a> |
-                                <a href="">Видалити</a>
-                            </td>
-                        </tr>
-                        @endforeach
-                    </table>
-                    <hr>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="col-md-12">
             <caption>Управління Брендами | <a href=""> Додати Бренд</a></caption><br><br>
             <div class="row">
                 <div class="col-md-12">

@@ -14,7 +14,9 @@ use App\Http\Livewire\Admin\AdminDashboardComponent;
 use App\Http\Livewire\Admin\AdminCategoryComponent;
 use App\Http\Livewire\Admin\AdminEditCategoryComponent;
 use App\Http\Livewire\Admin\AdminAddCategoryComponent;
-
+use App\Http\Livewire\Admin\AdminBrandComponent;
+use App\Http\Livewire\Admin\AdminAddBrandComponent;
+use App\Http\Livewire\Admin\AdminEditBrandComponent;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,6 +56,9 @@ Route::middleware(['auth:sanctum', 'verified', 'authadmin'])->group(function() {
     Route::get('/admin/categories', AdminCategoryComponent::class)->name('admin.categories');
     Route::get('/admin/category/add', AdminAddCategoryComponent::class)->name('admin.addcategory');
     Route::get('/admin/category/edit{category_slug}', AdminEditCategoryComponent::class)->name('admin.editcategory');
+    Route::get('/admin/brands', AdminBrandComponent::class)->name('admin.brands');
+    Route::get('/admin/brands/add', AdminAddBrandComponent::class)->name('admin.addbrand');
+    Route::get('/admin/brands/edit{brand_id}', AdminEditBrandComponent::class)->name('admin.editbrand');
     
 });
 

@@ -1,5 +1,5 @@
 @section('title')
-Категорії
+Бренди
 @endsection
 
 <div class="container" style="padding-bottom: 50px;">
@@ -8,10 +8,10 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <div class="row">
-                        <div class="col-md-6"><h4>Категорії</h4></div>
+                        <div class="col-md-6"><h4>Бренди</h4></div>
                         <div class="col-md-6">
-                            <a href="{{ route('admin.addcategory')}}" class="btn btn-warning pull-right">
-                                Додати Категорію
+                            <a href="{{ route('admin.addbrand')}}" class="btn btn-warning pull-right">
+                                Додати Бренд
                             </a>
                         </div>
                     </div>
@@ -29,22 +29,22 @@
                             <tr>
                                 <th width="5%">Id</th>
                                 <th>Назва</th>
-                                <th>Коротке визначення</th>
+                                <th>Страна виробник</th>
                                 <th>Дата оновлення</th>
                                 <th>Управління</th>
                             </tr>
                         </thead>
-                        @foreach ($categories as $category)
+                        @foreach ($brands as $brand)
                         <tr>
-                            <td>{{ $category->id}}</td>
-                            <td>{{ $category->name }}</td>
-                            <td>{{ $category->slug }}</td>
-                            <td>{{ $category->updated_at }}</td>
+                            <td>{{ $brand->id}}</td>
+                            <td>{{ $brand->name }}</td>
+                            <td>{{ $brand->country }}</td>
+                            <td>{{ $brand->updated_at }}</td>
                             <td>
-                                <a href="{{ route('admin.editcategory', ['category_slug' => $category->slug]) }}">
+                            <a href="{{ route('admin.editbrand', ['brand_id' => $brand->id]) }}">
                                     <i class="fa fa-edit fa-2x"></i>
                                 </a> |
-                                <a href="#" wire:click.prevent="delete_category({{$category->id}})">
+                                <a href="#" wire:click.prevent="delete_brand({{$brand->id}})">
                                     <i class="fa fa-times fa-2x text-danger"></i>
                                 </a>
                             </td>
@@ -53,7 +53,7 @@
                     </table>
                     <hr>
                     <div style="margin-top: 30px; text-align: center;">
-                        {{ $categories->links()}}
+                        {{$brands->links()}}
                     </div>
                 </div>
             </div>

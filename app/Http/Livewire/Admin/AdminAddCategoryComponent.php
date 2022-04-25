@@ -12,9 +12,6 @@ class AdminAddCategoryComponent extends Component
 
     /**
      * Помещает созданный ресурс в хранилище
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
      */
 
     public $name;
