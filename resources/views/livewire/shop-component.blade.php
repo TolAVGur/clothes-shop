@@ -116,119 +116,35 @@
             </div>
             <!--/left-sidebar-->
 
+
             <div class="col-sm-9 padding-right">
                 <div class="features_items">
                     <!--features_items-->
                     <h2 class="title text-center">Каталог</h2>
-                    <div class="col-sm-4">
-                        <div class="product-image-wrapper">
-                            <div class="single-products">
-                                <div class="productinfo text-center">
-                                    <img src="{{ asset('images/shop/product12.jpg') }}" alt="" />
-                                    <h2>500 грн</h2>
-                                    <p>Опис виробу</p>
-                                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Додати в кошик</a>
-                                </div>
-                            </div>
+
+                    <div class="row">
+                        @foreach ($products as $product)
+                        <div class="col-sm-4">
+                            <ul class="product-image-wrapper">
+                                <li class="single-products">
+                                    <div class="productinfo text-center">
+                                        <img src="{{ asset('images/shop') }}/{{ $product->image}}" alt="{{ $product->name }}" />
+                                        <h2>{{ $product->sale_price}} грн</h2>
+                                        <div style="text-align: left;">
+                                            <p>{{ $product->short_description }}</p>
+                                            <hr>
+                                            <p>Розміри: {{ $product->sizes }}</p>
+                                            <p>Наявність: {{ $product->stock_status }}</p>
+                                            <p>Кількість: {{ $product->quantity }}</p>
+                                            <h5>Знижка: {{ $product->discount }}</h5>
+                                        </div><br>
+                                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Додати в кошик</a>
+                                    </div>
+                                </li>
+                            </ul>
+
                         </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="product-image-wrapper">
-                            <div class="single-products">
-                                <div class="productinfo text-center">
-                                    <img src="{{ asset('images/shop/product11.jpg') }}" alt="" />
-                                    <h2>500 грн</h2>
-                                    <p>Опис виробу</p>
-                                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Додати в кошик</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="product-image-wrapper">
-                            <div class="single-products">
-                                <div class="productinfo text-center">
-                                    <img src="{{ asset('images/shop/product9.jpg') }}" alt="" />
-                                    <h2>500 грн</h2>
-                                    <p>Опис виробу</p>
-                                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Додати в кошик</a>
-                                </div>
-                                <img src="{{ asset('images/home/new.png') }}" class="new" alt="" />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="product-image-wrapper">
-                            <div class="single-products">
-                                <div class="productinfo text-center">
-                                    <img src="{{ asset('images/shop/product8.jpg') }}" alt="" />
-                                    <h2>500 грн</h2>
-                                    <p>Опис виробу</p>
-                                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Додати в кошик</a>
-                                </div>
-                                <img src="{{ asset('images/home/sale.png') }}" class="new" alt="" />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="product-image-wrapper">
-                            <div class="single-products">
-                                <div class="productinfo text-center">
-                                    <img src="{{ asset('images/shop/product7.jpg') }}" alt="" />
-                                    <h2>500 грн</h2>
-                                    <p>Опис виробу</p>
-                                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Додати в кошик</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="product-image-wrapper">
-                            <div class="single-products">
-                                <div class="productinfo text-center">
-                                    <img src="{{ asset('images/home/product6.jpg') }}" alt="" />
-                                    <h2>500 грн</h2>
-                                    <p>Опис виробу</p>
-                                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Додати в кошик</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="product-image-wrapper">
-                            <div class="single-products">
-                                <div class="productinfo text-center">
-                                    <img src="{{ asset('images/home/product5.jpg') }}" alt="" />
-                                    <h2>500 грн</h2>
-                                    <p>Опис виробу</p>
-                                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Додати в кошик</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="product-image-wrapper">
-                            <div class="single-products">
-                                <div class="productinfo text-center">
-                                    <img src="{{ asset('images/home/product4.jpg') }}" alt="" />
-                                    <h2>500 грн</h2>
-                                    <p>Опис виробу</p>
-                                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Додати в кошик</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="product-image-wrapper">
-                            <div class="single-products">
-                                <div class="productinfo text-center">
-                                    <img src="{{ asset('images/home/product3.jpg') }}" alt="" />
-                                    <h2>500 грн</h2>
-                                    <p>Опис виробу</p>
-                                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Додати в кошик</a>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
 
                     <ul class="pagination">
@@ -237,6 +153,7 @@
                         <li><a href="">3</a></li>
                         <li><a href="">&raquo;</a></li>
                     </ul>
+
                 </div>
                 <!--features_items-->
             </div>
