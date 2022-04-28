@@ -41,7 +41,7 @@ Route::get('/contacts', ContactsComponent::class);
 Route::get('/help', HelppageComponent::class);
 Route::get('/cart', CartComponent::class);
 Route::get('/checkout', CheckoutComponent::class);
-Route::get('/details', DetailsComponent::class);
+Route::get('/product/details{slug}', DetailsComponent::class)->name('product.details');
 
 /*Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');

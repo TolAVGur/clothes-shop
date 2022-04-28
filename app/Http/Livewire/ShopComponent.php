@@ -8,12 +8,12 @@ use App\Models\Product;
 
 class ShopComponent extends Component
 {
-
     use WithPagination;
 
     public function render()
     {
-        $products = Product::paginate(9);
+        $products = Product::orderBy('updated_at', 'DESC')->paginate(9);
+
         return view('livewire.shop-component', ['products' => $products])->layout('layouts.base');
     }
 }

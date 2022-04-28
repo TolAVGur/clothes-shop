@@ -127,33 +127,43 @@
                         <div class="col-sm-4">
                             <ul class="product-image-wrapper">
                                 <li class="single-products">
-                                    <div class="productinfo text-center">
-                                        <img src="{{ asset('images/shop') }}/{{ $product->image}}" alt="{{ $product->name }}" />
-                                        <h2>{{ $product->sale_price}} грн</h2>
-                                        <div style="text-align: left;">
-                                            <p>{{ $product->short_description }}</p>
-                                            <hr>
-                                            <p>Розміри: {{ $product->sizes }}</p>
-                                            <p>Наявність: {{ $product->stock_status }}</p>
-                                            <p>Кількість: {{ $product->quantity }}</p>
-                                            <h5>Знижка: {{ $product->discount }}</h5>
-                                        </div><br>
-                                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Додати в кошик</a>
-                                    </div>
+                                    <a href="{{ route('product.details', ['slug' => $product->slug]) }}">
+                                        <div class="productinfo text-center">
+                                            <img src="{{ asset('images/shop') }}/{{ $product->image}}" alt="{{ $product->name }}" />
+                                            <h4>{{ $product->name }}</h4>
+                                            <h2>{{ $product->sale_price}} грн</h2>
+                                            <div style="text-align: left;">
+                                                <p>{{ $product->short_description }}</p>
+                                                <p>Розмір: {{ $product->sizes }}</p>
+                                                <p>Наявність: {{ $product->stock_status }}</p>
+                                                <p>Кількість: {{ $product->quantity }}</p>
+                                                <h5>Знижка: {{ $product->discount }}</h5>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <hr>
+                                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Додати в кошик</a>
                                 </li>
                             </ul>
-
                         </div>
                         @endforeach
                     </div>
 
+                    <div style="margin-top: 15px; text-align: center;">
+                        {{ $products->links() }}
+                    </div>
+                    <hr>
+
+                    {{--
                     <ul class="pagination">
+                        
                         <li class="active"><a href="">1</a></li>
                         <li><a href="">2</a></li>
                         <li><a href="">3</a></li>
                         <li><a href="">&raquo;</a></li>
+                       
                     </ul>
-
+                    --}}
                 </div>
                 <!--features_items-->
             </div>

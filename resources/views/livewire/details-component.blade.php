@@ -105,14 +105,16 @@
                     <!--/brands_products-->
                 </div>
             </div>
+
             <div class="col-sm-9 padding-right">
                 <div class="product-details">
                     <!--product-details-->
-                    <div class="col-sm-5">
+                    <div class="col-sm-6">
                         <div class="view-product">
-                            <img src="{{ asset('images/product-details/1.jpg') }}" alt="" />
-                            <h3>ZOOM</h3>
+                            <img src="{{ asset('images/shop')}}/{{ $product->image}}" alt="" />
                         </div>
+
+
                         <div id="similar-product" class="carousel slide" data-ride="carousel">
 
                             <!-- Wrapper for slides -->
@@ -145,25 +147,27 @@
                         </div>
 
                     </div>
-                    <div class="col-sm-7">
+                    <div class="col-sm-6">
                         <div class="product-information">
                             <!--/product-information-->
-                            <img src="{{ asset('images/product-details/new.jpg') }}" class="newarrival" alt="" />
-                            <h2>Опис виробу</h2>
-                            <p>Web ID: 1089772</p>
+                            {{--<img src="{{ asset('images/product-details/new.jpg') }}" class="newarrival" alt=""
+                            />--}}
+                            <h2>Бренд: {{ $product->brand_id}}</h2>
+                            <h4>{{ $product->name }}</h4>
+                            <p>{{ $product->description}}</p>
                             <span>
-                                <span>500 грн</span>
-                                <label>Кількість:</label>
-                                <input type="text" value="1" />
+                                <p><b>Доступність: </b>{{ $product->stock_status }}</p>
+                                <p><b>Кількість: </b>{{ $product->quantity }}</p>
+                                <p><b>Розмір: </b>{{ $product->sizes }}</p>
+                                <input type="text" placeholder="1" />
                                 <button type="button" class="btn btn-fefault cart">
                                     <i class="fa fa-shopping-cart"></i>
-                                    > Додати
+                                    > Додати в кошик
                                 </button>
+                                <h5>Знижка: {{ $product->discount }}</h5>
+                                <h2><span>{{ $product->sale_price }} грн</span></h2>
                             </span>
-                            <p><b>Доступність:</b> Є в наявності</p>
-                            <p><b>Розміри:</b> m, l, xl, xxl</p>
-                            <p><b>Бренд:</b> E-SHOPPER</p>
-
+                            <p>код товару: {{ $product->SKU}}</p>
                         </div>
                         <!--/product-information-->
                     </div>
@@ -172,7 +176,7 @@
 
                 <div class="recommended_items">
                     <!--recommended_items-->
-                    <h2 class="title text-center">рекомендовані товари</h2>
+                    <h2 class="title text-center">Популярні товари</h2>
 
                     <div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
                         <div class="carousel-inner">
@@ -266,6 +270,7 @@
                             <i class="fa fa-angle-right"></i>
                         </a>
                     </div>
+
                 </div>
                 <!--/recommended_items-->
             </div>
