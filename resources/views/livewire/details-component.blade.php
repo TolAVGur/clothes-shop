@@ -152,8 +152,15 @@
                             <!--/product-information-->
                             {{--<img src="{{ asset('images/product-details/new.jpg') }}" class="newarrival" alt=""
                             />--}}
-                            <h2>Бренд: {{ $product->brand_id}}</h2>
+                            <h4>
+                                @foreach ($brands as $brand)
+                                @if ($product->brand_id == $brand->id )
+                                {{ $brand->name }}
+                                @endif
+                                @endforeach
+                            </h4>
                             <h4>{{ $product->name }}</h4>
+                            <hr>
                             <p>{{ $product->description}}</p>
                             <span>
                                 <p><b>Доступність: </b>{{ $product->stock_status }}</p>

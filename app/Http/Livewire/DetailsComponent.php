@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Models\Product;
+use App\Models\Brand;
 
 class DetailsComponent extends Component
 {
@@ -15,11 +16,11 @@ class DetailsComponent extends Component
 
     public function render()
     {
+        $brands = Brand::get();
         $product = Product::where('slug', $this->slug)->first();
-        //$popular_products = Product::inRandomOrder()->limit(4)->get(); // заглушка(фейкова демонстрація) - будь-які 4 товари
         return view('livewire.details-component', [
             'product' => $product,
-            //'popular_products' => $popular_products
+            'brands' => $brands,
             ])->layout('layouts.base');
     }
 }
