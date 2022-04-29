@@ -12,7 +12,7 @@ class HomeComponent extends Component
 
     public function render()
     {
-        $products = Product::orderBy('updated_at', 'DESC')->paginate(6);
+        $products = Product::inRandomOrder()->limit(6)->get(); // заглушка рандомно 6 товаров
         return view('livewire.home-component', [
             'products' => $products,
         ])->layout('layouts.base');
