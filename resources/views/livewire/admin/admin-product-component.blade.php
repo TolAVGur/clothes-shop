@@ -12,7 +12,7 @@
                             <h4>Список товарів</h4>
                         </div>
                         <div class="col-md-6">
-                            <a href="#" class="btn btn-warning pull-right">
+                            <a href="{{ route('admin.addproduct')}}" class="btn btn-warning pull-right">
                                 Додати новий товар
                             </a>
                         </div>
@@ -29,24 +29,29 @@
                     <table class="table-striped" width="100%">
                         <thead>
                             <tr>
-                                <th width="4%">Id</th>
-                                <th width="6%">Код</th>
-                                <th>Назва</th>
+                                <th width="5%">Код</th>
+                                <th>Зобр.</th>
                                 <th>Категорія</th>
                                 <th>Виробник</th>
-                                <th>Розмір</th>
-                                <th>Ціна продажу</th>
+                                <th>Назва</th>
+                                <th>Розм</th>
+                                <th>Кількість</th>            
                                 <th>Знижка</th>
-                                <th>Кількість</th>
-                                <th>Дата оновлення</th>
+                                <th>Ціна</th>
+                                <th>Час оновлення</th>
                                 <th>Управління</th>
                             </tr>
                         </thead>
                         @foreach ($products as $product)
                         <tr>
-                            <td>{{ $product->id }}</td>
                             <td>{{ $product->SKU }}</td>
-                            <td>{{ $product->name }}</td>
+                            <td>
+                                @if(!empty($product->image))
+                                <img src="{{ asset('images/shop') }}/{{ $product->image}}" width="80px" alt="{{ $product->image }}">
+                                @else
+                                Файлу немає
+                                @endif
+                            </td>
                             <td>
                                 @foreach ($categories as $category)
                                 @if ($product->category_id == $category->id )
@@ -55,16 +60,17 @@
                                 @endforeach
                             </td>
                             <td>
-                            @foreach ($brands as $brand)
+                                @foreach ($brands as $brand)
                                 @if ($product->brand_id == $brand->id )
                                 {{ $brand->name }}
                                 @endif
                                 @endforeach
                             </td>
+                            <td>{{ $product->name }}</td>
                             <td>{{ $product->sizes }}</td>
-                            <td>{{ $product->sale_price }}</td>
-                            <td>{{ $product->discount }}</td>
                             <td>{{ $product->quantity }}</td>
+                            <td>{{ $product->discount }}</td>
+                            <td><b>{{ $product->sale_price }}</b></td>
                             <td>{{ $product->updated_at }}</td>
                             <td>
                                 <a href="#">
