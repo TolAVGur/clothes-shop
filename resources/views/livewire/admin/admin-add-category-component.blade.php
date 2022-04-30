@@ -28,16 +28,15 @@
 
                     <form class="form-horizontal" wire:submit.prevent="store_category">
                         <div class="form-group">
-                            <label class="col-md-4 control-label">Назва: </label>
+                            <label class="col-md-4 control-label"></label>
                             <div class="col-md-4">
-                                <input type="text" placeholder="Введіть назву..." class="form-control input-md" wire:model="name" wire:keyup="generate_slug">
+                                <input type="hidden" class="form-control" wire:model="slug">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-4 control-label"></label>
+                            <label class="col-md-4 control-label">Назва: </label>
                             <div class="col-md-4">
-                                <input type="text" placeholder="" class="form-control input-md" readonly 
-                                    wire:model="slug">
+                                <input type="text" placeholder="Введіть назву..." class="form-control input-md" wire:model="name" wire:keyup="generate_slug">
                             </div>
                         </div>
                         <div class="form-group">

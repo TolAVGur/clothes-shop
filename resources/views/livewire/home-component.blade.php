@@ -214,7 +214,7 @@
                 <!--features_items-->
             </div>
         </div>
-        <hr>
+        
         <div class="recommended_items">
             <!--recommended_items-->
             <h2 class="title text-center">рекомендовані товари</h2>
