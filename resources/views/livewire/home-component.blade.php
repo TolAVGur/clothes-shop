@@ -23,8 +23,8 @@
                                 <button type="button" class="btn btn-default get">Отримайте зараз</button>
                             </div>
                             <div class="col-sm-6">
-                                <img src="images/home/girl1.jpg" class="girl img-responsive" alt="" />
-                                <img src="images/home/pricing.png" class="pricing" alt="" />
+                                <img src="{{ asset('images/home/girl1.jpg') }}" class="girl img-responsive" alt="" />
+                                <img src="{{ asset('images/home/pricing.png') }}" class="pricing" alt="" />
                             </div>
                         </div>
 
@@ -36,8 +36,8 @@
                                 <button type="button" class="btn btn-default get">Отримайте зараз</button>
                             </div>
                             <div class="col-sm-6">
-                                <img src="images/home/girl2.jpg" class="girl img-responsive" alt="" />
-                                <img src="images/home/pricing.png" class="pricing" alt="" />
+                                <img src="{{ asset('images/home/girl2.jpg') }}" class="girl img-responsive" alt="" />
+                                <img src="{{ asset('images/home/pricing.png') }}" class="pricing" alt="" />
                             </div>
                         </div>
 
@@ -49,8 +49,8 @@
                                 <button type="button" class="btn btn-default get">Отримайте зараз</button>
                             </div>
                             <div class="col-sm-6">
-                                <img src="images/home/girl3.jpg" class="girl img-responsive" alt="" />
-                                <img src="images/home/pricing.png" class="pricing" alt="" />
+                                <img src="{{ asset('images/home/girl3.jpg') }}" class="girl img-responsive" alt="" />
+                                <img src="{{ asset('images/home/pricing.png') }}" class="pricing" alt="" />
                             </div>
                         </div>
                     </div>
@@ -173,7 +173,7 @@
 
                     <!--shipping-->
                     <div class="shipping text-center">
-                        <img src="images/home/shipping.jpg" alt="" />
+                        <img src="{{ asset('images/home/shipping.jpg') }}" alt="" />
                     </div>
                     <!--/shipping-->
                 </div>
@@ -212,9 +212,106 @@
 
                 </div>
                 <!--features_items-->
-
             </div>
         </div>
         <hr>
+        <div class="recommended_items">
+            <!--recommended_items-->
+            <h2 class="title text-center">рекомендовані товари</h2>
+
+            <div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <div class="col-sm-4">
+                            <div class="product-image-wrapper">
+                                <div class="single-products">
+                                    <div class="productinfo text-center">
+                                        <img src="{{ asset('images/home/recommend1.jpg') }}" alt="" />
+                                        <h2>500 грн</h2>
+                                        <p>Опис виробу</p>
+                                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i> Додати в кошик</a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="product-image-wrapper">
+                                <div class="single-products">
+                                    <div class="productinfo text-center">
+                                        <img src="{{ asset('images/home/recommend2.jpg') }}" alt="" />
+                                        <h2>500 грн</h2>
+                                        <p>Опис виробу</p>
+                                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i> Додати в кошик</a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="product-image-wrapper">
+                                <div class="single-products">
+                                    <div class="productinfo text-center">
+                                        <img src="{{ asset('images/home/recommend3.jpg') }}" alt="" />
+                                        <h2>500 грн</h2>
+                                        <p>Опис виробу</p>
+                                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i> Додати в кошик</a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="col-sm-4">
+                            <div class="product-image-wrapper">
+                                <div class="single-products">
+                                    <div class="productinfo text-center">
+                                        <img src="{{ asset('images/home/recommend1.jpg') }}" alt="" />
+                                        <h2>500 грн</h2>
+                                        <p>Опис виробу</p>
+                                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i> Додати в кошик</a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="product-image-wrapper">
+                                <div class="single-products">
+                                    <div class="productinfo text-center">
+                                        <img src="{{ asset('images/home/recommend2.jpg') }}" alt="" />
+                                        <h2>500 грн</h2>
+                                        <p>Опис виробу</p>
+                                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i> Додати в кошик</a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="product-image-wrapper">
+                                <div class="single-products">
+                                    <div class="productinfo text-center">
+                                        <img src="{{ asset('images/home/recommend3.jpg') }}" alt="" />
+                                        <h2>500 грн</h2>
+                                        <p>Опис виробу</p>
+                                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i> Додати в кошик</a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a class="left recommended-item-control" href="#recommended-item-carousel" data-slide="prev">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                <a class="right recommended-item-control" href="#recommended-item-carousel" data-slide="next">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+        </div>
+        <!--/recommended_items-->
     </div>
 </section>
