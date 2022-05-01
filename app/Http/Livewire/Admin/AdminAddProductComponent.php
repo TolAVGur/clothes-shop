@@ -3,7 +3,7 @@
 namespace App\Http\Livewire\Admin;
 
 use Livewire\Component;
-use Livewire\WithFileUploads;
+use Livewire\WithFileUploads; // библиотека реализации загрузки файлов
 use App\Models\Product;
 use App\Models\Category;
 use App\Models\Brand;
@@ -35,6 +35,9 @@ class AdminAddProductComponent extends Component
         $new_product->featured = 0;
         $new_product->quantity = $this->quantity;
         //
+        if(!empty($this->image)) {
+            $this->image->store('public/images/shop');
+        }
         $new_product->image = $this->image;
         $new_product->images = $this->images;
         $new_product->category_id = $this->category_id;

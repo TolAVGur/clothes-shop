@@ -19,7 +19,7 @@
                 <tbody>
                     <tr>
                         <td class="cart_product">
-                            <a href=""><img src="{{ asset('images/cart/one.png') }}" alt=""></a>
+                            <a href=""><img src="{{ asset('storage/images/cart/one.png') }}" alt=""></a>
                         </td>
                         <td class="cart_description">
                             <h4><a href="">тут короткий опис виробу</a></h4>
@@ -45,7 +45,7 @@
 
                     <tr>
                         <td class="cart_product">
-                            <a href=""><img src="{{ asset('images/cart/two.png') }}" alt=""></a>
+                            <a href=""><img src="{{ asset('storage/images/cart/two.png') }}" alt=""></a>
                         </td>
                         <td class="cart_description">
                             <h4><a href="">тут короткий опис виробу</a></h4>
@@ -71,7 +71,7 @@
 
                     <tr>
                         <td class="cart_product">
-                            <a href=""><img src="{{ asset('images/cart/three.png') }}" alt=""></a>
+                            <a href=""><img src="{{ asset('storage/images/cart/three.png') }}" alt=""></a>
                         </td>
                         <td class="cart_description">
                             <h4><a href="">тут короткий опис виробу</a></h4>
@@ -164,7 +164,7 @@
                             <div class="product-image-wrapper">
                                 <div class="single-products">
                                     <div class="productinfo text-center">
-                                        <img src="{{ asset('images/home/recommend1.jpg') }}" alt="" />
+                                        <img src="{{ asset('storage/images/home/recommend1.jpg') }}" alt="" />
                                         <h2>500 грн</h2>
                                         <p>Опис виробу</p>
                                         <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i> Додати в кошик</a>
@@ -177,7 +177,7 @@
                             <div class="product-image-wrapper">
                                 <div class="single-products">
                                     <div class="productinfo text-center">
-                                        <img src="{{ asset('images/home/recommend2.jpg') }}" alt="" />
+                                        <img src="{{ asset('storage/images/home/recommend2.jpg') }}" alt="" />
                                         <h2>500 грн</h2>
                                         <p>Опис виробу</p>
                                         <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i> Додати в кошик</a>
@@ -190,7 +190,7 @@
                             <div class="product-image-wrapper">
                                 <div class="single-products">
                                     <div class="productinfo text-center">
-                                        <img src="{{ asset('images/home/recommend3.jpg') }}" alt="" />
+                                        <img src="{{ asset('storage/images/home/recommend3.jpg') }}" alt="" />
                                         <h2>500 грн</h2>
                                         <p>Опис виробу</p>
                                         <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i> Додати в кошик</a>
@@ -205,7 +205,7 @@
                             <div class="product-image-wrapper">
                                 <div class="single-products">
                                     <div class="productinfo text-center">
-                                        <img src="{{ asset('images/home/recommend1.jpg') }}" alt="" />
+                                        <img src="{{ asset('storage/images/home/recommend1.jpg') }}" alt="" />
                                         <h2>500 грн</h2>
                                         <p>Опис виробу</p>
                                         <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i> Додати в кошик</a>
@@ -218,7 +218,7 @@
                             <div class="product-image-wrapper">
                                 <div class="single-products">
                                     <div class="productinfo text-center">
-                                        <img src="{{ asset('images/home/recommend2.jpg') }}" alt="" />
+                                        <img src="{{ asset('storage/images/home/recommend2.jpg') }}" alt="" />
                                         <h2>500 грн</h2>
                                         <p>Опис виробу</p>
                                         <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i> Додати в кошик</a>
@@ -231,7 +231,7 @@
                             <div class="product-image-wrapper">
                                 <div class="single-products">
                                     <div class="productinfo text-center">
-                                        <img src="{{ asset('images/home/recommend3.jpg') }}" alt="" />
+                                        <img src="{{ asset('storage/images/home/recommend3.jpg') }}" alt="" />
                                         <h2>500 грн</h2>
                                         <p>Опис виробу</p>
                                         <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i> Додати в кошик</a>

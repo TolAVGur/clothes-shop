@@ -45,7 +45,7 @@
                                     <tbody>
                                         <tr>
                                             <td class="cart_product">
-                                                <a href=""><img src="{{ asset('images/cart/one.png') }}" alt=""></a>
+                                                <a href=""><img src="{{ asset('storage/images/cart/one.png') }}" alt=""></a>
                                             </td>
                                             <td class="cart_description">
                                                 <h4><a href="">тут короткий опис виробу</a></h4>

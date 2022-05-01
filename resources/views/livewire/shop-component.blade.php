@@ -5,7 +5,7 @@
 <!-- рекламный баннер-->
 <section id="advertisement">
     <div class="container">
-        <img src="{{ asset('images/shop/advertisement.jpg') }}" alt="" />
+        <img src="{{ asset('storage/images/shop/advertisement.jpg') }}" alt="" />
     </div>
 </section>
 <!--/рекламный баннер-->
@@ -129,7 +129,7 @@
                                 <li class="single-products">
                                     <a href="{{ route('product.details', ['slug' => $product->slug]) }}">
                                         <div class="productinfo text-center">
-                                            <img src="{{ asset('images/shop') }}/{{ $product->image}}" alt="{{ $product->name }}" />
+                                            <img src="{{ asset('storage/images/shop') }}/{{ $product->image}}" alt="{{ $product->name }}" />
                                             <h4>{{ $product->name }}</h4>
                                             <h2>{{ $product->sale_price}} грн</h2>
                                             <div style="text-align: left;">
@@ -180,7 +180,7 @@
                             <div class="product-image-wrapper">
                                 <div class="single-products">
                                     <div class="productinfo text-center">
-                                        <img src="{{ asset('images/home/recommend1.jpg') }}" alt="" />
+                                        <img src="{{ asset('storage/images/home/recommend1.jpg') }}" alt="" />
                                         <h2>500 грн</h2>
                                         <p>Опис виробу</p>
                                         <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i> Додати в кошик</a>
@@ -193,7 +193,7 @@
                             <div class="product-image-wrapper">
                                 <div class="single-products">
                                     <div class="productinfo text-center">
-                                        <img src="{{ asset('images/home/recommend2.jpg') }}" alt="" />
+                                        <img src="{{ asset('storage/images/home/recommend2.jpg') }}" alt="" />
                                         <h2>500 грн</h2>
                                         <p>Опис виробу</p>
                                         <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i> Додати в кошик</a>
@@ -206,7 +206,7 @@
                             <div class="product-image-wrapper">
                                 <div class="single-products">
                                     <div class="productinfo text-center">
-                                        <img src="{{ asset('images/home/recommend3.jpg') }}" alt="" />
+                                        <img src="{{ asset('storage/images/home/recommend3.jpg') }}" alt="" />
                                         <h2>500 грн</h2>
                                         <p>Опис виробу</p>
                                         <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i> Додати в кошик</a>
@@ -221,7 +221,7 @@
                             <div class="product-image-wrapper">
                                 <div class="single-products">
                                     <div class="productinfo text-center">
-                                        <img src="{{ asset('images/home/recommend1.jpg') }}" alt="" />
+                                        <img src="{{ asset('storage/images/home/recommend1.jpg') }}" alt="" />
                                         <h2>500 грн</h2>
                                         <p>Опис виробу</p>
                                         <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i> Додати в кошик</a>
@@ -234,7 +234,7 @@
                             <div class="product-image-wrapper">
                                 <div class="single-products">
                                     <div class="productinfo text-center">
-                                        <img src="{{ asset('images/home/recommend2.jpg') }}" alt="" />
+                                        <img src="{{ asset('storage/images/home/recommend2.jpg') }}" alt="" />
                                         <h2>500 грн</h2>
                                         <p>Опис виробу</p>
                                         <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i> Додати в кошик</a>
@@ -247,7 +247,7 @@
                             <div class="product-image-wrapper">
                                 <div class="single-products">
                                     <div class="productinfo text-center">
-                                        <img src="{{ asset('images/home/recommend3.jpg') }}" alt="" />
+                                        <img src="{{ asset('storage/images/home/recommend3.jpg') }}" alt="" />
                                         <h2>500 грн</h2>
                                         <p>Опис виробу</p>
                                         <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i> Додати в кошик</a>

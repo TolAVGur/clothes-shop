@@ -47,7 +47,7 @@
                             <td>{{ $product->SKU }}</td>
                             <td>
                                 @if(!empty($product->image))
-                                <img src="{{ asset('images/shop') }}/{{ $product->image}}" width="80px" alt="{{ $product->image }}">
+                                <img src="{{ asset('storage/images/shop') }}/{{ $product->image}}" width="80px" alt="{{ $product->image }}">
                                 @else
                                 Файлу немає
                                 @endif

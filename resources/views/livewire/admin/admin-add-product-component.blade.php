@@ -27,66 +27,87 @@
                     @endif
 
                     <form class="form-horizontal" wire:submit.prevent="store_product">
+                        <!-- slug -->
                         <div class="form-group">
                             <label class="col-md-4 control-label"></label>
                             <div class="col-md-6">
                                 <input type="hidden" class="form-control" wire:model="slug">
                             </div>
                         </div>
+
+                         <!-- name -->
                         <div class="form-group">
                             <label class="col-md-4 control-label">* Назва: </label>
                             <div class="col-md-6">
                                 <input type="text" placeholder="Введіть назву..." class="form-control input-md" wire:model="name" wire:keyup="generate_slug" required>
                             </div>
                         </div>
+
+                         <!-- short_description -->
                         <div class="form-group">
                             <label class="col-md-4 control-label">Коротке визначення: </label>
                             <div class="col-md-6">
                                 <input type="text" placeholder="Введіть короткий опис..." class="form-control input-md" wire:model="short_description">
                             </div>
                         </div>
+                        
+                         <!-- description -->
                         <div class="form-group">
                             <label class="col-md-4 control-label">* Опис товару: </label>
                             <div class="col-md-6">
                                 <textarea class="form-control input-md" rows="3" cols="20" wrap="hard" placeholder="Введіть опис товару..." wire:model="description" required></textarea>
                             </div>
                         </div>
+                        
+                         <!-- sizes -->
                         <div class="form-group">
                             <label class="col-md-4 control-label">Розмір: </label>
                             <div class="col-md-6">
                                 <input type="text" placeholder="" class="form-control input-md" wire:model="sizes">
                             </div>
                         </div>
+                        
+                         <!-- sale_price -->
                         <div class="form-group">
                             <label class="col-md-4 control-label">* Ціна продажу: </label>
                             <div class="col-md-6">
                                 <input type="text" placeholder="Введіть цiну..." class="form-control input-md" wire:model="sale_price" required>
                             </div>
                         </div>
+                        
+                         <!-- discount -->
                         <div class="form-group">
                             <label class="col-md-4 control-label">Знижка: </label>
                             <div class="col-md-6">
                                 <input type="text" placeholder="" class="form-control input-md" wire:model="discount">
                             </div>
                         </div>
+                        
+                         <!-- sku -->
                         <div class="form-group">
                             <label class="col-md-4 control-label">* Код товару: </label>
                             <div class="col-md-6">
                                 <input type="text" placeholder="Введіть код товару..." class="form-control input-md" wire:model="sku" required>
                             </div>
                         </div>
+                        
+                         <!-- quantity -->
                         <div class="form-group">
                             <label class="col-md-4 control-label">* Кількість: </label>
                             <div class="col-md-6">
                                 <input type="text" placeholder="Введіть код товару..." class="form-control input-md" wire:model="quantity" required>
                             </div>
                         </div>
+                        
+                         <!-- image -->
                         <div class="form-group">
                             <label class="col-md-4 control-label">Зображення: </label>
                             <div class="col-md-6">
                                 <input type="file" class="form-control" wire:model="image">
                             </div>
                         </div>
+                        
+                         <!-- categories -->
                         <div class="form-group">
                             <label class="col-md-4 control-label">* Категорія: </label>
                             <div class="col-md-6">
@@ -99,6 +120,8 @@
                                 </select>
                             </div>
                         </div>
+                        
+                         <!-- brands -->
                         <div class="form-group">
                             <label class="col-md-4 control-label">* Бренд: </label>
                             <div class="col-md-6">
@@ -112,6 +135,8 @@
                             </div>
                         </div>
                         <hr>
+                        
+                         <!-- submit -->
                         <div class="form-group">
                             <label class="col-md-4 control-label"></label>
                             <div class="col-md-4">
