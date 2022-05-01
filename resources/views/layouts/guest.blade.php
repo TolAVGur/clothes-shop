@@ -41,11 +41,11 @@
     <link href="{{ asset('css/animate.css') }}" rel="stylesheet">
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
     <link href="{{ asset('css/responsive.css') }}" rel="stylesheet">
-    <link rel="shortcut icon" href="{{ asset('images/ico/favicon.ico') }}">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ asset('images/ico/apple-touch-icon-144-precomposed.png') }}">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ asset('images/ico/apple-touch-icon-114-precomposed.png') }}">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ asset('images/ico/apple-touch-icon-72-precomposed.png') }}">
-    <link rel="apple-touch-icon-precomposed" href="{{ asset('images/ico/apple-touch-icon-57-precomposed.png') }}">
+    <link rel="shortcut icon" href="{{ asset('storage/images/ico/favicon.ico') }}">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ asset('storage/images/ico/apple-touch-icon-144-precomposed.png') }}">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ asset('storage/images/ico/apple-touch-icon-114-precomposed.png') }}">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ asset('storage/images/ico/apple-touch-icon-72-precomposed.png') }}">
+    <link rel="apple-touch-icon-precomposed" href="{{ asset('storage/images/ico/apple-touch-icon-57-precomposed.png') }}">
     @livewireStyles
 </head>
 <!--/head-->
@@ -84,7 +84,7 @@
                 <div class="row">
                     <div class="col-sm-4">
                         <div class="logo pull-left">
-                            <a href="/"><img src="{{ asset('images/home/logo.png') }}" alt="" /></a>
+                            <a href="/"><img src="{{ asset('storage/images/home/logo.png') }}" alt="" /></a>
                         </div>
                     </div>
                     <div class="col-sm-8">
@@ -210,7 +210,7 @@
                             <div class="video-gallery text-center">
                                 <a href="#">
                                     <div class="iframe-img">
-                                        <img src="{{ asset('images/home/iframe1.png') }}" alt="" />
+                                        <img src="{{ asset('storage/images/home/iframe1.png') }}" alt="" />
                                     </div>
                                     <div class="overlay-icon">
                                         <i class="fa fa-play-circle-o"></i>
@@ -224,7 +224,7 @@
                             <div class="video-gallery text-center">
                                 <a href="#">
                                     <div class="iframe-img">
-                                        <img src="{{ asset('images/home/iframe2.png') }}" alt="" />
+                                        <img src="{{ asset('storage/images/home/iframe2.png') }}" alt="" />
                                     </div>
                                     <div class="overlay-icon">
                                         <i class="fa fa-play-circle-o"></i>
@@ -238,7 +238,7 @@
                             <div class="video-gallery text-center">
                                 <a href="#">
                                     <div class="iframe-img">
-                                        <img src="{{ asset('images/home/iframe3.png') }}" alt="" />
+                                        <img src="{{ asset('storage/images/home/iframe3.png') }}" alt="" />
                                     </div>
                                     <div class="overlay-icon">
                                         <i class="fa fa-play-circle-o"></i>
@@ -252,7 +252,7 @@
                             <div class="video-gallery text-center">
                                 <a href="#">
                                     <div class="iframe-img">
-                                        <img src="{{ asset('images/home/iframe4.png') }}" alt="" />
+                                        <img src="{{ asset('storage/images/home/iframe4.png') }}" alt="" />
                                     </div>
                                     <div class="overlay-icon">
                                         <i class="fa fa-play-circle-o"></i>
@@ -306,7 +306,7 @@
                     </div>
                     <div class="col-sm-5">
                         <div class="address">
-                            <img src="{{ asset('images/home/map.png') }}" alt="" />
+                            <img src="{{ asset('storage/images/home/map.png') }}" alt="" />
                             <p>02222 Україна, Київ, вул.Вулична, б.1, пов-1</p>
 
                         </div>
