@@ -34,11 +34,12 @@ class AdminAddProductComponent extends Component
         $new_product->stock_status = 'instock';
         $new_product->featured = 0;
         $new_product->quantity = $this->quantity;
-        //
+        
         if(!empty($this->image)) {
-            $this->image->store('public/images/shop');
+            $this->image->storeAs('public/images/shop', $new_product->slug.'.'.$this->image->getClientOriginalExtension());
+            $new_product->image = $new_product->slug.'.'.$this->image->getClientOriginalExtension();
         }
-        $new_product->image = $this->image;
+        
         $new_product->images = $this->images;
         $new_product->category_id = $this->category_id;
         $new_product->brand_id = $this->brand_id;
