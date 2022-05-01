@@ -76,7 +76,7 @@
                                 <a href="#">
                                     <i class="fa fa-edit fa-2x"></i>
                                 </a> |
-                                <a href="#">
+                                <a href="#" wire:click.prevent="delete_product({{$product->id}})">
                                     <i class="fa fa-times fa-2x text-danger"></i>
                                 </a>
                             </td>

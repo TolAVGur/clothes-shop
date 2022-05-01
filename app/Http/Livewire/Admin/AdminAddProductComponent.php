@@ -36,8 +36,9 @@ class AdminAddProductComponent extends Component
         $new_product->quantity = $this->quantity;
         
         if(!empty($this->image)) {
-            $this->image->storeAs('public/images/shop', $new_product->slug.'.'.$this->image->getClientOriginalExtension());
-            $new_product->image = $new_product->slug.'.'.$this->image->getClientOriginalExtension();
+            $newimage_name = $new_product->slug.'.'.$this->image->getClientOriginalExtension();
+            $this->image->storeAs('public/images/shop', $newimage_name);
+            $new_product->image = $newimage_name;
         }
         
         $new_product->images = $this->images;
