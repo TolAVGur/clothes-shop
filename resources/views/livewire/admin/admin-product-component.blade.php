@@ -73,7 +73,7 @@
                             <td><b>{{ $product->sale_price }}</b></td>
                             <td>{{ $product->updated_at }}</td>
                             <td>
-                                <a href="#">
+                                <a href="{{ route('admin.editproduct', ['product_id' => $product->id]) }}">
                                     <i class="fa fa-edit fa-2x"></i>
                                 </a> |
                                 <a href="#" wire:click.prevent="delete_product({{$product->id}})">

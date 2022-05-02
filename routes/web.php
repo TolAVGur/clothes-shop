@@ -21,6 +21,7 @@ use App\Http\Livewire\Admin\AdminAddBrandComponent;
 use App\Http\Livewire\Admin\AdminEditBrandComponent;
 use App\Http\Livewire\Admin\AdminProductComponent;
 use App\Http\Livewire\Admin\AdminAddProductComponent;
+use App\Http\Livewire\Admin\AdminEditProductComponent;
 
 /*
 |--------------------------------------------------------------------------
@@ -65,5 +66,6 @@ Route::middleware(['auth:sanctum', 'verified', 'authadmin'])->group(function() {
     Route::get('/admin/brands/edit{brand_id}', AdminEditBrandComponent::class)->name('admin.editbrand');
     Route::get('/admin/products', AdminProductComponent::class)->name('admin.products');
     Route::get('/admin/products/add', AdminAddProductComponent::class)->name('admin.addproduct');
+    Route::get('/admin/products/edit{product_id}', AdminEditBrandComponent::class)->name('admin.editproduct');
 });
 

@@ -46,14 +46,12 @@ class AdminAddProductComponent extends Component
         $new_product->brand_id = $this->brand_id;
         $new_product->save();
         session()->flash('message', 'Товар "'.$this->name.'" додано успішно!');
-        $this->name = "";
-        $this->slug = "";
     }
     
     public function render()
     {
-        $brands = Brand::get();
-        $categories = Category::get();
+        $brands = Brand::all();
+        $categories = Category::all();
         $products = Product::orderBy('updated_at', 'DESC')->paginate(10);
         return view('livewire.admin.admin-add-product-component', [
             'products' => $products,

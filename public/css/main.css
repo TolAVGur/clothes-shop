@@ -851,6 +851,11 @@ h2.title {
 	margin-bottom:20px;
 }
 
+/*my*/
+.my-card {
+  height: 480px;
+}
+
 .single-products {
   position: relative;
 }

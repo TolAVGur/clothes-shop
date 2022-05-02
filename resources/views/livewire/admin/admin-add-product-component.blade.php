@@ -35,7 +35,36 @@
                             </div>
                         </div>
 
-                         <!-- name -->
+                        <!-- categories -->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">* Категорія: </label>
+                            <div class="col-md-6">
+                                <!-- ????? -->
+                                <select wire:model="category_id">
+                                    @foreach ( $categories as $category)
+                                    <option value="{{ $category->id }}">
+                                        {{ $category->name }}
+                                    </option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- brands -->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">* Бренд: </label>
+                            <div class="col-md-6">
+                                <select wire:model="brand_id">
+                                    @foreach ($brands as $brand)
+                                    <option value="{{ $brand->id }}">
+                                        {{ $brand->name }}
+                                    </option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- name -->
                         <div class="form-group">
                             <label class="col-md-4 control-label">* Назва: </label>
                             <div class="col-md-6">
@@ -43,100 +72,72 @@
                             </div>
                         </div>
 
-                         <!-- short_description -->
+                        <!-- short_description -->
                         <div class="form-group">
                             <label class="col-md-4 control-label">Коротке визначення: </label>
                             <div class="col-md-6">
                                 <input type="text" placeholder="Введіть короткий опис..." class="form-control input-md" wire:model="short_description">
                             </div>
                         </div>
-                        
-                         <!-- description -->
+
+                        <!-- description -->
                         <div class="form-group">
                             <label class="col-md-4 control-label">* Опис товару: </label>
                             <div class="col-md-6">
                                 <textarea class="form-control input-md" rows="3" cols="20" wrap="hard" placeholder="Введіть опис товару..." wire:model="description" required></textarea>
                             </div>
                         </div>
-                        
-                         <!-- sizes -->
+
+                        <!-- sizes -->
                         <div class="form-group">
                             <label class="col-md-4 control-label">Розмір: </label>
                             <div class="col-md-6">
                                 <input type="text" placeholder="" class="form-control input-md" wire:model="sizes">
                             </div>
                         </div>
-                        
-                         <!-- sale_price -->
+
+                        <!-- sale_price -->
                         <div class="form-group">
                             <label class="col-md-4 control-label">* Ціна продажу: </label>
                             <div class="col-md-6">
                                 <input type="text" placeholder="Введіть цiну..." class="form-control input-md" wire:model="sale_price" required>
                             </div>
                         </div>
-                        
-                         <!-- discount -->
+
+                        <!-- discount -->
                         <div class="form-group">
                             <label class="col-md-4 control-label">Знижка: </label>
                             <div class="col-md-6">
                                 <input type="text" placeholder="" class="form-control input-md" wire:model="discount">
                             </div>
                         </div>
-                        
-                         <!-- sku -->
+
+                        <!-- sku -->
                         <div class="form-group">
                             <label class="col-md-4 control-label">* Код товару: </label>
                             <div class="col-md-6">
                                 <input type="text" placeholder="Введіть код товару..." class="form-control input-md" wire:model="sku" required>
                             </div>
                         </div>
-                        
-                         <!-- quantity -->
+
+                        <!-- quantity -->
                         <div class="form-group">
                             <label class="col-md-4 control-label">* Кількість: </label>
                             <div class="col-md-6">
                                 <input type="text" placeholder="Введіть код товару..." class="form-control input-md" wire:model="quantity" required>
                             </div>
                         </div>
-                        
-                         <!-- image -->
+
+                        <!-- image -->
                         <div class="form-group">
                             <label class="col-md-4 control-label">Зображення: </label>
                             <div class="col-md-6">
                                 <input type="file" class="form-control" wire:model="image">
                             </div>
                         </div>
-                        
-                         <!-- categories -->
-                        <div class="form-group">
-                            <label class="col-md-4 control-label">* Категорія: </label>
-                            <div class="col-md-6">
-                                <select>
-                                    @foreach ( $categories as $category)
-                                    <option>
-                                        {{ $category->name }}
-                                    </option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div>
-                        
-                         <!-- brands -->
-                        <div class="form-group">
-                            <label class="col-md-4 control-label">* Бренд: </label>
-                            <div class="col-md-6">
-                                <select>
-                                    @foreach ($brands as $brand)
-                                    <option>
-                                        {{ $brand->name }}
-                                    </option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div>
                         <hr>
-                        
-                         <!-- submit -->
+
+                        <!-- submit -->
                         <div class="form-group">
                             <label class="col-md-4 control-label"></label>
                             <div class="col-md-4">
