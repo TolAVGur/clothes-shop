@@ -128,7 +128,7 @@
                             <div class="card">
                                 <ul class="product-image-wrapper">
                                     <li class="single-products">
-                                        <div class="my-card" >
+                                        <div class="my-card">
                                             <a href="{{ route('product.details', ['slug' => $product->slug]) }}">
                                                 <div class="productinfo text-center">
                                                     <img src="{{ asset('storage/images/shop') }}/{{ $product->image}}" alt="{{ $product->name }}" />
@@ -144,14 +144,15 @@
                                                 </div>
                                             </a>
                                         </div>
-                                        <br>
-                                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Додати в кошик</a>
+                                        <hr>
+                                        <div style="text-align: center;">
+                                            <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Додати в кошик</a>
+                                        </div>
                                     </li>
                                 </ul>
-                            </div>  
+                            </div>
                         </div>
                         @endforeach
-                       <hr>
                     </div>
 
                     <div style="margin-top: 15px; text-align: center;">

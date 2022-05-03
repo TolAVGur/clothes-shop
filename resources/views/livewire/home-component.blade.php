@@ -183,35 +183,42 @@
                 <!--features_items-->
                 <div class="features_items">
                     <h2 class="title text-center">топ продажів</h2>
+                    
                     <div class="row">
                         @foreach ($products as $product)
-                        <div class="col-sm-4">
-                            <ul class="product-image-wrapper">
-                                <li class="single-products">
-                                    <a href="{{ route('product.details', ['slug' => $product->slug]) }}">
-                                        <div class="productinfo text-center">
-                                            <img src="{{ asset('storage/images/shop') }}/{{ $product->image}}" alt="{{ $product->name }}" />
-                                            <h4>{{ $product->name }}</h4>
-                                            <h2>{{ $product->sale_price}} грн</h2>
-                                            <div style="text-align: left;">
-                                                <p>{{ $product->short_description }}</p>
-                                                <p>Розмір: {{ $product->sizes }}</p>
-                                                <p>Наявність: {{ $product->stock_status }}</p>
-                                                <p>Кількість: {{ $product->quantity }}</p>
-                                                <h5>Знижка: {{ $product->discount }}</h5>
-                                            </div>
+                        <div class="col-md-4">
+                            <div class="card">
+                                <ul class="product-image-wrapper">
+                                    <li class="single-products">
+                                        <div class="my-card">
+                                            <a href="{{ route('product.details', ['slug' => $product->slug]) }}">
+                                                <div class="productinfo text-center">
+                                                    <img src="{{ asset('storage/images/shop') }}/{{ $product->image}}" alt="{{ $product->name }}" />
+                                                    <h4>{{ $product->name }}</h4>
+                                                    <h2>{{ $product->sale_price}} грн</h2>
+                                                    <div style="text-align: left;">
+                                                        <p>{{ $product->short_description }}</p>
+                                                        <p>Розмір: {{ $product->sizes }}</p>
+                                                        <p>Наявність: {{ $product->stock_status }}</p>
+                                                        <p>Кількість: {{ $product->quantity }}</p>
+                                                        <h5>Знижка: {{ $product->discount }}</h5>
+                                                    </div>
+                                                </div>
+                                            </a>
                                         </div>
-                                    </a>
-                                    <hr>
-                                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Додати в кошик</a>
-                                </li>
-                            </ul>
+                                        <hr>
+                                        <div style="text-align: center;">
+                                            <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Додати в кошик</a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                         @endforeach
                     </div>
 
                 </div>
-                <!--features_items-->
+                <!-- /features_items-->
             </div>
         </div>
         
