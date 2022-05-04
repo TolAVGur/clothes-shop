@@ -183,7 +183,7 @@
                 <!--features_items-->
                 <div class="features_items">
                     <h2 class="title text-center">топ продажів</h2>
-                    
+
                     <div class="row">
                         @foreach ($products as $product)
                         <div class="col-md-4">
@@ -208,7 +208,10 @@
                                         </div>
                                         <hr>
                                         <div style="text-align: center;">
-                                            <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Додати в кошик</a>
+                                            <button type="button" class="btn btn-warning card" wire:click.prevent="store_to_cart({{$product->id}},'{{$product->name}}',{{$product->sale_price}})">
+                                                <i class="fa fa-shopping-cart"></i>
+                                                > Додати в кошик
+                                            </button>
                                         </div>
                                     </li>
                                 </ul>
@@ -221,7 +224,7 @@
                 <!-- /features_items-->
             </div>
         </div>
-        
+
         <div class="recommended_items">
             <!--recommended_items-->
             <h2 class="title text-center">рекомендовані товари</h2>

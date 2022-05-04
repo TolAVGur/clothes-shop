@@ -146,7 +146,10 @@
                                         </div>
                                         <hr>
                                         <div style="text-align: center;">
-                                            <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Додати в кошик</a>
+                                            <button type="button" class="btn btn-fefault cart" wire:click.prevent="store_to_cart({{$product->id}},'{{$product->name}}',{{$product->sale_price}})">
+                                                <i class="fa fa-shopping-cart"></i>
+                                                > Додати в кошик
+                                            </button>
                                         </div>
                                     </li>
                                 </ul>

@@ -4,110 +4,153 @@
 
 <section id="cart_items">
     <div class="container">
-        <div class="table-responsive cart_info">
-            <table class="table table-condensed">
-                <thead>
-                    <tr class="cart_menu">
-                        <td class="image">Виріб</td>
-                        <td class="description"></td>
-                        <td class="price">Ціна</td>
-                        <td class="quantity">Кількість</td>
-                        <td class="total">Усього</td>
-                        <td></td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="cart_product">
-                            <a href=""><img src="{{ asset('storage/images/cart/one.png') }}" alt=""></a>
-                        </td>
-                        <td class="cart_description">
-                            <h4><a href="">тут короткий опис виробу</a></h4>
-                            <p>Web ID: 1089772</p>
-                        </td>
-                        <td class="cart_price">
-                            <p>500 грн</p>
-                        </td>
-                        <td class="cart_quantity">
-                            <div class="cart_quantity_button">
-                                <a class="cart_quantity_up" href=""> + </a>
-                                <input class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2">
-                                <a class="cart_quantity_down" href=""> - </a>
-                            </div>
-                        </td>
-                        <td class="cart_total">
-                            <p class="cart_total_price">500 грн</p>
-                        </td>
-                        <td class="cart_delete">
-                            <a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
-                        </td>
-                    </tr>
 
-                    <tr>
-                        <td class="cart_product">
-                            <a href=""><img src="{{ asset('storage/images/cart/two.png') }}" alt=""></a>
-                        </td>
-                        <td class="cart_description">
-                            <h4><a href="">тут короткий опис виробу</a></h4>
-                            <p>Web ID: 1089772</p>
-                        </td>
-                        <td class="cart_price">
-                            <p>100 грн</p>
-                        </td>
-                        <td class="cart_quantity">
-                            <div class="cart_quantity_button">
-                                <a class="cart_quantity_up" href=""> + </a>
-                                <input class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2">
-                                <a class="cart_quantity_down" href=""> - </a>
-                            </div>
-                        </td>
-                        <td class="cart_total">
-                            <p class="cart_total_price">100 грн</p>
-                        </td>
-                        <td class="cart_delete">
-                            <a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td class="cart_product">
-                            <a href=""><img src="{{ asset('storage/images/cart/three.png') }}" alt=""></a>
-                        </td>
-                        <td class="cart_description">
-                            <h4><a href="">тут короткий опис виробу</a></h4>
-                            <p>Web ID: 1089772</p>
-                        </td>
-                        <td class="cart_price">
-                            <p>200 грн</p>
-                        </td>
-                        <td class="cart_quantity">
-                            <div class="cart_quantity_button">
-                                <a class="cart_quantity_up" href=""> + </a>
-                                <input class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2">
-                                <a class="cart_quantity_down" href=""> - </a>
-                            </div>
-                        </td>
-                        <td class="cart_total">
-                            <p class="cart_total_price">200 грн</p>
-                        </td>
-                        <td class="cart_delete">
-                            <a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-</section>
-<!--/#cart_items-->
-<section id="do_action">
-    <div class="container">
-        <h4 style="text-align: center;"> Тут Ви можете порахувати вартість товарів у кошику, включаючи доставку:</h4>
         <div class="row">
-            <div class="col-sm-12">
-                <div class="total_area">
-                    <ul>
-                        <li>Разом у кошику<span>800 грн </span></li>
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h4>Кошик</h4>
+                            </div>
+                            <div class="col-md-6">
+                                <a href="/shop" class="btn btn-warning pull-right">
+                                    Продовжити вибір
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+
+                        @if (Session::has('message'))
+                        <div class="alert alert-success" role="alert">
+                            {{ Session::get('message') }}
+                        </div>
+                        @endif
+
+
+                        <!-- cart_items -->
+                        <div class="table-responsive cart_info">
+                            <table class="table table-condensed">
+                                <thead>
+                                    <tr class="cart_menu">
+                                        <td class="image">Виріб</td>
+                                        <td class="description"></td>
+                                        <td class="price">Ціна</td>
+                                        <td class="quantity">Кількість</td>
+                                        <td class="total">Усього</td>
+                                        <td></td>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    @if (Cart::count() > 0)
+                                    @foreach (Cart::content() as $item)
+                                    <tr>
+                                        <td class="cart_product">
+                                            <a href="{{ route('product.details', ['slug' => $item->model->slug]) }}">
+                                                <img src="{{ asset('storage/images/shop') }}/{{$item->model->image}}" alt="{{$item->model->name}}">
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <h4>{{ $item->model->name }}</h4>
+                                            <hr>
+                                            <span>
+                                                <p><b>Розмір: </b>{{ $item->model->sizes }}</p>
+                                                <p><b>Знижка: </b>{{ $item->model->discount }}</p>
+                                                <p>Код: {{ $item->model->SKU }}</p>
+                                            </span>
+                                            <hr>
+                                        </td>
+                                        <td class="cart_price">
+                                            <p>{{$item->model->sale_price}}</p>
+                                        </td>
+                                        <td class="cart_quantity">
+                                            <div class="cart_quantity_button">
+                                                <a class="cart_quantity_up" href=""> + </a>
+                                                <input class="cart_quantity_input" type="text" name="quantity" value="{{$item->qty}}" autocomplete="off" size="2">
+                                                <a class="cart_quantity_down" href=""> - </a>
+                                            </div>
+                                        </td>
+                                        <td class="cart_total">
+                                            <p class="cart_total_price">{{$item->model->sale_price}}</p>
+                                        </td>
+                                        <td class="cart_delete">
+                                            <a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
+                                        </td>
+                                    </tr>
+                                    @endforeach
+                                    @else
+                                    <p>У кошику ще немає товарів!</p>
+                                    @endif
+                                </tbody>
+
+                            </table>
+
+                        </div>
+                        <!-- /cart_items -->
+
+                        <div class="col-md-12" style="padding-bottom: 2%;">
+                            <a href="#" class="btn btn-success pull-right">
+                                Замовити
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Обчислення вартості доставки -->
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h4>Порахувати вартість товарів у кошику, включаючи доставку:</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel-body">
+                        <div class="table-responsive cart_info">
+                            
+                                <table class="table table-condensed">
+                                    <thead>
+                                        <tr class="cart_menu">
+                                            <td>Спосіб доставки</td>
+                                            <td>Вміст у кошику</td>
+                                            <td>Вартість доставки</td>
+                                            <td>Разом</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <div class="list-group">
+                                                    {{--<a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+                                                    The current link item
+                                                </a>--}}
+                                                    <a href="#" class="list-group-item list-group-item-action">Самовивіз</a>
+                                                    <a href="#" class="list-group-item list-group-item-action">Кур'єром по Києву</a>
+                                                    <a href="#" class="list-group-item list-group-item-action">Поштою по Україні</a>
+                                                </div>
+                                            </td>
+                                            <td>{{ Cart::subtotal() }}</td>
+                                            <td>{{ Cart::tax() }}</td>
+                                            <td>{{ Cart::total() }}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            
+                        </div>
+
+
+
+
+                        {{--<div class="row">
+                            <div class="col-sm-12">
+                                <div class="total_area">
+                                    <ul>
+                                        <li>Вміст у кошику <span>{{ Cart::subtotal() }}</span></li>
                         <li>
                             <div class="row">
                                 <div class="col-sm-4">
@@ -142,17 +185,25 @@
                             </select>
                         </li>
 
-                        <li>Доставка<span>100 грн</span></li>
-                        <li>Усього, разом з доставкою <span>900 грн </span></li>
-                    </ul>
-                    <div style="text-align: center;">
-                        <a class="btn btn-default update" href="">Очистить</a>
-                        <a class="btn btn-default check_out" href="">Оформить заказ</a>
+                        <li>Доставка<span>{{ Cart::tax() }} грн</span></li>
+                        <li>Усього, разом з доставкою <span>{{ Cart::total() }} грн </span></li>
+                        </ul>
                     </div>
                 </div>
-            </div>
-        </div>
+            </div>--}}
 
+        </div>
+    </div>
+    </div>
+    <!-- / -->
+    </div>
+</section>
+
+
+
+
+<section id="do_action">
+    <div class="container">
         <div class="recommended_items">
             <!--recommended_items-->
             <h2 class="title text-center">рекомендовані товари</h2>
