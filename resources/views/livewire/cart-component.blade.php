@@ -87,34 +87,11 @@
 
                             </table>
 
-                        </div>
-                        <!-- /cart_items -->
+                            <p align="center">Розрахунок доставки</p>
+                            <div class="table-responsive cart_info">
 
-                        <div class="col-md-12" style="padding-bottom: 2%;">
-                            <a href="#" class="btn btn-success pull-right">
-                                Замовити
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Обчислення вартості доставки -->
-            <div class="col-md-12">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <h4>Порахувати вартість товарів у кошику, включаючи доставку:</h4>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="panel-body">
-                        <div class="table-responsive cart_info">
-                            
                                 <table class="table table-condensed">
-                                    <thead>
+                                    <thead align="center">
                                         <tr class="cart_menu">
                                             <td>Спосіб доставки</td>
                                             <td>Вміст у кошику</td>
@@ -122,9 +99,9 @@
                                             <td>Разом</td>
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody align="center">
                                         <tr>
-                                            <td>
+                                            <td align="left">
                                                 <div class="list-group">
                                                     {{--<a href="#" class="list-group-item list-group-item-action active" aria-current="true">
                                                     The current link item
@@ -136,66 +113,26 @@
                                             </td>
                                             <td>{{ Cart::subtotal() }}</td>
                                             <td>{{ Cart::tax() }}</td>
-                                            <td>{{ Cart::total() }}</td>
+                                            <td>
+                                                <h1 style="color: #FE980F;"> {{ Cart::total() }} </h1>
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
-                            
-                        </div>
-
-
-
-
-                        {{--<div class="row">
-                            <div class="col-sm-12">
-                                <div class="total_area">
-                                    <ul>
-                                        <li>Вміст у кошику <span>{{ Cart::subtotal() }}</span></li>
-                        <li>
-                            <div class="row">
-                                <div class="col-sm-4">
-                                    <input type="radio" id="shipping_1" name="contact" value="">
-                                    <label style="margin-right: 20px;" for="shipping_1"> Самовивіз</label>
-                                </div>
-
-                                <div class="col-sm-4">
-                                    <input type="radio" id="shipping_2" name="contact" value="">
-                                    <label style="margin-right: 20px;" for="shipping_2"> Кур'єром по Києву</label>
-                                </div>
-
-                                <div class="col-sm-4">
-                                    <input type="radio" id="shipping_3" name="contact" value="">
-                                    <label for="shipping_3"> Поштою по Україні</label>
+                                <div class="col-md-12" style="padding-bottom: 2%;">
+                                    <a href="#" class="btn btn-success pull-right">
+                                        Замовити
+                                    </a>
                                 </div>
                             </div>
+                        </div>
+                        <!-- /cart_items -->
 
-                        </li>
-                        <li class="single_field">
-                            <select>
-                                <option>Голосіївський</option>
-                                <option>Святошинський</option>
-                                <option>Солом'янський</option>
-                                <option>Оболонський</option>
-                                <option>Подільський</option>
-                                <option>Печерський</option>
-                                <option>Шевченківський</option>
-                                <option>Дарницький</option>
-                                <option>Дніпровський</option>
-                                <option>Деснянський</option>
-                            </select>
-                        </li>
-
-                        <li>Доставка<span>{{ Cart::tax() }} грн</span></li>
-                        <li>Усього, разом з доставкою <span>{{ Cart::total() }} грн </span></li>
-                        </ul>
                     </div>
                 </div>
-            </div>--}}
-
+            </div>
         </div>
-    </div>
-    </div>
-    <!-- / -->
+        <!-- / -->
     </div>
 </section>
 
