@@ -65,7 +65,15 @@
                             <ul class="nav navbar-nav">
                                 <!--<li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>-->
                                 <li><a href="/checkout"><i class="fa fa-crosshairs"></i> Замовлення</a></li>
-                                <li><a href="/cart"><i class="fa fa-shopping-cart"></i> Кошик</a></li>
+                                <li><a href="/cart">
+                                        <i class="fa fa-shopping-cart"></i> Кошик
+                                        @if (Cart::count() > 0)
+                                        <span style="color: darkorange;">
+                                            ( {{ Cart::count() }} )
+                                        </span>
+                                        @endif
+                                    </a>
+                                </li>
 
                                 @if (Route::has('login'))
                                 @auth
