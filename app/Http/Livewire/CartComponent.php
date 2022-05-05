@@ -25,6 +25,12 @@ class CartComponent extends Component
         Cart::update($rowId, $qty);
     }
 
+    // метод удаления отдельного товара в корзине
+    public function destroy($rowId) {
+        Cart::remove($rowId);
+        session()->flash('messqge', 'Вибраний товар видалено з кошика!');
+    }
+
     public function render()
     {
         return view('livewire.cart-component')->layout('layouts.base');
