@@ -67,13 +67,15 @@
                                         </td>
                                         <td class="cart_quantity">
                                             <div class="cart_quantity_button">
-                                                <a class="cart_quantity_up" href=""> + </a>
+                                                <a class="cart_quantity_up" href="#" wire:click.prevent="increaseQuantity('{{$item->rowId}}')"> + </a>
                                                 <input class="cart_quantity_input" type="text" name="quantity" value="{{$item->qty}}" autocomplete="off" size="2">
-                                                <a class="cart_quantity_down" href=""> - </a>
+                                                <a class="cart_quantity_down" href="#" wire:click.prevent="decreaseQuantity('{{$item->rowId}}')"> - </a>
                                             </div>
                                         </td>
                                         <td class="cart_total">
-                                            <p class="cart_total_price">{{$item->model->sale_price}}</p>
+                                            <p class="cart_total_price">
+                                                {{ $item->subtotal }}
+                                            </p>
                                         </td>
                                         <td class="cart_delete">
                                             <a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
@@ -81,7 +83,10 @@
                                     </tr>
                                     @endforeach
                                     @else
-                                    <p>У кошику ще немає товарів!</p>
+                                    <div class="alert alert-warning" role="alert" style="text-align: center;">
+                                        <p>У кошику немає товарів!</p>
+                                    </div>
+
                                     @endif
                                 </tbody>
 
