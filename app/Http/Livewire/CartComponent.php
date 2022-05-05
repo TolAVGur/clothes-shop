@@ -31,6 +31,12 @@ class CartComponent extends Component
         session()->flash('messqge', 'Вибраний товар видалено з кошика!');
     }
 
+    // метод очистки корзины
+    public function destroyAll() {
+        Cart::destroy();
+        //session()->flash('messqge', 'Всі обрані товари видалено з кошика!');
+    }
+
     public function render()
     {
         return view('livewire.cart-component')->layout('layouts.base');

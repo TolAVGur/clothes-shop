@@ -82,7 +82,7 @@
                                                 <i class="fa fa-times-circle"></i>
                                             </a>
                                         </td>
-                                        
+
                                     </tr>
                                     @endforeach
                                     @else
@@ -119,8 +119,12 @@
                                                     <a href="#" class="list-group-item list-group-item-action">Поштою по Україні</a>
                                                 </div>
                                             </td>
-                                            <td><p style="font-size: 18px;">{{ Cart::subtotal() }}</p></td>
-                                            <td><p style="font-size: 18px;">{{ Cart::tax() }}</p></td>
+                                            <td>
+                                                <p style="font-size: 18px;">{{ Cart::subtotal() }}</p>
+                                            </td>
+                                            <td>
+                                                <p style="font-size: 18px;">{{ Cart::tax() }}</p>
+                                            </td>
                                             <td>
                                                 <h1 style="color: #FE980F;"> {{ Cart::total() }} </h1>
                                             </td>
@@ -130,6 +134,9 @@
                                 <div class="col-md-12" style="padding-bottom: 2%;">
                                     <a href="#" class="btn btn-success pull-right">
                                         Замовити
+                                    </a>
+                                    <a href="#" class="btn btn-warning  pull-right" wire:click.prevent="destroyAll()">
+                                        Очистити
                                     </a>
                                 </div>
                             </div>
