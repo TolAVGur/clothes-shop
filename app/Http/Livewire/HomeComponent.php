@@ -18,7 +18,7 @@ class HomeComponent extends Component
     }
     public function render()
     {
-        $products = Product::inRandomOrder()->limit(6)->get(); // заглушка рандомно 6 товаров
+        $products = Product::inRandomOrder()->limit(4)->get(); // заглушка рандомно 4 товарa
         return view('livewire.home-component', [
             'products' => $products,
         ])->layout('layouts.base');
