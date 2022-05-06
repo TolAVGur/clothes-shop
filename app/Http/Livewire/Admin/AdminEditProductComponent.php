@@ -11,11 +11,11 @@ use Livewire\WithFileUploads;
 
 class AdminEditProductComponent extends Component
 {
-    /* 
+     
     use WithFileUploads;
 
     public $product_id, $name, $slug, $short_description, $description, $sizes, $sale_price, 
-    $discount, $sku, $stock_status, $featured, $quantity, $image, $images;
+    $discount, $sku, $stock_status, $featured, $quantity, $image, $images, $category_id, $brand_id;
 
     public function mount($product_id){
         $product = Product::where('id', $product_id)->first();
@@ -33,8 +33,8 @@ class AdminEditProductComponent extends Component
         $this->quantity = $product->quantity;
         $this->image = $product->image;
         $this->images = $product->images;
-       // $this->category_id = $product->category_id;
-       // $this->brand_id = $product->brand_id;
+        $this->category_id = $product->category_id;
+        $this->brand_id = $product->brand_id;
     }
 
     public function generate_slug() {
@@ -62,16 +62,20 @@ class AdminEditProductComponent extends Component
         }
         
         $product->images = $this->images;
-        //$product->category_id = $this->category_id;
-        //$product->brand_id = $this->brand_id;
+        $product->category_id = $this->category_id;
+        $product->brand_id = $this->brand_id;
         $product->save();
         session()->flash('message', 'Інформація про товар '.$this->name.' оновлена успішно!');
+        return redirect()->route('admin.products');
     }
-    */
+    
     public function render()
     {
-        return view(
-            'livewire.admin.admin-edit-product-component'
-        )->layout('layouts.base');
+        $categories = Category::all();
+        $brands = Brand::all();
+        return view('livewire.admin.admin-edit-product-component', [
+            'categories' => $categories,
+            'brands' => $brands
+        ])->layout('layouts.base');
     }
 }

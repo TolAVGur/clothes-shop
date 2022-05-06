@@ -20,31 +20,127 @@
                 </div>
                 <div class="panel-body">
 
-                    <!-- name -->
+                    <form class="form-horizontal" wire:submit.prevent="update_product">
+                        <!-- slug -->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label"></label>
+                            <div class="col-md-6">
+                                <input type="hidden" class="form-control" wire:model="slug">
+                            </div>
+                        </div>
 
-                    <!-- slug -->
+                        <!-- categories -->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">* Категорія: </label>
+                            <div class="col-md-6">
+                                <!-- ????? -->
+                                <select wire:model="category_id">
+                                    @foreach ( $categories as $category)
+                                    <option value="{{ $category->id }}">
+                                        {{ $category->name }}
+                                    </option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
 
-                    <!-- short_description -->
+                        <!-- brands -->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">* Бренд: </label>
+                            <div class="col-md-6">
+                                <select wire:model="brand_id">
+                                    @foreach ($brands as $brand)
+                                    <option value="{{ $brand->id }}">
+                                        {{ $brand->name }}
+                                    </option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
 
-                    <!-- description -->
+                        <!-- name -->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">* Назва: </label>
+                            <div class="col-md-6">
+                                <input type="text" placeholder="Введіть назву..." class="form-control input-md" wire:model="name" wire:keyup="generate_slug" required>
+                            </div>
+                        </div>
 
-                    <!-- sizes -->
+                        <!-- short_description -->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Коротке визначення: </label>
+                            <div class="col-md-6">
+                                <input type="text" placeholder="Введіть короткий опис..." class="form-control input-md" wire:model="short_description">
+                            </div>
+                        </div>
 
-                    <!-- sale_price -->
+                        <!-- description -->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">* Опис товару: </label>
+                            <div class="col-md-6">
+                                <textarea class="form-control input-md" rows="3" cols="20" wrap="hard" placeholder="Введіть опис товару..." wire:model="description" required></textarea>
+                            </div>
+                        </div>
 
-                    <!-- discount -->
+                        <!-- sizes -->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Розмір: </label>
+                            <div class="col-md-6">
+                                <input type="text" placeholder="{{$this->sku}}" class="form-control input-md" wire:model="sizes">
+                            </div>
+                        </div>
 
-                    <!-- sku -->
+                        <!-- sale_price -->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">* Ціна продажу: </label>
+                            <div class="col-md-6">
+                                <input type="text" placeholder="Введіть цiну..." class="form-control input-md" wire:model="sale_price" required>
+                            </div>
+                        </div>
 
-                    <!-- quantity -->
+                        <!-- discount -->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Знижка: </label>
+                            <div class="col-md-6">
+                                <input type="text" placeholder="" class="form-control input-md" wire:model="discount">
+                            </div>
+                        </div>
 
-                    <!-- image -->
+                        <!-- sku -->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">* Код товару: </label>
+                            <div class="col-md-6">
+                                <input type="text" placeholder="" class="form-control input-md" wire:model="sku" required>
+                            </div>
+                        </div>
 
-                    <!-- categories -->
+                        <!-- quantity -->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">* Кількість: </label>
+                            <div class="col-md-6">
+                                <input type="text" placeholder="Введіть код товару..." class="form-control input-md" wire:model="quantity" required>
+                            </div>
+                        </div>
 
-                    <!-- brands -->
+                        <!-- image -->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Зображення: </label>
+                            <div class="col-md-6">
+                                <input type="file" class="form-control" wire:model="image">
+                            </div>
+                        </div>
+                        <hr>
 
-                    <!-- submit -->
+                        <!-- submit -->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label"></label>
+                            <div class="col-md-4">
+                                <button type="submit" style="width: 100%;" class="btn btn-warning pull-right">Оновити</button>
+                            </div>
+                        </div>
+                    </form>
+
+
                 </div>
             </div>
         </div>
