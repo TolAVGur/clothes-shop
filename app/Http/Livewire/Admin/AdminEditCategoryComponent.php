@@ -30,7 +30,8 @@ class AdminEditCategoryComponent extends Component
         $category->name = $this->name;
         $category->slug = $this->slug;
         $category->save();
-        session()->flash('message', 'Категорія оновлена успішно!');
+        session()->flash('message', 'Категорія "'. $category->name.'" оновлено!');
+        return redirect()->route('admin.categories');
     }
 
     public function render()

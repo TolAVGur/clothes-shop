@@ -27,8 +27,7 @@ class AdminAddCategoryComponent extends Component
         $category->slug = $this->slug;
         $category->save();
         session()->flash('message', 'Категорія "'.$this->name.'" додана успішно!');
-        $this->name = "";
-        $this->slug = "";
+        return redirect()->route('admin.categories');
     }
 
     public function render()

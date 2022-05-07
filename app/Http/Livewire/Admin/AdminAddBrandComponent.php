@@ -16,8 +16,7 @@ class AdminAddBrandComponent extends Component
         $brand->country = $this->country;
         $brand->save();
         session()->flash('message', 'Бренд: "'.$this->name.', Країна: '.$this->country.' додан успішно!');
-        $this->name = "";
-        $this->country = "";
+        return redirect()->route('admin.brands');
     }
 
     public function render()

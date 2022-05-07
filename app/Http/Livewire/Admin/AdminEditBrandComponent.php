@@ -22,7 +22,8 @@ class AdminEditBrandComponent extends Component
         $brand->name = $this->name;
         $brand->country = $this->country;
         $brand->save();
-        session()->flash('message', 'Бренд оновлен успішно!');
+        session()->flash('message', 'Бренд "'.$this->name.'" оновлен успішно!');
+        return redirect()->route('admin.brands');
     }
 
     public function render()

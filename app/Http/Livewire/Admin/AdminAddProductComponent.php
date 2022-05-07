@@ -46,6 +46,7 @@ class AdminAddProductComponent extends Component
         $new_product->brand_id = $this->brand_id;
         $new_product->save();
         session()->flash('message', 'Товар "'.$this->name.'" додано успішно!');
+        return redirect()->route('admin.products');
     }
     
     public function render()

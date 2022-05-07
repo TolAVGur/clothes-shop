@@ -8,7 +8,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <div class="row">
-                        <div class="col-md-6"><h4>Бренд</h4></div>
+                        <div class="col-md-6"><h5>Зміна інформації про бренд</h5></div>
                         <div class="col-md-6">
                             <a href="{{ route('admin.brands')}}" class="btn btn-warning pull-right">
                                 До списку Брендів
