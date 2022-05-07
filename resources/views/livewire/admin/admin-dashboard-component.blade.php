@@ -5,18 +5,12 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <div class="panel panel-default">
+            <div class="panel panel-default" align="center">
                 <div class="panel-heading">
                     <h4>Панель управління</h4>
                 </div>
 
-                <div class="panel-body">
-
-                    @if (Session::has('message'))
-                    <div class="alert alert-warning" role="alert">
-                        {{ Session::get('message') }}
-                    </div>
-                    @endif
+                <div class="panel-body" style="margin-bottom: 250px;">
 
                     <table class="table-striped">
                         <thead>

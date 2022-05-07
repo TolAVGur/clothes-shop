@@ -31,7 +31,7 @@
                                 <th>Назва</th>
                                 <th>Код категорії</th>
                                 <th>Дата оновлення</th>
-                                <th>Управління</th>
+                                <th></th>
                             </tr>
                         </thead>
                         @foreach ($categories as $category)
@@ -40,7 +40,7 @@
                             <td>{{ $category->name }}</td>
                             <td>{{ $category->slug }}</td>
                             <td>{{ $category->updated_at }}</td>
-                            <td>
+                            <td align="right">
                                 <a href="{{ route('admin.editcategory', ['category_slug' => $category->slug]) }}">
                                     <i class="fa fa-edit fa-2x"></i>
                                 </a> |

@@ -39,7 +39,7 @@
                                 <th>Знижка</th>
                                 <th>Ціна</th>
                                 <th>Час оновлення</th>
-                                <th>Управління</th>
+                                <th></th>
                             </tr>
                         </thead>
                         @foreach ($products as $product)
@@ -72,7 +72,7 @@
                             <td>{{ $product->discount }}</td>
                             <td><b>{{ $product->sale_price }}</b></td>
                             <td>{{ $product->updated_at }}</td>
-                            <td>
+                            <td align="right">
                                 <a href="{{ route('admin.editproduct', ['product_id' => $product->id]) }}">
                                     <i class="fa fa-edit fa-2x"></i>
                                 </a> |

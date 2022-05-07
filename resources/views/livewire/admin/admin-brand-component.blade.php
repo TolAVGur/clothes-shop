@@ -31,7 +31,7 @@
                                 <th>Назва</th>
                                 <th>Страна виробник</th>
                                 <th>Дата оновлення</th>
-                                <th>Управління</th>
+                                <th></th>
                             </tr>
                         </thead>
                         @foreach ($brands as $brand)
@@ -40,7 +40,7 @@
                             <td>{{ $brand->name }}</td>
                             <td>{{ $brand->country }}</td>
                             <td>{{ $brand->updated_at }}</td>
-                            <td>
+                            <td align="right">
                             <a href="{{ route('admin.editbrand', ['brand_id' => $brand->id]) }}">
                                     <i class="fa fa-edit fa-2x"></i>
                                 </a> |
