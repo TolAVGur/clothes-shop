@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use App\Models\Product;
 use App\Models\Brand;
+use App\Models\Category;
 use Cart;
 
 class DetailsComponent extends Component
@@ -23,11 +24,13 @@ class DetailsComponent extends Component
 
     public function render()
     {
-        $brands = Brand::get();
+        $categories = Category::all();
+        $brands = Brand::all();
         $product = Product::where('slug', $this->slug)->first();
         return view('livewire.details-component', [
             'product' => $product,
             'brands' => $brands,
+            'categories' => $categories
             ])->layout('layouts.base');
     }
 }
