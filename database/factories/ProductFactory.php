@@ -19,17 +19,17 @@ class ProductFactory extends Factory
         return [
             'name' => $name,
             'slug' => $slug,
-            'short_description' => $this->faker->text(100),
-            'description' => $this->faker->text(500),
+            'short_description' => $this->faker->text(50),
+            'description' => $this->faker->text(100),
             'sizes' => $this->faker->words($nb=4, $asText=true),
-            'sale_price' => $this->faker->numberBetween(30,500),
+            'sale_price' => $this->faker->numberBetween(100,500),
             'discount'=> $this->faker->numberBetween(10, 30),
-            'SKU' => 'DIGI'.$this->faker->unique()->numberBetween(100,500),
+            'SKU' => 'No'.$this->faker->unique()->numberBetween(1,200),
             'stock_status' => 'instock',
-            'quantity' => $this->faker->numberBetween(10,100),
-            'image' => 'product'.$this->faker->unique()->numberBetween(7,12).'.jpg',
-            'category_id' => $this->faker->numberBetween(13,18),
-            'brand_id' => $this->faker->numberBetween(1,4),
+            'quantity' => $this->faker->numberBetween(1,10),
+            'image' => 'p'.$this->faker->unique()->numberBetween(1,15).'.jpg',
+            'category_id' => $this->faker->numberBetween(1,5),
+            'brand_id' => $this->faker->numberBetween(1,8),
         ];
     }
 }
