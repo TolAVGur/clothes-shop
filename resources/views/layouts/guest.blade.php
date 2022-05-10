@@ -1,30 +1,3 @@
-{{-- 
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
-
-        <title>{{ config('app.name', 'Laravel') }}</title>
-
-        <!-- Fonts -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
-
-        <!-- Styles -->
-        <link rel="stylesheet" href="{{ mix('css/app.css') }}">
-
-        <!-- Scripts -->
-        <script src="{{ mix('js/app.js') }}" defer></script>
-    </head>
-    <body>
-        <div class="font-sans text-gray-900 antialiased">
-            {{ $slot }}
-        </div>
-    </body>
-</html>
---}}
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -61,7 +34,7 @@
                         <div class="contactinfo">
                             <ul class="nav nav-pills">
                                 <li><a href="#"><i class="fa fa-phone"></i> +38 067 111-11-11</a></li>
-                                <li><a href="#"><i class="fa fa-envelope"></i> clothes.shop@domain.com</a></li>
+                                <li><a href="/contacts"><i class="fa fa-envelope"></i> clothes.shop@domain.com</a></li>
                             </ul>
                         </div>
                     </div>
@@ -93,11 +66,11 @@
                                 <!--<li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>-->
                                 <li><a href="/checkout"><i class="fa fa-crosshairs"></i> Замовлення</a></li>
                                 <li><a href="/cart"><i class="fa fa-shopping-cart"></i> Кошик</a></li>
-                                
+
                                 @if (Route::has('login'))
                                 @auth
                                 @if (Auth::user()->role_name === 'ADM')
-                                
+
                                 <li>
                                     <div class="btn-group pull-right">
                                         <div class="btn-group">
@@ -108,14 +81,13 @@
                                             </button>
                                             <ul class="dropdown-menu">
                                                 <li><a href="{{ route('admin.dashboard') }}"> Адмін панель</a></li>
-                                                <li><a href="{{ route('logout') }}"
-                                                        onclick="event.preventDefault(); 
-                                                        document.getElementById('logout-form').submit();" >
+                                                <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); 
+                                                        document.getElementById('logout-form').submit();">
                                                         Выйти
                                                     </a></li>
-                                                    <form id="logout-form" method="POST" action="{{ route('logout') }}">
-                                                        @csrf
-                                                    </form>
+                                                <form id="logout-form" method="POST" action="{{ route('logout') }}">
+                                                    @csrf
+                                                </form>
                                             </ul>
                                         </div>
                                     </div>
@@ -131,14 +103,13 @@
                                             </button>
                                             <ul class="dropdown-menu">
                                                 <li><a href="{{ route('user.dashboard') }}"></i>Кабінет користувача</a></li>
-                                                <li><a href="{{ route('logout') }}"
-                                                        onclick="event.preventDefault(); 
-                                                        document.getElementById('logout-form').submit();" >
+                                                <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); 
+                                                        document.getElementById('logout-form').submit();">
                                                         Выйти
                                                     </a></li>
-                                                    <form id="logout-form" method="POST" action="{{ route('logout') }}">
-                                                        @csrf
-                                                    </form>
+                                                <form id="logout-form" method="POST" action="{{ route('logout') }}">
+                                                    @csrf
+                                                </form>
                                             </ul>
                                         </div>
                                     </div>
@@ -171,7 +142,7 @@
                             </button>
                         </div>
                         <div class="mainmenu pull-right">
-                        <ul class="nav navbar-nav collapse navbar-collapse">
+                            <ul class="nav navbar-nav collapse navbar-collapse">
                                 <li><a href="/" class="active">Головна</a></li>
                                 <li><a href="/shop">Каталог</a></li>
                                 <li><a href="/contacts">Контакти</a></li>
@@ -273,8 +244,8 @@
                         <div class="single-widget">
                             <h2>Сервіс</h2>
                             <ul class="nav nav-pills nav-stacked">
-                                <li><a href="help.html">Допомога</a></li>
-                                <li><a href="contact-us.html">Зв'язатися з нами</a></li>
+                                <li><a href="/help">Допомога</a></li>
+                                <li><a href="/contacts">Зв'язатися з нами</a></li>
                                 <!--<li><a href="#">Order Status</a></li>-->
                             </ul>
                         </div>

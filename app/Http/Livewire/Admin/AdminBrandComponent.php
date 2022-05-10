@@ -18,7 +18,7 @@ class AdminBrandComponent extends Component
 
     public function render()
     {
-        $brands = Brand::orderBy('updated_at', 'DESC')->paginate(5);
+        $brands = Brand::orderBy('updated_at', 'DESC')->paginate(7);
 
         return view('livewire.admin.admin-brand-component', ['brands' => $brands])->layout('layouts.base');
     }

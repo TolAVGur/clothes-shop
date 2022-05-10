@@ -34,7 +34,7 @@
                         <div class="contactinfo">
                             <ul class="nav nav-pills">
                                 <li><a href="#"><i class="fa fa-phone"></i> +38 067 111-11-11</a></li>
-                                <li><a href="#"><i class="fa fa-envelope"></i> clothes.shop@domain.com</a></li>
+                                <li><a href="/contacts"><i class="fa fa-envelope"></i> clothes.shop@domain.com</a></li>
                             </ul>
                         </div>
                     </div>
@@ -89,9 +89,11 @@
                                             </button>
                                             <ul class="dropdown-menu">
                                                 <li><a href="{{ route('admin.dashboard') }}"> Адмін панель</a></li>
+                                                <hr>
                                                 <li><a href="{{ route('admin.categories') }}"> Управління Категоріями</a></li>
                                                 <li><a href="{{ route('admin.brands') }}"> Управління Брендами</a></li>
                                                 <li><a href="{{ route('admin.products') }}"> Управління Товарами</a></li>
+                                                <hr>
                                                 <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); 
                                                         document.getElementById('logout-form').submit();">
                                                         Вийти
@@ -114,6 +116,7 @@
                                             </button>
                                             <ul class="dropdown-menu">
                                                 <li><a href="{{ route('user.dashboard') }}"></i>Кабінет користувача</a></li>
+                                                <hr>
                                                 <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); 
                                                         document.getElementById('logout-form').submit();">
                                                         Вийти
@@ -254,8 +257,8 @@
                         <div class="single-widget">
                             <h2>Сервіс</h2>
                             <ul class="nav nav-pills nav-stacked">
-                                <li><a href="help.html">Допомога</a></li>
-                                <li><a href="contact-us.html">Зв'язатися з нами</a></li>
+                                <li><a href="/help">Допомога</a></li>
+                                <li><a href="/contacts">Зв'язатися з нами</a></li>
                                 <!--<li><a href="#">Order Status</a></li>-->
                             </ul>
                         </div>

@@ -18,7 +18,7 @@ class AdminCategoryComponent extends Component
 
     public function render()
     {
-        $categories = Category::orderBy('updated_at', 'DESC')->paginate(5);
+        $categories = Category::orderBy('updated_at', 'DESC')->paginate(7);
 
         return view('livewire.admin.admin-category-component', ['categories' => $categories])->layout('layouts.base');
     }
