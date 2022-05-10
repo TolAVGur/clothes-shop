@@ -16,40 +16,26 @@
             <!-- left-sidebar-->
             <div class="col-sm-3">
                 <div class="left-sidebar">
-                    <h2>Категорії</h2>
-                    <div class="panel-group category-products" id="accordian">
-                        <!-- category-products -->
+                    <!-- category-products -->
+                    <div class="panel-group category-products">
+                        <h2>Категорії</h2>
                         <div class="panel panel-default">
-                            @foreach ($categories as $ctgry)
+                            @foreach ($categories as $category)
                             <div class="panel-heading">
                                 <h4 class="panel-title">
-                                    <a data-toggle="collapse" data-parent="#accordian" href="#{{$ctgry->slug}}">
-                                        <span class="badge pull-right">
-                                            <i class="fa fa-plus"></i>
-                                        </span>
-                                        {{ $ctgry->name }}
+                                    <a href="#">
+                                        <span class="badge pull-right"><i class="fa fa-plus"></i></span>
+                                        {{ $category->name }}
                                     </a>
-                                    <div id="{{$ctgry->slug}}" class="panel-collapse collapse">
-                                        <div class="panel-body">
-                                            <ul>
-                                                @foreach ($brands as $brnd)
-                                                <li>
-                                                    <a href="#"> {{ $brnd->name }}</a>
-                                                </li>
-                                                @endforeach
-                                            </ul>
-                                        </div>
-                                    </div>
                                 </h4>
                             </div>
                             @endforeach
                         </div>
-
                     </div>
                     <!--/category-products-->
 
+                    <!--brands_products-->
                     <div class="brands_products">
-                        <!--brands_products-->
                         <h2>Бренди</h2>
                         <div class="brands-name">
                             <ul class="nav nav-pills nav-stacked">
@@ -66,11 +52,38 @@
             </div>
             <!--/left-sidebar-->
 
-
+            <!-- right-sidebar-->
             <div class="col-sm-9 padding-right">
+                <h2 class="title text-center">Каталог</h2>
+
+                <div class="row" style="margin-bottom: 24px;">
+                    <div class="col-sm-2">
+                        <p align="right"> Фільтрування: </p>
+                    </div>
+                    <div class="col-sm-3">
+                        <select name="orderby" class="use-chosen" wire:model="sorting">
+                            <option value="menu_order">за замовчуванням</option>
+                            <option value="date">за новизною</option>
+                            <option value="price">ціна: - до + </option>
+                            <option value="price-desc">ціна: + до - </option>
+                        </select>
+                    </div>
+                    <div class="col-sm-2">
+                        <select class="use-chosen" wire:model="pagesize">
+                            <option value="3" selected="selected">3 на сторінці</option>
+                            <option value="6">6 на сторінці</option>
+                            <option value="9">9 на сторінці</option>
+                            <option value="12">12 на сторінці</option>
+                            <option value="15">15 на сторінці</option>
+                            <option value="18">18 на сторінці</option>
+                            <option value="21">21 на сторінці</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!--end wrap shop control-->
                 <div class="features_items">
                     <!--features_items-->
-                    <h2 class="title text-center">Каталог</h2>
 
                     <div class="row">
                         @foreach ($products as $product)
@@ -126,6 +139,7 @@
                 </div>
                 <!--features_items-->
             </div>
+            <!-- /right-sidebar-->
         </div>
 
         <div class="recommended_items">
