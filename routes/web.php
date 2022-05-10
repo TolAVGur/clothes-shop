@@ -9,6 +9,8 @@ use App\Http\Livewire\HelppageComponent;
 use App\Http\Livewire\CartComponent;
 use App\Http\Livewire\CheckoutComponent;
 use App\Http\Livewire\DetailsComponent;
+use App\Http\Livewire\CategoryComponent;
+use App\Http\Livewire\BrandComponent;
 //
 use App\Http\Livewire\User\UserDashboardComponent;
 //
@@ -45,6 +47,8 @@ Route::get('/help', HelppageComponent::class);
 Route::get('/cart', CartComponent::class)->name('product.cart');
 Route::get('/checkout', CheckoutComponent::class);
 Route::get('/product/details{slug}', DetailsComponent::class)->name('product.details');
+Route::get('/product-category/{category_slug}', CategoryComponent::class)->name('product.category');
+Route::get('/product-brand/{brand_id}', BrandComponent::class)->name('product.brand');
 
 /*Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');

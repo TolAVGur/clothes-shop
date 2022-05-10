@@ -1,5 +1,5 @@
 @section('title')
-Каталог товарів
+Каталог
 @endsection
 
 <!-- рекламный баннер-->
@@ -54,7 +54,7 @@
 
             <!-- right-sidebar-->
             <div class="col-sm-9 padding-right">
-                <h2 class="title text-center">Каталог</h2>
+                <h2 class="title text-center">Категорія: {{ $category_name }}</h2>
 
                 <div class="row" style="margin-bottom: 24px;">
                     <div class="col-sm-2">
