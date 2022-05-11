@@ -95,7 +95,7 @@
 
                             </table>
 
-                            <p style="text-align: center; margin: 2px; background: #fcf8e3; color: #8a6d3b">Розрахунок доставки</p>
+                            <p style="text-align: center; margin: 2px; background: #F0F0E9; color: #8a6d3b">Розрахунок доставки</p>
                             <div class="table-responsive cart_info">
 
                                 <table class="table table-condensed">
@@ -107,17 +107,14 @@
                                             <td>Разом</td>
                                         </tr>
                                     </thead>
-                                    <tbody style="text-align: center; margin: 2px; background: #fcf8e3; color: #8a6d3b">
+                                    <tbody style="text-align: center; margin: 2px; background: #F0F0E9; color: #8a6d3b">
                                         <tr>
                                             <td>
-                                                <div class="list-group">
-                                                    {{--<a href="#" class="list-group-item list-group-item-action active" aria-current="true">
-                                                    The current link item
-                                                </a>--}}
-                                                    <a href="#" class="list-group-item list-group-item-action">Самовивіз</a>
-                                                    <a href="#" class="list-group-item list-group-item-action">Кур'єром по Києву</a>
-                                                    <a href="#" class="list-group-item list-group-item-action">Поштою по Україні</a>
-                                                </div>
+                                                <select>
+                                                    <option>Самовивіз</a></option>
+                                                    <option>Кур'єром по Києву</a></option>
+                                                    <option>Поштою по Україні</a></option>
+                                                </select>
                                             </td>
                                             <td>
                                                 <p style="font-size: 18px;">{{ Cart::subtotal() }}</p>
@@ -254,8 +251,6 @@
             </div>
         </div>
         <!--/recommended_items-->
-
-
     </div>
 </section>
 <!--/#do_action-->
