@@ -21,15 +21,15 @@ class ProductFactory extends Factory
             'slug' => $slug,
             'short_description' => $this->faker->text(50),
             'description' => $this->faker->text(100),
-            'sizes' => $this->faker->words($nb=4, $asText=true),
-            'sale_price' => $this->faker->numberBetween(100,500),
+            'sizes' => "S,L,M,XL",
+            'sale_price' => $this->faker->numberBetween(100,1000),
             'discount'=> $this->faker->numberBetween(10, 30),
-            'SKU' => 'No'.$this->faker->unique()->numberBetween(1,200),
+            'SKU' => 'No'.$this->faker->unique()->numberBetween(1,99),
             'stock_status' => 'instock',
             'quantity' => $this->faker->numberBetween(1,10),
-            'image' => 'p'.$this->faker->unique()->numberBetween(1,15).'.jpg',
+            'image' => 'p'.$this->faker->unique()->numberBetween(1,13).'.jpg',
             'category_id' => $this->faker->numberBetween(1,5),
-            'brand_id' => $this->faker->numberBetween(1,8),
+            'brand_id' => $this->faker->numberBetween(1,10),
         ];
     }
 }
