@@ -45,7 +45,7 @@ Route::get('/shop', ShopComponent::class);
 Route::get('/contacts', ContactsComponent::class);
 Route::get('/help', HelppageComponent::class);
 Route::get('/cart', CartComponent::class)->name('product.cart');
-Route::get('/checkout', CheckoutComponent::class);
+Route::get('/checkout', CheckoutComponent::class)->name('checkout');
 Route::get('/product/details{slug}', DetailsComponent::class)->name('product.details');
 Route::get('/product-category/{category_slug}', CategoryComponent::class)->name('product.category');
 Route::get('/product-brand/{brand_id}', BrandComponent::class)->name('product.brand');

@@ -28,10 +28,10 @@
                         </div>
                         @endif
 
-
                         <!-- cart_items -->
                         <div class="table-responsive cart_info">
                             <table class="table table-condensed">
+                                @if (Cart::count() > 0)
                                 <thead>
                                     <tr class="cart_menu">
                                         <td class="image">Виріб</td>
@@ -42,9 +42,7 @@
                                         <td></td>
                                     </tr>
                                 </thead>
-
                                 <tbody>
-                                    @if (Cart::count() > 0)
                                     @foreach (Cart::content() as $item)
                                     <tr>
                                         <td class="cart_product">
@@ -56,7 +54,6 @@
                                             <h4>{{ $item->model->name }}</h4>
                                             <hr>
                                             <span>
-                                                <p><b>Розмір: </b>{{ $item->model->sizes }}</p>
                                                 <p><b>Знижка: </b>{{ $item->model->discount }}</p>
                                                 <p>Код: {{ $item->model->SKU }}</p>
                                             </span>
@@ -82,64 +79,66 @@
                                                 <i class="fa fa-times-circle"></i>
                                             </a>
                                         </td>
-
                                     </tr>
                                     @endforeach
-                                    @else
-                                    <div class="alert alert-warning" role="alert" style="text-align: center;">
-                                        <p>У кошику немає товарів!</p>
+
+                                    <div class="shopper-informations">
+                                        <div class="table-responsive cart_info">
+                                            <table class="table table-condensed">
+                                                <thead align="center">
+                                                    <tr class="cart_menu">
+                                                        <td>Спосіб доставки</td>
+                                                        <td>Вміст у кошику</td>
+                                                        <td>Вартість доставки</td>
+                                                        <td>Разом</td>
+                                                    </tr>
+                                                </thead>
+                                                <tbody style="text-align: center; margin: 2px; background: #f5f5f5; color: #8a6d3b">
+                                                    <tr>
+                                                        <td>
+                                                            <select>
+                                                                <option>Самовивіз</a></option>
+                                                                <option>Кур'єром по Києву</a></option>
+                                                                <option>Поштою по Україні</a></option>
+                                                            </select>
+                                                        </td>
+                                                        <td>
+                                                            <p style="font-size: 18px;">{{ Cart::subtotal() }}</p>
+                                                        </td>
+                                                        <td>
+                                                            <p style="font-size: 18px;">{{ Cart::tax() }}</p>
+                                                        </td>
+                                                        <td>
+                                                            <h1 style="color: #FE980F;"> {{ Cart::total() }} </h1>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <div class="col-md-12" style="padding-bottom: 2%;">
+                                                <a href="#" class="btn btn-success pull-right">
+                                                    Замовити
+                                                </a>
+                                                <a href="#" class="btn btn-warning  pull-right" wire:click.prevent="destroyAll()">
+                                                    Очистити
+                                                </a>
+                                            </div>
+                                        </div>
                                     </div>
-
-                                    @endif
                                 </tbody>
-
-                            </table>
-
-                            <p style="text-align: center; margin: 2px; background: #F0F0E9; color: #8a6d3b">Розрахунок доставки</p>
-                            <div class="table-responsive cart_info">
-
-                                <table class="table table-condensed">
-                                    <thead align="center">
-                                        <tr class="cart_menu">
-                                            <td>Спосіб доставки</td>
-                                            <td>Вміст у кошику</td>
-                                            <td>Вартість доставки</td>
-                                            <td>Разом</td>
-                                        </tr>
-                                    </thead>
-                                    <tbody style="text-align: center; margin: 2px; background: #F0F0E9; color: #8a6d3b">
-                                        <tr>
-                                            <td>
-                                                <select>
-                                                    <option>Самовивіз</a></option>
-                                                    <option>Кур'єром по Києву</a></option>
-                                                    <option>Поштою по Україні</a></option>
-                                                </select>
-                                            </td>
-                                            <td>
-                                                <p style="font-size: 18px;">{{ Cart::subtotal() }}</p>
-                                            </td>
-                                            <td>
-                                                <p style="font-size: 18px;">{{ Cart::tax() }}</p>
-                                            </td>
-                                            <td>
-                                                <h1 style="color: #FE980F;"> {{ Cart::total() }} </h1>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                <div class="col-md-12" style="padding-bottom: 2%;">
-                                    <a href="#" class="btn btn-success pull-right">
-                                        Замовити
+                                @else
+                                <div class="alert alert-warning" role="alert" style="text-align: center;">
+                                    <h3>У кошику ще немає товарів!</h3>
+                                    <p>Щоб замовити товар або кілька товарів, додайте їх в кошик.</p>
+                                    <br><br>
+                                    <a href="/shop" class="btn btn-warning">
+                                        Перейти до вибору товара
                                     </a>
-                                    <a href="#" class="btn btn-warning  pull-right" wire:click.prevent="destroyAll()">
-                                        Очистити
-                                    </a>
+                                    <br><br>
                                 </div>
-                            </div>
+                                @endif
+                            </table>
                         </div>
                         <!-- /cart_items -->
-
                     </div>
                 </div>
             </div>
