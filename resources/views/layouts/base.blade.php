@@ -67,9 +67,9 @@
                                 <li><a href="/checkout"><i class="fa fa-crosshairs"></i> Замовлення</a></li>
                                 <li><a href="/cart">
                                         <i class="fa fa-shopping-cart"></i> Кошик
-                                        @if (Cart::count() > 0)
+                                        @if (Cart::instance('cart')->count() > 0)
                                         <span style="color: darkorange;">
-                                            ( {{ Cart::count() }} )
+                                            ( {{ Cart::instance('cart')->count() }} )
                                         </span>
                                         @endif
                                     </a>

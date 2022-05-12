@@ -11,27 +11,26 @@
                     <div class="panel-heading">
                         <div class="row">
                             <div class="col-md-6">
-                                <h4>Кошик</h4>
+                                <h1 style="color: #8a6d3b">Кошик</h1>
                             </div>
                             <div class="col-md-6">
-                                <a href="/shop" class="btn btn-warning pull-right">
+                                <a href="/shop" class="btn btn-warning pull-right" style="margin-top: 20px;">
                                     Продовжити вибір
                                 </a>
                             </div>
                         </div>
                     </div>
                     <div class="panel-body">
-
-                        @if (Session::has('message'))
-                        <div class="alert alert-warning" role="alert">
-                            {{ Session::get('message') }}
-                        </div>
-                        @endif
-
+                        @if (Cart::instance('cart')->count() > 0)
                         <!-- cart_items -->
                         <div class="table-responsive cart_info">
+                            @if (Session::has('message'))
+                            <div class="alert alert-warning" role="alert">
+                                {{ Session::get('message') }}
+                            </div>
+                            @endif
+                            @if (Cart::instance('cart')->count() > 0)
                             <table class="table table-condensed">
-                                @if (Cart::count() > 0)
                                 <thead>
                                     <tr class="cart_menu">
                                         <td class="image">Виріб</td>
@@ -43,7 +42,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach (Cart::content() as $item)
+                                    @foreach (Cart::instance('cart')->content() as $item)
                                     <tr>
                                         <td class="cart_product">
                                             <a href="{{ route('product.details', ['slug' => $item->model->slug]) }}">
@@ -89,17 +88,17 @@
                                                     <tr class="cart_menu">
                                                         <td>Спосіб доставки</td>
                                                         <td>Вміст у кошику</td>
-                                                        <td>Вартість доставки</td>
+                                                        <td>Вартість доставки/налог</td>
                                                         <td>Разом</td>
                                                     </tr>
                                                 </thead>
                                                 <tbody style="text-align: center; margin: 2px; background: #f5f5f5; color: #8a6d3b">
                                                     <tr>
                                                         <td>
-                                                            <select>
-                                                                <option>Самовивіз</a></option>
-                                                                <option>Кур'єром по Києву</a></option>
-                                                                <option>Поштою по Україні</a></option>
+                                                            <select wire:model="checkshipping">
+                                                                <option value="selfpickup">Самовивіз</a></option>
+                                                                <option value="courier_kiev">Кур'єром по Києву</a></option>
+                                                                <option value="across_ukr">Поштою по Україні</a></option>
                                                             </select>
                                                         </td>
                                                         <td>
@@ -115,7 +114,7 @@
                                                 </tbody>
                                             </table>
                                             <div class="col-md-12" style="padding-bottom: 2%;">
-                                                <a href="#" class="btn btn-success pull-right">
+                                                <a href="#" class="btn btn-success pull-right" wire:click.prevent="checkout()">
                                                     Замовити
                                                 </a>
                                                 <a href="#" class="btn btn-warning  pull-right" wire:click.prevent="destroyAll()">
@@ -125,26 +124,30 @@
                                         </div>
                                     </div>
                                 </tbody>
-                                @else
-                                <div class="alert alert-warning" role="alert" style="text-align: center;">
-                                    <h3>У кошику ще немає товарів!</h3>
-                                    <p>Щоб замовити товар або кілька товарів, додайте їх в кошик.</p>
-                                    <br><br>
-                                    <a href="/shop" class="btn btn-warning">
-                                        Перейти до вибору товара
-                                    </a>
-                                    <br><br>
-                                </div>
-                                @endif
                             </table>
+                            @else
+                            <div class="alert alert-warning" role="alert" style="text-align: center;">
+                                <p>У кошику ще немає товарів!</p>
+                            </div>
+                            @endif
+                            <!-- /cart_items -->
                         </div>
-                        <!-- /cart_items -->
+                        @else
+                        <div class="alert alert-warning" role="alert" style="text-align: center;">
+                            <h3>У кошику немає товарів!</h3>
+                            <p>Щоб замовити товар або кілька товарів, додайте їх в кошик.</p>
+                            <br><br>
+                            <a href="/shop" class="btn btn-warning">
+                                Перейти до вибору товара
+                            </a>
+                            <br><br>
+                        </div>
+                        @endif
                     </div>
                 </div>
             </div>
+            <!-- / -->
         </div>
-        <!-- / -->
-    </div>
 </section>
 
 

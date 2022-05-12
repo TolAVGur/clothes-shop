@@ -11,10 +11,10 @@
                     <div class="panel-heading">
                         <div class="row">
                             <div class="col-md-6">
-                                <h4>Оформлення замовлення</h4>
+                                <h1 style="color: #8a6d3b">Оформлення замовлення</h1>
                             </div>
                             <div class="col-md-6">
-                                <a href="/shop" class="btn btn-warning pull-right">
+                                <a href="/shop" class="btn btn-warning pull-right" style="margin-top: 20px;">
                                     Продовжити вибір
                                 </a>
                             </div>
@@ -43,7 +43,7 @@
                                 </thead>
 
                                 <tbody>
-                                    @if (Cart::count() > 0)
+                                    @if (Cart::instance('cart')->count() > 0)
                                     @foreach (Cart::content() as $item)
                                     <tr>
                                         <td class="cart_product">
@@ -75,18 +75,17 @@
                                                 <i class="fa fa-times-circle"></i>
                                             </a>
                                         </td>
-
                                     </tr>
                                     @endforeach
                                     @else
                                     <div class="alert alert-warning" role="alert" style="text-align: center;">
-                                        <h3>У кошику немає товарів!</h3>
+                                        <h4>Ви не вибрали товари для замовлення</h4>
                                     </div>
-
                                     @endif
                                 </tbody>
                             </table>
 
+                            <!-- доставка -->
                             <div class="shopper-informations">
                                 <p style="text-align: center; margin: 2px; background: #f5f5f5; color: #8a6d3b">Вибір доставки</p>
                                 <div class="table-responsive cart_info">
@@ -103,10 +102,10 @@
                                         <tbody style="text-align: center; margin: 2px; background: #f5f5f5; color: #8a6d3b">
                                             <tr>
                                                 <td>
-                                                    <select>
-                                                        <option>Самовивіз</a></option>
-                                                        <option>Кур'єром по Києву</a></option>
-                                                        <option>Поштою по Україні</a></option>
+                                                    <select wire:model="checkshipping">
+                                                        <option value="selfpickup">Самовивіз</a></option>
+                                                        <option value="courier_kiev">Кур'єром по Києву</a></option>
+                                                        <option value="across_ukr">Поштою по Україні</a></option>
                                                     </select>
                                                 </td>
                                                 <td>
@@ -134,6 +133,7 @@
                                                 </div>
                                                 <div class="form-two">
                                                     <form>
+                                                        @if ($checkshipping == 'across_ukr')
                                                         <input type="text" placeholder="Поштовий індекс">
                                                         <select>
                                                             <option>-- Місто --</option>
@@ -147,13 +147,33 @@
                                                             <option>Вишгород</option>
                                                         </select>
                                                         <input type="text" placeholder="Адреса *">
+                                                        @elseif ($checkshipping == 'courier_kiev')
+                                                        <input type="text" placeholder="Поштовий індекс">
+                                                        <select>
+                                                            <option>-- Місто --</option>
+                                                            <option>Київ</option>
+                                                            <option>Одеса</option>
+                                                            <option>Дніпро</option>
+                                                            <option>Харків</option>
+                                                            <option>Брвари</option>
+                                                            <option>Львів</option>
+                                                            <option>Переслів</option>
+                                                            <option>Вишгород</option>
+                                                        </select>
+                                                        <input type="text" placeholder="Адреса *">
+                                                        @else
+                                                        <div style="color: #8a6d3b; background: #F0F0E9; padding: 14px; text-align: center">
+                                                        <h4>Точка видачи замовлень:</h4>
+                                                            <p>02222 Україна,<br>Київ, вул.Вулична, б.1, пов-1</p>
+                                                        </div>
+                                                        @endif
                                                     </form>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-sm-4">
+                                        <div class="col-sm-4"> 
                                             <div class="order-message">
-                                                <textarea name="message" placeholder="Примітки до замовлення. Особливі вимоги до доставки..."></textarea>
+                                                <textarea name="message" placeholder="Примітки до замовлення..."></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -167,6 +187,7 @@
                                     </div>
                                 </div>
                             </div>
+                            <!-- /доставка -->
 
                         </div>
 

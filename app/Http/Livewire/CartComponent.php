@@ -9,34 +9,33 @@ use Illuminate\Support\Facades\Auth;
 
 class CartComponent extends Component
 {
-
     // метод добавления единицы товара
     public function increaseQuantity($rowId)
     {
-        $product = Cart::get($rowId);
+        $product = Cart::instance('cart')->get($rowId);
         $qty = $product->qty + 1;
-        Cart::update($rowId, $qty);
+        Cart::instance('cart')->update($rowId, $qty);
     }
 
     // метод вычтиания единицы товара
     public function decreaseQuantity($rowId)
     {
-        $product = Cart::get($rowId);
+        $product = Cart::instance('cart')->get($rowId);
         $qty = $product->qty - 1;
-        Cart::update($rowId, $qty);
+        Cart::instance('cart')->update($rowId, $qty);
     }
 
     // метод удаления отдельного товара в корзине
     public function destroy($rowId)
     {
-        Cart::remove($rowId);
+        Cart::instance('cart')->remove($rowId);
         session()->flash('messqge', 'Вибраний товар видалено з кошика!');
     }
 
     // метод очистки корзины
     public function destroyAll()
     {
-        Cart::destroy();
+        Cart::instance('cart')->destroy();
     }
 
     // переход на стр заказа с аутентификацией
@@ -49,8 +48,19 @@ class CartComponent extends Component
         }
     }
 
+    // считать доставку
+    public $checkshipping; // проверка доставки
+    //public $selfpickup = 0;
+    public function choiceOfDelivery()
+    {
+        if ($this->checkshipping == 'across_ukr') {
+        } else if ($this->checkshipping == 'courier_kiev') {
+        } else {
+        }
+    }
+
     // пересчет стоимости для оформления
-    /*public function setAmountForCheckout()
+    public function setAmountForCheckout()
     {
         if (session()->has('coupon')) {
             session()->put('checkout', [
@@ -67,7 +77,7 @@ class CartComponent extends Component
                 'total' => Cart::instance('cart')->total()
             ]);
         }
-    }*/
+    }
 
     public function render()
     {
