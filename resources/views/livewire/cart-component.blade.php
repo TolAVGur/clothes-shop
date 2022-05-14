@@ -4,17 +4,16 @@
 
 <section id="cart_items">
     <div class="container">
-
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <div class="row">
                             <div class="col-md-6">
-                                <h1 style="color: #8a6d3b">Кошик</h1>
+                                <h3 style="color: #8a6d3b">Кошик</h3>
                             </div>
                             <div class="col-md-6">
-                                <a href="/shop" class="btn btn-warning pull-right" style="margin-top: 20px;">
+                                <a href="/shop" class="btn btn-warning pull-right" style="margin-top: 10px;">
                                     Продовжити вибір
                                 </a>
                             </div>
@@ -105,7 +104,7 @@
                                                             <p style="font-size: 18px;">{{ Cart::subtotal() }}</p>
                                                         </td>
                                                         <td>
-                                                            <p style="font-size: 18px;">{{ Cart::tax() }}</p>
+                                                            <p style="font-size: 18px;">{{-- Cart::tax() --}}</p>
                                                         </td>
                                                         <td>
                                                             <h1 style="color: #FE980F;"> {{ Cart::total() }} </h1>

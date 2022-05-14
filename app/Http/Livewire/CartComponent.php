@@ -48,20 +48,26 @@ class CartComponent extends Component
         }
     }
 
-    // считать доставку
+    // считать доставку ----------------------------------------------------------------- ??????
     public $checkshipping; // проверка доставки
-    //public $selfpickup = 0;
-    public function choiceOfDelivery()
+    public $selfpickup = 0;
+    public function setAmountForDelivery()
     {
-        if ($this->checkshipping == 'across_ukr') {
+        /*if ($this->checkshipping == 'across_ukr') {            
         } else if ($this->checkshipping == 'courier_kiev') {
         } else {
-        }
+        }*/
     }
 
     // пересчет стоимости для оформления
     public function setAmountForCheckout()
     {
+        //
+        if (!Cart::instance('cart')->count() > 0) {
+            session()->forget('checkout');
+            return;
+        }
+
         if (session()->has('coupon')) {
             session()->put('checkout', [
                 'discount' => $this->discount,
@@ -81,7 +87,7 @@ class CartComponent extends Component
 
     public function render()
     {
-        //$this->setAmountForCheckout();
+        $this->setAmountForCheckout();
         return view('livewire.cart-component')->layout('layouts.base');
     }
 }

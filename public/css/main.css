@@ -1898,8 +1898,8 @@ h2.title {
 
 
 .form-two, .form-one {
-  float: left;
-  width: 47%
+  /*float: left;*/
+  width: 100%;
 }
 
 
@@ -1920,7 +1920,7 @@ h2.title {
 }
 
 .form-two {
-  margin-left: 5%
+  /*margin-left: 5%*/
 }
 
 
@@ -2576,3 +2576,19 @@ svg {
   margin-left: 5px;
 }
 
+.my-form-shipping-info select, input {
+  width: 100%;
+  background: #F0F0E9;
+  /*border: 1px solid silver;*/
+  border: 0 none;
+  margin-bottom: 10px;
+  padding: 10px;
+  font-weight: 300;
+}
+
+.my-header-for-shipping {
+  text-align: left;
+  color: #8a6d3b;
+  margin: 0px;
+  background: #F0F0E9;
+}

@@ -11,193 +11,269 @@
                     <div class="panel-heading">
                         <div class="row">
                             <div class="col-md-6">
-                                <h1 style="color: #8a6d3b">Оформлення замовлення</h1>
+                                <h3 style="color: #8a6d3b">Оформлення замовлення</h3>
                             </div>
                             <div class="col-md-6">
-                                <a href="/shop" class="btn btn-warning pull-right" style="margin-top: 20px;">
-                                    Продовжити вибір
+                                <a href="/shop" class="btn btn-warning pull-right" style="margin-top: 10px;">
+                                    Продовжити вибір товарів
                                 </a>
                             </div>
                         </div>
                     </div>
                     <div class="panel-body">
-
-                        @if (Session::has('message'))
-                        <div class="alert alert-warning" role="alert">
-                            {{ Session::get('message') }}
-                        </div>
-                        @endif
-
+                        @if (Cart::instance('cart')->count() > 0)
                         <!-- cart_items -->
-                        <div class="table-responsive cart_info">
-                            <table class="table table-condensed">
-                                <thead>
-                                    <tr class="cart_menu">
-                                        <td class="image">Виріб</td>
-                                        <td class="description"></td>
-                                        <td class="price">Ціна</td>
-                                        <td class="quantity">Кількість</td>
-                                        <td class="total">Усього</td>
-                                        <td></td>
+                        <form wire:prevent='placeOrder'>
+                            <table class="table-striped" width="100%">
+                                <thead class="my-header-for-shipping">
+                                    <tr>
+                                        <td><b>Список товарів в замовленні</b></td>
+                                        <td><b>Ціна</b></td>
+                                        <td><b>Кількість</b></td>
+                                        <td><b>Усього</b></td>
                                     </tr>
                                 </thead>
-
                                 <tbody>
-                                    @if (Cart::instance('cart')->count() > 0)
-                                    @foreach (Cart::content() as $item)
+                                    @foreach (Cart::instance('cart')->content() as $item)
                                     <tr>
-                                        <td class="cart_product">
-                                            <a href="{{ route('product.details', ['slug' => $item->model->slug]) }}">
-                                                <img src="{{ asset('storage/images/shop') }}/{{$item->model->image}}" alt="{{$item->model->name}}">
-                                            </a>
+                                        <td>
+                                            <p>{{ $item->model->name }}</p>
                                         </td>
                                         <td>
-                                            <h4>{{ $item->model->name }}</h4>
-                                            <hr>
-                                        </td>
-                                        <td class="cart_price">
                                             <p>{{$item->model->sale_price}}</p>
                                         </td>
-                                        <td class="cart_quantity">
-                                            <div class="cart_quantity_button">
-                                                <a class="cart_quantity_up" href="#" wire:click.prevent="increaseQuantity('{{$item->rowId}}')"> + </a>
-                                                <input class="cart_quantity_input" type="text" name="quantity" value="{{$item->qty}}" autocomplete="off" size="2">
-                                                <a class="cart_quantity_down" href="#" wire:click.prevent="decreaseQuantity('{{$item->rowId}}')"> - </a>
-                                            </div>
+                                        <td>
+                                            <p>{{$item->qty}}</p>
                                         </td>
-                                        <td class="cart_total">
-                                            <p class="cart_total_price">
-                                                {{ $item->subtotal }}
-                                            </p>
-                                        </td>
-                                        <td class="cart_delete">
-                                            <a class="cart_quantity_delete" href="#" wire:click.prevent="destroy('{{$item->rowId}}')">
-                                                <i class="fa fa-times-circle"></i>
-                                            </a>
+                                        <td>
+                                            <p>{{ $item->subtotal }}</p>
                                         </td>
                                     </tr>
                                     @endforeach
-                                    @else
-                                    <div class="alert alert-warning" role="alert" style="text-align: center;">
-                                        <h4>Ви не вибрали товари для замовлення</h4>
-                                    </div>
-                                    @endif
                                 </tbody>
                             </table>
+                            <div style="text-align: right; margin-right: 50px;">
+                                <p style="font-size: 16px;"><em>Сума у ​​кошику: </em><b>{{ Cart::subtotal() }}</b></p>
+                            </div>
+                            <!-- доставка/оплата -->
+                            <div class="my-form-shipping-info row">
+                                <div class="col-md-4">
+                                    <div>
+                                        <p class="my-header-for-shipping" style="background: none;">Оплата:</p>
+                                        <select wire:model="paymentmode">
+                                            <option value="cod">Готівкою</a></option>
+                                            <option value="card">Платіжною карткою</a></option>
+                                            <option value="paypal"></a>Післяплатою</option>
+                                        </select>
+                                    </div>
+<!-- ЗАВЕСТИ В ИНПУТЫ ИНФУ ЮЗЕРА -->
+                                    <input type="text" placeholder="ПІБ *" required wire:model="name">
+                                    @error('name')
+                                    <soan class="text-denger">{{ $message }}</soan>
+                                    @enderror
+                                    <input type="text" placeholder="Email *" required wire:model="email">
+                                    @error('email')
+                                    <soan class="text-denger">{{ $message }}</soan>
+                                    @enderror
+                                    <input type="text" placeholder="Телефон *" required wire:model="phone">
+                                    @error('phone')
+                                    <soan class="text-denger">{{ $message }}</soan>
+                                    @enderror
+                                </div>
+                                <div class="col-md-4">
+                                    <div>
+                                        <p class="my-header-for-shipping" style="background: none;">Доставка:</p>
+                                        <select wire:model="shippingchoice">
+                                            <option value="selfpickup">Самовивіз</a></option>
+                                            <option value="courier_kiev">Кур'єром по Києву</a></option>
+                                            <option value="across_ukr">Поштою по Україні</a></option>
+                                        </select>
+                                    </div>
 
-                            <!-- доставка -->
-                            <div class="shopper-informations">
-                                <p style="text-align: center; margin: 2px; background: #f5f5f5; color: #8a6d3b">Вибір доставки</p>
-                                <div class="table-responsive cart_info">
-
-                                    <table class="table table-condensed">
-                                        <thead align="center">
-                                            <tr class="cart_menu">
-                                                <td>Спосіб доставки</td>
-                                                <td>Вміст у кошику</td>
-                                                <td>Вартість доставки</td>
-                                                <td>Разом</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody style="text-align: center; margin: 2px; background: #f5f5f5; color: #8a6d3b">
+                                    @if ($shippingchoice == 'across_ukr')
+                                    <input type="text" placeholder="Поштовий індекс" required wire:model="zipcode">
+                                    <select wire:model="city">
+                                        <option value="Kиїв">Київ</option>
+                                        <option value="Одеса">Одеса</option>
+                                        <option value="Дніпро">Дніпро</option>
+                                        <option value="Харків">Харків</option>
+                                        <option value="Львів">Львів</option>
+                                    </select>
+                                    <input type="text" placeholder="Адреса *" required wire:model="adress">
+                                    @error('address')
+                                    <soan class="text-denger">{{ $message }}</soan>
+                                    @enderror
+                                    @elseif ($shippingchoice == 'courier_kiev')
+                                    <input type="text" placeholder="Індекс: 02222 Україна" readonly wire:model="zipcode" value="02222">
+                                    <select wire:model="city">
+                                        <option value="Kиїв">Київ</option>
+                                    </select>
+                                    <input type="text" placeholder="Адреса *" required wire:model="adress">
+                                    @error('address')
+                                    <soan class="text-denger">{{ $message }}</soan>
+                                    @enderror
+                                    @else
+                                    <div style="text-align: center; padding:20px; background: #F0F0E9; height: 140px; font-size:14pt; border: 1px solid silver;">
+                                        <p>Видача замовлень:</p>
+                                        <em>
+                                            <p>02222 Україна,<br>Київ, вул.Вулична, б.1, пов-1</p>
+                                        </em>
+                                    </div>
+                                    @endif
+                                </div>
+                                <div class="col-md-4">
+                                    <div style="margin-top: 20px; margin-bottom: 10px">
+                                        <textarea name="message" placeholder="Примітки до замовлення..." rows="4" wire:model="notes_text"></textarea>
+                                    </div>
+                                    <table class="table-striped" width="100%">
+                                        <thead style="text-align: center; color: #8a6d3b;">
                                             <tr>
-                                                <td>
-                                                    <select wire:model="checkshipping">
-                                                        <option value="selfpickup">Самовивіз</a></option>
-                                                        <option value="courier_kiev">Кур'єром по Києву</a></option>
-                                                        <option value="across_ukr">Поштою по Україні</a></option>
-                                                    </select>
-                                                </td>
-                                                <td>
-                                                    <p style="font-size: 18px;">{{ Cart::subtotal() }}</p>
-                                                </td>
-                                                <td>
-                                                    <p style="font-size: 18px;">{{ Cart::tax() }}</p>
-                                                </td>
-                                                <td>
-                                                    <h1 style="color: #FE980F;"> {{ Cart::total() }} </h1>
-                                                </td>
+                                                <td><em>Вартість доставки</em></td>
+                                                <td><em>Разом</em></td>
                                             </tr>
+                                        <tbody style="text-align: center; color: #8a6d3b">
+                                            <td>
+                                                <p style="font-size: 18px;">{{ Cart::tax() }}</p>
+                                            </td>
+                                            <td>
+                                                <h2 style="color: #FE980F;"> {{ Session::get('checkout')['total'] }}</h2>
+                                            </td>
                                         </tbody>
+                                        </thead>
                                     </table>
-                                    <div class="row">
-                                        <div class="col-sm-8 clearfix">
-                                            <div class="bill-to">
-                                                <div class="form-one">
-                                                    <form>
-                                                        <input type="text" placeholder="ПІБ *">
-                                                        <input type="text" placeholder="Email *">
-                                                        <input type="text" placeholder="Телефон *">
-
-                                                    </form>
-                                                </div>
-                                                <div class="form-two">
-                                                    <form>
-                                                        @if ($checkshipping == 'across_ukr')
-                                                        <input type="text" placeholder="Поштовий індекс">
-                                                        <select>
-                                                            <option>-- Місто --</option>
-                                                            <option>Київ</option>
-                                                            <option>Одеса</option>
-                                                            <option>Дніпро</option>
-                                                            <option>Харків</option>
-                                                            <option>Брвари</option>
-                                                            <option>Львів</option>
-                                                            <option>Переслів</option>
-                                                            <option>Вишгород</option>
-                                                        </select>
-                                                        <input type="text" placeholder="Адреса *">
-                                                        @elseif ($checkshipping == 'courier_kiev')
-                                                        <input type="text" placeholder="Поштовий індекс">
-                                                        <select>
-                                                            <option>-- Місто --</option>
-                                                            <option>Київ</option>
-                                                            <option>Одеса</option>
-                                                            <option>Дніпро</option>
-                                                            <option>Харків</option>
-                                                            <option>Брвари</option>
-                                                            <option>Львів</option>
-                                                            <option>Переслів</option>
-                                                            <option>Вишгород</option>
-                                                        </select>
-                                                        <input type="text" placeholder="Адреса *">
-                                                        @else
-                                                        <div style="color: #8a6d3b; background: #F0F0E9; padding: 14px; text-align: center">
-                                                        <h4>Точка видачи замовлень:</h4>
-                                                            <p>02222 Україна,<br>Київ, вул.Вулична, б.1, пов-1</p>
-                                                        </div>
-                                                        @endif
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4"> 
-                                            <div class="order-message">
-                                                <textarea name="message" placeholder="Примітки до замовлення..."></textarea>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12" style="padding-bottom: 2%;">
-                                        <a href="#" class="btn btn-success pull-right">
-                                            Замовити
-                                        </a>
-                                        <a href="#" class="btn btn-warning  pull-right" wire:click.prevent="destroyAll()">
-                                            Очистити
-                                        </a>
-                                    </div>
                                 </div>
                             </div>
-                            <!-- /доставка -->
-
-                        </div>
-
+                            <!-- /доставка/оплата -->
+                            <div class="col-md-12" style="padding-bottom: 2%;">
+                                <!-- ??  создать заказ и отправить на стр благодарности -->
+                                @if(Session::has('checkout'))
+                                <button type="submit" class="btn btn-success pull-right"> Замовити </button>
+                                @endif
+                                <a href="#" class="btn btn-warning  pull-right">До кошику</a>
+                            </div>
+                        </form>
                     </div>
                     <!-- /cart_items -->
-
+                    @else
+                    <div class="alert alert-warning" role="alert" style="text-align: center;">
+                        <h3>В кошику ще немає товарів для замовлення</h3>
+                        <p>Щоб замовити товар або кілька товарів, додайте їх в кошик.</p>
+                        <br><br>
+                        <a href="/shop" class="btn btn-warning">
+                            Перейти до вибору товарів
+                        </a>
+                        <br><br>
+                    </div>
+                    @endif
                 </div>
             </div>
         </div>
     </div>
+    </div>
     <!-- / -->
     </div>
 </section>
+
+<section id="do_action">
+    <div class="container">
+        <div class="recommended_items">
+            <!--recommended_items-->
+            <h2 class="title text-center">рекомендовані товари</h2>
+
+            <div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <div class="col-sm-4">
+                            <div class="product-image-wrapper">
+                                <div class="single-products">
+                                    <div class="productinfo text-center">
+                                        <img src="{{ asset('storage/images/home/recommend1.jpg') }}" alt="" />
+                                        <h2>500 грн</h2>
+                                        <p>Опис виробу</p>
+                                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i> Додати в кошик</a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="product-image-wrapper">
+                                <div class="single-products">
+                                    <div class="productinfo text-center">
+                                        <img src="{{ asset('storage/images/home/recommend2.jpg') }}" alt="" />
+                                        <h2>500 грн</h2>
+                                        <p>Опис виробу</p>
+                                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i> Додати в кошик</a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="product-image-wrapper">
+                                <div class="single-products">
+                                    <div class="productinfo text-center">
+                                        <img src="{{ asset('storage/images/home/recommend3.jpg') }}" alt="" />
+                                        <h2>500 грн</h2>
+                                        <p>Опис виробу</p>
+                                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i> Додати в кошик</a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="col-sm-4">
+                            <div class="product-image-wrapper">
+                                <div class="single-products">
+                                    <div class="productinfo text-center">
+                                        <img src="{{ asset('storage/images/home/recommend1.jpg') }}" alt="" />
+                                        <h2>500 грн</h2>
+                                        <p>Опис виробу</p>
+                                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i> Додати в кошик</a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="product-image-wrapper">
+                                <div class="single-products">
+                                    <div class="productinfo text-center">
+                                        <img src="{{ asset('storage/images/home/recommend2.jpg') }}" alt="" />
+                                        <h2>500 грн</h2>
+                                        <p>Опис виробу</p>
+                                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i> Додати в кошик</a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="product-image-wrapper">
+                                <div class="single-products">
+                                    <div class="productinfo text-center">
+                                        <img src="{{ asset('storage/images/home/recommend3.jpg') }}" alt="" />
+                                        <h2>500 грн</h2>
+                                        <p>Опис виробу</p>
+                                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i> Додати в кошик</a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a class="left recommended-item-control" href="#recommended-item-carousel" data-slide="prev">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                <a class="right recommended-item-control" href="#recommended-item-carousel" data-slide="next">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+        </div>
+        <!--/recommended_items-->
+    </div>
+</section>
+<!--/#do_action-->
