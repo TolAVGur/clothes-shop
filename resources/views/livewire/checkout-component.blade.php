@@ -23,7 +23,7 @@
                     <div class="panel-body">
                         @if (Cart::instance('cart')->count() > 0)
                         <!-- cart_items -->
-                        <form wire:prevent='placeOrder'>
+                        <form wire:submit.prevent='placeOrder'>
                             <table class="table-striped" width="100%">
                                 <thead class="my-header-for-shipping">
                                     <tr>
@@ -56,8 +56,25 @@
                                 <p style="font-size: 16px;"><em>Сума у ​​кошику: </em><b>{{ Cart::subtotal() }}</b></p>
                             </div>
                             <!-- доставка/оплата -->
-                            <div class="my-form-shipping-info row">
+
+                            <div class="my-form-info row">
+                                @if(!Auth::check())
+                                <div class="col-md-12">
+                                    <div class="alert alert-warning" role="alert" style="text-align: center;">
+                                        <br><br>
+                                        <h4>Для здійснення замовлення необхідно увійти до свого облікового запису або зареєструватися.</h4>
+                                        <br>
+                                        <h4><a class="btn btn-warning" href="{{ route('login') }}"><i class="fa fa-lock"></i> Увійти</a>
+                                            <a class="btn btn-warning" href="{{ route('register') }}"><i class="fa fa-star"></i> Зареєструватись</a>
+                                        </h4>
+                                        <br><br>
+                                    </div>
+
+                                </div>
+
+                                @else
                                 <div class="col-md-4">
+                                    <!-- ЗАВЕСТИ В ИНПУТЫ ИНФУ ЮЗЕРА !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
                                     <div>
                                         <p class="my-header-for-shipping" style="background: none;">Оплата:</p>
                                         <select wire:model="paymentmode">
@@ -66,19 +83,21 @@
                                             <option value="paypal"></a>Післяплатою</option>
                                         </select>
                                     </div>
-<!-- ЗАВЕСТИ В ИНПУТЫ ИНФУ ЮЗЕРА -->
-                                    <input type="text" placeholder="ПІБ *" required wire:model="name">
+                                    <input type="text" value="{{Auth::user()->name}}" wire:model="name" required>
                                     @error('name')
                                     <soan class="text-denger">{{ $message }}</soan>
                                     @enderror
-                                    <input type="text" placeholder="Email *" required wire:model="email">
+
+                                    <input type="text" value="{{Auth::user()->email}}" wire:model="email" required>
                                     @error('email')
                                     <soan class="text-denger">{{ $message }}</soan>
                                     @enderror
-                                    <input type="text" placeholder="Телефон *" required wire:model="phone">
+
+                                    <input type="text" value="{{Auth::user()->phone}}" wire:model="phone" required>
                                     @error('phone')
                                     <soan class="text-denger">{{ $message }}</soan>
                                     @enderror
+
                                 </div>
                                 <div class="col-md-4">
                                     <div>
@@ -113,8 +132,8 @@
                                     <soan class="text-denger">{{ $message }}</soan>
                                     @enderror
                                     @else
-                                    <div style="text-align: center; padding:20px; background: #F0F0E9; height: 140px; font-size:14pt; border: 1px solid silver;">
-                                        <p>Видача замовлень:</p>
+                                    <div style="text-align: center; padding:10px; background: #F0F0E9; height: 140px; font-size:12pt; border: 1px solid silver;">
+                                        <p>Видача замовлень здійснюєтся за адресою:</p>
                                         <em>
                                             <p>02222 Україна,<br>Київ, вул.Вулична, б.1, пов-1</p>
                                         </em>
@@ -149,9 +168,11 @@
                                 @if(Session::has('checkout'))
                                 <button type="submit" class="btn btn-success pull-right"> Замовити </button>
                                 @endif
-                                <a href="#" class="btn btn-warning  pull-right">До кошику</a>
+                                <a href="#" class="btn btn-warning pull-right">До кошику</a>
                             </div>
+                            @endif
                         </form>
+
                     </div>
                     <!-- /cart_items -->
                     @else

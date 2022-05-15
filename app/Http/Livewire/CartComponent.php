@@ -41,11 +41,7 @@ class CartComponent extends Component
     // переход на стр заказа с аутентификацией
     public function checkout()
     {
-        if (Auth::check()) {
-            return redirect()->route('checkout');
-        } else {
-            return redirect()->route('login');
-        }
+        return redirect()->route('checkout');
     }
 
     // считать доставку ----------------------------------------------------------------- ??????

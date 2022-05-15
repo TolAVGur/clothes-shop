@@ -123,19 +123,16 @@ class CheckoutComponent extends Component
         session()->forget('checkout');
     }
 
-    public function verifyForCheckout() {
-        if (!Auth::check()) {
-            return redirect()->route('login');
-        } elseif ($this->thankyou) {
+    public function verifyForThankyou()
+    {
+        if ($this->thankyou) {
             return redirect()->route('thankyou');
-        } elseif (!session()->get('checkout')){
-            return redirect()->route('product.cart');
         }
     }
 
     public function render()
     {
-        //$this->verifyForCheckout();
+        $this->verifyForThankyou();
         return view('livewire.checkout-component')->layout('layouts.base');
     }
 }

@@ -63,7 +63,8 @@
                                         <td class="cart_quantity">
                                             <div class="cart_quantity_button">
                                                 <a class="cart_quantity_up" href="#" wire:click.prevent="increaseQuantity('{{$item->rowId}}')"> + </a>
-                                                <input class="cart_quantity_input" type="text" name="quantity" value="{{$item->qty}}" autocomplete="off" size="2">
+                                                <input class="cart_quantity_input" type="text" name="quantity" value="{{$item->qty}}"
+                                                     autocomplete="off" >
                                                 <a class="cart_quantity_down" href="#" wire:click.prevent="decreaseQuantity('{{$item->rowId}}')"> - </a>
                                             </div>
                                         </td>
@@ -87,7 +88,7 @@
                                                     <tr class="cart_menu">
                                                         <td>Спосіб доставки</td>
                                                         <td>Вміст у кошику</td>
-                                                        <td>Вартість доставки/налог</td>
+                                                        <td>Вартість доставки</td>
                                                         <td>Разом</td>
                                                     </tr>
                                                 </thead>
