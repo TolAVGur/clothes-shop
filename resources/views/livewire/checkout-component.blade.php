@@ -23,7 +23,7 @@
                     <div class="panel-body">
                         @if (Cart::instance('cart')->count() > 0)
                         <!-- cart_items -->
-                        <form wire:submit.prevent='placeOrder'>
+                        <form wire:submit.prevent="placeOrder">
                             <table class="table-striped" width="100%">
                                 <thead class="my-header-for-shipping">
                                     <tr>
@@ -83,21 +83,25 @@
                                             <option value="paypal"></a>Післяплатою</option>
                                         </select>
                                     </div>
-                                    <input type="text" value="{{Auth::user()->name}}" wire:model="name" required>
+                                    <!--<input type="text" value="{{Auth::user()->name}}" wire:model="name" required>
                                     @error('name')
-                                    <soan class="text-denger">{{ $message }}</soan>
+                                    <span class="text-danger">{{ $message }}</span>
                                     @enderror
 
                                     <input type="text" value="{{Auth::user()->email}}" wire:model="email" required>
                                     @error('email')
-                                    <soan class="text-denger">{{ $message }}</soan>
+                                    <span class="text-danger">{{ $message }}</span>
                                     @enderror
 
                                     <input type="text" value="{{Auth::user()->phone}}" wire:model="phone" required>
                                     @error('phone')
-                                    <soan class="text-denger">{{ $message }}</soan>
-                                    @enderror
-
+                                    <span class="text-danger">{{ $message }}</span>
+                                    @enderror-->
+                                    <div style="padding:10px; background: #F0F0E9; height: 140px; font-size:12pt; border: 1px solid silver;">
+                                        Ім'я: <label>{{Auth::user()->name}}</label><br>
+                                        E-mail: <label>{{Auth::user()->email}}</label><br>
+                                        тел: <label>{{Auth::user()->phone}}</label>
+                                    </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div>
@@ -120,7 +124,7 @@
                                     </select>
                                     <input type="text" placeholder="Адреса *" required wire:model="adress">
                                     @error('address')
-                                    <soan class="text-denger">{{ $message }}</soan>
+                                    <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                     @elseif ($shippingchoice == 'courier_kiev')
                                     <input type="text" placeholder="Індекс: 02222 Україна" readonly wire:model="zipcode" value="02222">
@@ -129,13 +133,13 @@
                                     </select>
                                     <input type="text" placeholder="Адреса *" required wire:model="adress">
                                     @error('address')
-                                    <soan class="text-denger">{{ $message }}</soan>
+                                    <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                     @else
                                     <div style="text-align: center; padding:10px; background: #F0F0E9; height: 140px; font-size:12pt; border: 1px solid silver;">
                                         <p>Видача замовлень здійснюєтся за адресою:</p>
                                         <em>
-                                            <p>02222 Україна,<br>Київ, вул.Вулична, б.1, пов-1</p>
+                                            <label>02222 Україна,<br>Київ, вул.Вулична, б.1, пов-1</label>
                                         </em>
                                     </div>
                                     @endif

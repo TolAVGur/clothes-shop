@@ -30,9 +30,9 @@ class CheckoutComponent extends Component
     public function updated($fields)
     {
         $this->validateOnly($fields, [
-            'name' => 'required',
-            'email' => 'required|email',
-            'phone' => 'required|numeric',
+            //'name' => 'required',
+            //'email' => 'required|email',
+            //'phone' => 'required|numeric',
             //'zipcode' => 'required',
             'city' => 'required',
             'adress' => 'required',
@@ -46,9 +46,9 @@ class CheckoutComponent extends Component
     public function placeOrder()
     {
         $this->validate([
-            'name' => 'required',
-            'email' => 'required|email',
-            'phone' => 'required|numeric',
+            //'name' => 'required',
+            //'email' => 'required|email',
+            //'phone' => 'required|numeric',
             //'zipcode' => 'required',
             'city' => 'required',
             'adress' => 'required',
@@ -63,20 +63,28 @@ class CheckoutComponent extends Component
         $order->total = session()->get('checkout')['total'];
 
         $order->shippingchoice = $this->shippingchoice;
-        $order->name = $this->name;
-        $order->email = $this->email;
-        $order->phone = $this->phone;
+        $order->name = Auth::user()->name;
+        $order->email = Auth::user()->email;
+        $order->phone = Auth::user()->phone;
 
-        if ($this->shippingchoice == 'courier_kiev' || $this->shippingchoice == 'across_ukr') {
+        // доставка
+        if ($this->shippingchoice == 'courier_kiev') {
+            $order->zipcode = '02222';
+            $order->city = 'Київ';
+            $order->adress = $this->adress;
+            $order->tax = 5;
+        } elseif ($this->shippingchoice == 'across_ukr') {
             $order->zipcode = $this->zipcode;
             $order->city = $this->city;
             $order->adress = $this->adress;
-            // $order->tax = 10.
+            $order->tax = 10;
         } else {
             $order->zipcode = '02222';
             $order->city = 'Київ';
             $order->adress = 'Самовивіз';
+            $order->tax = 0;
         }
+
         $order->notes_text = $this->notes_text;
         $order->status = 'ordered';
         $order->save();
@@ -85,7 +93,7 @@ class CheckoutComponent extends Component
             $orderItem = new OrderItem();
             $orderItem->product_id = $item->id;
             $orderItem->order_id = $order->id;
-            $orderItem->prise = $item->price;
+            $orderItem->price = $item->price;
             $orderItem->quentity = $item->qty;
             $orderItem->save();
         }
@@ -102,23 +110,21 @@ class CheckoutComponent extends Component
         $shipping->save();
 
         // транзакция
+        $transaction = new Transaction();
+        $transaction->user_id = Auth::user()->id;
+        $transaction->order_id = $order->id;
+        $transaction->status = 'pending';
+
         if ($this->paymentmode == 'cod') {
-            $transaction = new Transaction();
-            $transaction->user_id = Auth::user()->id;
-            $transaction->order_id = $order->id;
-            $transaction->mode = 'cod';
-            $transaction->status = 'pending';
-            $transaction->save();
-        }
+            $transaction->mode = $this->paymentmode;
+        } elseif ($this->paymentmode == 'card') {
+            $transaction->mode = $this->paymentmode;
+        } else
+            $transaction->mode = $this->paymentmode;
+        $transaction->save();
+
 
         $this->thankyou = 1;
-        Cart::instance('cart')->destroy();
-        session()->forget('checkout');
-    }
-
-    // метод очистки корзины
-    public function destroyAll()
-    {
         Cart::instance('cart')->destroy();
         session()->forget('checkout');
     }
@@ -132,7 +138,7 @@ class CheckoutComponent extends Component
 
     public function render()
     {
-        $this->verifyForThankyou();
+        //$this->verifyForThankyou();
         return view('livewire.checkout-component')->layout('layouts.base');
     }
 }
