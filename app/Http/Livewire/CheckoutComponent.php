@@ -30,15 +30,15 @@ class CheckoutComponent extends Component
     public function updated($fields)
     {
         $this->validateOnly($fields, [
-            //'name' => 'required',
-            //'email' => 'required|email',
-            //'phone' => 'required|numeric',
+            'name' => 'required',
+            'email' => 'required|email',
+            'phone' => 'required|numeric',
             //'zipcode' => 'required',
             'city' => 'required',
             'adress' => 'required',
-            'notes_text' => 'required'
-            //'shippingchoice' => 'required'
-            //'paymentmode' => 'required'
+            'notes_text' => 'required',
+            'shippingchoice' => 'required',
+            'paymentmode' => 'required'
         ]);
     }
 
@@ -46,13 +46,15 @@ class CheckoutComponent extends Component
     public function placeOrder()
     {
         $this->validate([
-            //'name' => 'required',
-            //'email' => 'required|email',
-            //'phone' => 'required|numeric',
+            'name' => 'required',
+            'email' => 'required|email',
+            'phone' => 'required|numeric',
             //'zipcode' => 'required',
             'city' => 'required',
             'adress' => 'required',
-            'notes_text' => 'required'
+            'notes_text' => 'required',
+            'shippingchoice' => 'required',
+            'paymentmode' => 'required'
         ]);
 
         $order = new Order();

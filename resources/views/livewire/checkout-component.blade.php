@@ -77,31 +77,35 @@
                                     <!-- ЗАВЕСТИ В ИНПУТЫ ИНФУ ЮЗЕРА !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
                                     <div>
                                         <p class="my-header-for-shipping" style="background: none;">Оплата:</p>
-                                        <select wire:model="paymentmode">
+                                        <select wire:model="paymentmode" autofocus>
                                             <option value="cod">Готівкою</a></option>
                                             <option value="card">Платіжною карткою</a></option>
                                             <option value="paypal"></a>Післяплатою</option>
                                         </select>
                                     </div>
-                                    <input type="text" value="{{Auth::user()->name}}" wire:model="name" required>
-                                    @error('name')
-                                    <span class="text-danger">{{ $message }}</span>
-                                    @enderror
+                                    <input type="text" value="{{Auth::user()->name}}" placeholder="{{Auth::user()->name}}" wire:model="name" readonly>
 
-                                    <input type="text" value="{{Auth::user()->email}}" wire:model="email" required>
-                                    @error('email')
-                                    <span class="text-danger">{{ $message }}</span>
-                                    @enderror
+                                    <input type="text" value="{{Auth::user()->email}}" placeholder="{{Auth::user()->email}}" wire:model="email" readonly>
 
-                                    <input type="text" value="{{Auth::user()->phone}}" wire:model="phone" required>
+                                    @if(Auth::user()->phone != 'no')
+                                    <input type="text" value="{{Auth::user()->phone}}" placeholder="{{Auth::user()->phone}}" wire:model="phone" readonly>
                                     @error('phone')
                                     <span class="text-danger">{{ $message }}</span>
                                     @enderror
+                                    @else
+                                    <input type="text" value="{{Auth::user()->phone}}" placeholder="{{Auth::user()->phone}}" wire:model="phone" required>
+                                    @error('phone')
+                                    <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                    @endif
+
+                                    <!-- для теста -->
                                     <!--<div style="padding:10px; background: #F0F0E9; height: 140px; font-size:12pt; border: 1px solid silver;">
                                         Ім'я: <label>{{Auth::user()->name}}</label><br>
                                         E-mail: <label>{{Auth::user()->email}}</label><br>
                                         тел: <label>{{Auth::user()->phone}}</label>
                                     </div>-->
+
                                 </div>
                                 <div class="col-md-4">
                                     <div>
@@ -128,9 +132,7 @@
                                     @enderror
                                     @elseif ($shippingchoice == 'courier_kiev')
                                     <input type="text" placeholder="Індекс: 02222 Україна" readonly wire:model="zipcode" value="02222">
-                                    <select wire:model="city">
-                                        <option value="Kиїв">Київ</option>
-                                    </select>
+                                    <input type="text" value="courier_kiev" placeholder="Kиїв" wire:model="city" readonly>
                                     <input type="text" placeholder="Адреса *" required wire:model="adress">
                                     @error('address')
                                     <span class="text-danger">{{ $message }}</span>
@@ -172,7 +174,7 @@
                                 @if(Session::has('checkout'))
                                 <button type="submit" class="btn btn-success pull-right"> Замовити </button>
                                 @endif
-                                <a href="#" class="btn btn-warning pull-right">До кошику</a>
+                                <a href="{{ route('product.cart')}}" class="btn btn-warning pull-right">Повернутись до кошику</a>
                             </div>
                             @endif
                         </form>
