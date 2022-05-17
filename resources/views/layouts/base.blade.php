@@ -64,8 +64,8 @@
                         <div class="shop-menu pull-right">
                             <ul class="nav navbar-nav">
                                 <!--<li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>-->
-                                <li><a href="/checkout"><i class="fa fa-crosshairs"></i> Замовлення</a></li>
-                                <li><a href="/cart">
+                                <li><a href="/checkout" class="{{ request()->is('checkout*') ? 'active' : null }}"><i class="fa fa-crosshairs"></i> Замовлення</a></li>
+                                <li><a href="/cart" class="{{ request()->is('cart*') ? 'active' : null }}">
                                         <i class="fa fa-shopping-cart"></i> Кошик
                                         @if (Cart::instance('cart')->count() > 0)
                                         <span style="color: darkorange;">
