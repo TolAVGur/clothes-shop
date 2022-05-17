@@ -157,10 +157,10 @@
                         </div>
                         <div class="mainmenu pull-right">
                             <ul class="nav navbar-nav collapse navbar-collapse">
-                                <li><a href="/" class="active">Головна</a></li>
-                                <li><a href="/shop">Каталог</a></li>
-                                <li><a href="/contacts">Контакти</a></li>
-                                <li><a href="/help">Допомога користувачеві</a></li>
+                                <li><a href="/" class="{{ request()->is('/*') ? 'active' : null }}">Головна</a></li>
+                                <li><a href="/shop" class="{{ request()->is('shop*') ? 'active' : null }}">Каталог</a></li>
+                                <li><a href="/contacts" class="{{ request()->is('contacts*') ? 'active' : null }}">Контакти</a></li>
+                                <li><a href="/help" class="{{ request()->is('help*') ? 'active' : null }}">Допомога користувачеві</a></li>
                             </ul>
                         </div>
                     </div>
