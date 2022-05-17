@@ -32,11 +32,11 @@
                             <table class="table table-condensed">
                                 <thead>
                                     <tr class="cart_menu">
-                                        <td class="image">Виріб</td>
-                                        <td class="description"></td>
-                                        <td class="price">Ціна</td>
-                                        <td class="quantity">Кількість</td>
-                                        <td class="total">Усього</td>
+                                        <td>Виріб</td>
+                                        <td></td>
+                                        <td>Ціна</td>
+                                        <td>Кількість</td>
+                                        <td>Усього</td>
                                         <td></td>
                                     </tr>
                                 </thead>
@@ -45,11 +45,13 @@
                                     <tr>
                                         <td class="cart_product">
                                             <a href="{{ route('product.details', ['slug' => $item->model->slug]) }}">
-                                                <img src="{{ asset('storage/images/shop') }}/{{$item->model->image}}" alt="{{$item->model->name}}">
+                                                <img src="{{ asset('storage/images/shop') }}/{{$item->model->image}}" alt="{{$item->model->name}}"
+                                                    style="width:190px;">
                                             </a>
                                         </td>
                                         <td>
                                             <h4>{{ $item->model->name }}</h4>
+                                            <p>{{ $item->model->short_description }}</p>
                                             <hr>
                                             <span>
                                                 <p><b>Знижка: </b>{{ $item->model->discount }}</p>

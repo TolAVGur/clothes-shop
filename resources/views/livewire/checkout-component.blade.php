@@ -98,9 +98,9 @@
                                     <span class="text-danger">{{ $message }}</span>
                                     @enderror-->
                                     <div style="padding:10px; background: #F0F0E9; height: 140px; font-size:12pt; border: 1px solid silver;">
-                                        Ім'я: <label>{{Auth::user()->name}}</label><br>
-                                        E-mail: <label>{{Auth::user()->email}}</label><br>
-                                        тел: <label>{{Auth::user()->phone}}</label>
+                                       <label>Ім'я: </label> {{Auth::user()->name}}<br>
+                                        <label>E-mail: </label> {{Auth::user()->email}}<br>
+                                        <label>тел: </label> {{Auth::user()->phone}}
                                     </div>
                                 </div>
                                 <div class="col-md-4">
@@ -167,12 +167,12 @@
                                 </div>
                             </div>
                             <!-- /доставка/оплата -->
-                            <div class="col-md-12" style="padding-bottom: 2%;">
+                            <div class="col-md-12" style="padding: 2%;">
                                 <!-- ??  создать заказ и отправить на стр благодарности -->
                                 @if(Session::has('checkout'))
                                 <button type="submit" class="btn btn-success pull-right"> Замовити </button>
                                 @endif
-                                <a href="#" class="btn btn-warning pull-right">До кошику</a>
+                                <a href="{{ route('product.cart') }}" class="btn btn-warning pull-right">До кошику</a>
                             </div>
                             @endif
                         </form>

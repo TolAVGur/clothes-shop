@@ -1560,8 +1560,8 @@ h2.title {
 }
 
 #cart_items .cart_info {
-  /*border: 1px solid #E6E4DF;*/
-  /*margin-bottom: 10px*/
+  border: 1px solid #E6E4DF;
+  margin-bottom: 10px
 }
 
 
