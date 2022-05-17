@@ -69,27 +69,24 @@
     <section>
         <div class="container">
             <div class="row">
+                <div class="col-sm-2"></div>
                 <div class="col-sm-6 col-sm-offset-1">
                     <div class="signup-form">
                         <!--sign up form-->
-                        <h2>Реєстрація нового користувача</h2>
+                        <h2 class="title text-center">Реєстрація нового користувача</h2>
                         <x-jet-validation-errors class="mb-4" />
                         <form action="{{ route('register') }}" method="POST" name="frm-login">
                             @csrf
 
-                            <input type="text" name="name" placeholder="ПІБ*" required autofocus
-                                autocomplete="name" :value="name"/>
+                            <input type="text" name="name" placeholder="Ім'я *" required autofocus autocomplete="name" :value="name" />
 
-                            <input type="email" name="email" placeholder="Email*" :value="email" />
+                            <input type="email" name="email" placeholder="Email *" :value="email" />
 
-                            <input type="password" name="password" placeholder="Пароль*"
-                                required autocomplete="new-password" />
+                            <input type="password" name="password" placeholder="Пароль *" required autocomplete="new-password" />
 
-                            <input type="password" name="password_confirmation" placeholder="Повторення паролю*"
-                                required autocomplete="new-password" />
+                            <input type="password" name="password_confirmation" placeholder="Повторення паролю *" required autocomplete="new-password" />
 
-                            <button style="margin-top: 30px;" type="submit" class="btn btn-default"
-                                name="register">Реєструватися</button>
+                            <button style="margin-top: 40px; margin-bottom: 40px" type="submit" class="btn btn-warning" name="register">Реєструватися</button>
 
                         </form>
                     </div>

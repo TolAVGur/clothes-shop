@@ -44,7 +44,7 @@ class ShopComponent extends Component
 
         $brands = Brand::all();
         $categories = Category::all();
-        $products = Product::paginate($this->pagesize);
+        //$products = Product::paginate($this->pagesize);
 
         return view('livewire.shop-component', [
             'products' => $products,

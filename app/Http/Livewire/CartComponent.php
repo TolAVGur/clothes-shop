@@ -46,14 +46,6 @@ class CartComponent extends Component
 
     // считать доставку ----------------------------------------------------------------- ??????
     public $checkshipping; // проверка доставки
-    public $selfpickup = 0;
-    public function setAmountForDelivery()
-    {
-        /*if ($this->checkshipping == 'across_ukr') {            
-        } else if ($this->checkshipping == 'courier_kiev') {
-        } else {
-        }*/
-    }
 
     // пересчет стоимости для оформления
     public function setAmountForCheckout()

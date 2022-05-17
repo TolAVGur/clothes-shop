@@ -851,11 +851,6 @@ h2.title {
 	margin-bottom:20px;
 }
 
-/*my*/
-.my-card {
-  height: 480px;
-}
-
 .single-products {
   position: relative;
 }
@@ -2530,11 +2525,15 @@ h2.title {
 
 /* -------------------------------------------------------------------------> my */
 
-.pl-4, .px-4 { 
+.text-red-600 {
+  color: red;
+}
+
+.pl-4, .px-4 {
   padding-left: 1.5rem !important;
 }
 
-.pb-2, .py-2 { 
+.pb-2, .py-2 {
   padding-bottom: 0.5rem !important;
 }
 
@@ -2572,6 +2571,7 @@ svg {
 .wrap-pagination-info .rounded-l-md {
   margin-right: 5px;
 }
+
 .wrap-pagination-info .rounded-r-md {
   margin-left: 5px;
 }
@@ -2590,4 +2590,9 @@ svg {
   color: #8a6d3b;
   margin: 0px;
   background: #F0F0E9;
+}
+
+/*my*/
+.my-card {
+  height: 480px;
 }

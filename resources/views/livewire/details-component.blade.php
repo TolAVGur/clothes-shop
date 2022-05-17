@@ -107,7 +107,7 @@
                                 <p><b>Кількість: </b>{{ $product->quantity }}</p>
                                 <p><b>Розмір: </b>{{ $product->sizes }}</p>
                                 <input type="text" placeholder="1" />
-                                <button type="button" class="btn btn-fefault cart" wire:click.prevent="store_to_cart({{$product->id}},'{{$product->name}}',{{$product->sale_price}})">
+                                <button type="button" class="btn btn-warning pull-right" wire:click.prevent="store_to_cart({{$product->id}},'{{$product->name}}',{{$product->sale_price}})">
                                     <i class="fa fa-shopping-cart"></i>
                                     > Додати в кошик
                                 </button>

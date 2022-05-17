@@ -79,8 +79,9 @@
                             <option value="21">21 на сторінці</option>
                         </select>
                     </div>
-                </div>
 
+                </div>
+                <hr>
                 <!--end wrap shop control-->
                 <div class="features_items">
                     <!--features_items-->
@@ -109,7 +110,7 @@
                                         </div>
                                         <hr>
                                         <div style="text-align: center;">
-                                            <button type="button" class="btn btn-fefault cart" wire:click.prevent="store_to_cart({{$product->id}},'{{$product->name}}',{{$product->sale_price}})">
+                                            <button type="button" class="btn btn-warning" wire:click.prevent="store_to_cart({{$product->id}},'{{$product->name}}',{{$product->sale_price}})">
                                                 <i class="fa fa-shopping-cart"></i>
                                                 > Додати в кошик
                                             </button>
