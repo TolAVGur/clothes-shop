@@ -45,8 +45,20 @@ class CartComponent extends Component
     }
 
     // считать доставку ----------------------------------------------------------------- ??????
-    public $checkshipping; // проверка доставки
+   /* public $shippingchoice; // свойство выбор доставки
+    public function shippingChoice($shippingchoice){
 
+        $this->shippingchoice = $shippingchoice;
+
+        if ($this->shippingchoice == 'courier_kiev') {
+            
+        } elseif ($this->shippingchoice == 'across_ukr') {
+            $order->tax = 10;
+        } else {
+           $order->tax = 0;
+        }
+    }*/
+   
     // пересчет стоимости для оформления
     public function setAmountForCheckout()
     {

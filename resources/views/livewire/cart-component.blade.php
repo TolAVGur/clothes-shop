@@ -45,8 +45,7 @@
                                     <tr>
                                         <td class="cart_product">
                                             <a href="{{ route('product.details', ['slug' => $item->model->slug]) }}">
-                                                <img src="{{ asset('storage/images/shop') }}/{{$item->model->image}}" alt="{{$item->model->name}}"
-                                                    style="width:190px;">
+                                                <img src="{{ asset('storage/images/shop') }}/{{$item->model->image}}" alt="{{$item->model->name}}" style="width:190px;">
                                             </a>
                                         </td>
                                         <td>
@@ -65,8 +64,7 @@
                                         <td class="cart_quantity">
                                             <div class="cart_quantity_button">
                                                 <a class="cart_quantity_up" href="#" wire:click.prevent="increaseQuantity('{{$item->rowId}}')"> + </a>
-                                                <input class="cart_quantity_input" type="text" name="quantity" value="{{$item->qty}}"
-                                                     autocomplete="off" >
+                                                <input class="cart_quantity_input" type="text" name="quantity" value="{{$item->qty}}" autocomplete="off">
                                                 <a class="cart_quantity_down" href="#" wire:click.prevent="decreaseQuantity('{{$item->rowId}}')"> - </a>
                                             </div>
                                         </td>
@@ -82,48 +80,28 @@
                                         </td>
                                     </tr>
                                     @endforeach
+                                    <div>
+                                        <table class="table-striped pull-right" width="30%">
+                                            <thead align="center">
+                                                <tr class="cart_menu">
+                                                    <td>Разом</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody style="text-align: center; background: #f5f5f5; color: #8a6d3b">
+                                                <tr>
+                                                    <td>
+                                                        <h1 style="color: #FE980F;"> {{ Cart::total() }} </h1>
+                                                        <a href="#" class="btn btn-warning  pull-center" wire:click.prevent="destroyAll()">
+                                                            Очистити
+                                                        </a>
+                                                        <a href="#" class="btn btn-success pull-center" wire:click.prevent="checkout()">
+                                                            Замовити
+                                                        </a>
 
-                                    <div class="shopper-informations">
-                                        <div class="table-responsive cart_info">
-                                            <table class="table table-condensed">
-                                                <thead align="center">
-                                                    <tr class="cart_menu">
-                                                        <td>Спосіб доставки</td>
-                                                        <td>Вміст у кошику</td>
-                                                        <td>Вартість доставки</td>
-                                                        <td>Разом</td>
-                                                    </tr>
-                                                </thead>
-                                                <tbody style="text-align: center; margin: 2px; background: #f5f5f5; color: #8a6d3b">
-                                                    <tr>
-                                                        <td>
-                                                            <select wire:model="checkshipping">
-                                                                <option value="selfpickup">Самовивіз</a></option>
-                                                                <option value="courier_kiev">Кур'єром по Києву</a></option>
-                                                                <option value="across_ukr">Поштою по Україні</a></option>
-                                                            </select>
-                                                        </td>
-                                                        <td>
-                                                            <p style="font-size: 18px;">{{ Cart::subtotal() }}</p>
-                                                        </td>
-                                                        <td>
-                                                            <p style="font-size: 18px;">{{-- Cart::tax() --}}</p>
-                                                        </td>
-                                                        <td>
-                                                            <h1 style="color: #FE980F;"> {{ Cart::total() }} </h1>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                            <div class="col-md-12" style="padding-bottom: 2%;">
-                                                <a href="#" class="btn btn-success pull-right" wire:click.prevent="checkout()">
-                                                    Замовити
-                                                </a>
-                                                <a href="#" class="btn btn-warning  pull-right" wire:click.prevent="destroyAll()">
-                                                    Очистити
-                                                </a>
-                                            </div>
-                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
                                     </div>
                                 </tbody>
                             </table>
