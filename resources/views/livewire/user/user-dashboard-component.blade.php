@@ -2,9 +2,8 @@
 Кабінет користувача
 @endsection
 
-<div class="container">
-    <div class="row">
-
+<div class="container" style="height: 500px;">
+    {{-- <div class="row">
         <!-- Update profile information -->
         <div class="col-md-4">
             <div>
@@ -27,14 +26,14 @@
         </div>
 
         <!-- Delete account -->
-        {{-- <div class="col-md-4">
+        <div class="col-md-4">
             @if (Laravel\Jetstream\Jetstream::hasAccountDeletionFeatures())
             <div class="mt-10 sm:mt-0">
                 @livewire('profile.delete-user-form')
             </div>
             @endif
         </div>
-        --}}
-
+        
     </div>
+    --}}
 </div>

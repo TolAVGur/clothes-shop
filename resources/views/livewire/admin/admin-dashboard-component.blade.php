@@ -10,25 +10,47 @@
                     <h4>Панель управління</h4>
                 </div>
 
-                <div class="panel-body" style="margin-bottom: 250px;">
-
-                    <table class="table-striped">
+                <div class="panel-body">
+                    <table width="100%">
                         <thead>
                             <tr>
+                                <th><a class="btn btn-warning" href="#">Управління Користувачами</a></th>
                                 <th><a class="btn btn-warning" href="{{ route('admin.categories') }}">Управління Категоріями</a></th>
                                 <th><a class="btn btn-warning" href="{{ route('admin.brands') }}">Управління Брендами</a></th>
                                 <th><a class="btn btn-warning" href="{{ route('admin.products') }}">Управління Товарами</a></th>
-                                <th><a class="btn btn-warning" href="#">Управління Користувачами</a></th>
                             </tr>
                         </thead>
 
                         <tbody>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td valign="top">
+                                <ol>
+                                    @foreach ($users as $usr)
+                                    <li>{{$usr->name}}</li>
+                                    @endforeach
+                                </ol>
+                            </td>
+                            <td valign="top">
+                                <ol>
+                                    @foreach ($categories as $category)
+                                    <li>{{$category->name}}</li>
+                                    @endforeach
+                                </ol>
+                            </td>
+                            <td valign="top">
+                                <ol>
+                                    @foreach ($brands as $brand)
+                                    <li>{{$brand->name}}</li>
+                                    @endforeach
+                                </ol>
+                            </td>
+                            <td valign="top">
+                                <ol>
+                                    @foreach ($products as $product)
+                                    <li>{{$product->name}}</li>
+                                    @endforeach
+                                </ol>
+                            </td>
                         </tbody>
-
                     </table>
                 </div>
             </div>
