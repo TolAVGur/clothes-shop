@@ -10,8 +10,11 @@
                     <div class="row">
                         <div class="col-md-6"><h4>Бренди</h4></div>
                         <div class="col-md-6">
-                            <a href="{{ route('admin.addbrand')}}" class="btn btn-warning pull-right">
+                            <a href="{{ route('admin.addbrand')}}" class="btn btn-success pull-right">
                                 Додати Бренд
+                            </a>
+                            <a href="{{ route('admin.dashboard')}}" class="btn btn-warning pull-right">
+                                Адмін-панель
                             </a>
                         </div>
                     </div>

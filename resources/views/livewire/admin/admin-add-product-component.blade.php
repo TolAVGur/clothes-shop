@@ -15,6 +15,9 @@
                             <a href="{{ route('admin.products')}}" class="btn btn-warning pull-right">
                                 До списку товарів
                             </a>
+                            <a href="{{ route('admin.dashboard')}}" class="btn btn-warning pull-right">
+                                Адмін-панель
+                            </a>
                         </div>
                     </div>
                 </div>

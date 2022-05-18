@@ -15,6 +15,9 @@
                             <a href="{{ route('admin.categories')}}" class="btn btn-warning pull-right">
                                 До списку
                             </a>
+                            <a href="{{ route('admin.dashboard')}}" class="btn btn-warning pull-right">
+                                Адмін-панель
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -37,9 +40,8 @@
                             <label class="col-md-4 control-label">Код Категорії: </label>
                             <div class="col-md-4">
                                 <label class="col-md-4 control-label"></label>
-                                <input type="text" placeholder="" class="form-control input-md" readonly 
-                                    wire:model="slug">
-                                    <p style="color:royalblue; text-align: center;">Генерується автоматично</p>
+                                <input type="text" placeholder="" class="form-control input-md" readonly wire:model="slug">
+                                <p style="color:royalblue; text-align: center;">Генерується автоматично</p>
                             </div>
                         </div>
                         <div class="form-group">

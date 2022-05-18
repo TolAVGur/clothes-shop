@@ -8,10 +8,15 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <div class="row">
-                        <div class="col-md-6"><h4>Категорії</h4></div>
                         <div class="col-md-6">
-                            <a href="{{ route('admin.addcategory')}}" class="btn btn-warning pull-right">
+                            <h4>Категорії</h4>
+                        </div>
+                        <div class="col-md-6">
+                            <a href="{{ route('admin.addcategory')}}" class="btn btn-success pull-right">
                                 Додати Категорію
+                            </a>
+                            <a href="{{ route('admin.dashboard')}}" class="btn btn-warning pull-right">
+                                Адмін-панель
                             </a>
                         </div>
                     </div>

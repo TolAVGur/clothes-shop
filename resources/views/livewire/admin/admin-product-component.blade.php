@@ -12,8 +12,11 @@
                             <h4>Список товарів</h4>
                         </div>
                         <div class="col-md-6">
-                            <a href="{{ route('admin.addproduct')}}" class="btn btn-warning pull-right">
+                            <a href="{{ route('admin.addproduct')}}" class="btn btn-success pull-right">
                                 Додати новий товар
+                            </a>
+                            <a href="{{ route('admin.dashboard')}}" class="btn btn-warning pull-right">
+                                Адмін-панель
                             </a>
                         </div>
                     </div>
