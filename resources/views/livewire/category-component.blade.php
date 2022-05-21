@@ -55,35 +55,35 @@
                 <!-- right-sidebar-->
                 <div class="col-sm-9 padding-right">
                     <h2 class="title text-center">Категорія: {{ $category_name }}</h2>
-                    
+
                     <!-- features_items -->
                     <div class="row">
                         @foreach ($products as $product)
                         <div class="col-md-4">
                             <div class="product-image-wrapper">
                                 <div class="single-products">
-                                    <div class="my-card">
-                                        <a href="{{ route('product.details', ['slug' => $product->slug]) }}">
-                                            <div class="productinfo text-center">
-                                                <img src="{{ asset('storage/images/shop') }}/{{ $product->image}}" alt="{{ $product->name }}" />
-                                                <h4>{{ $product->name }}</h4>
-                                                <h2>{{ $product->sale_price}}</h2>
-                                                <hr>
-                                                <div style="text-align: left; padding-left:8px;">
-                                                    <p>{{ $product->short_description }}</p>
-                                                    <p>Наявність: {{ $product->stock_status }}</p>
-                                                    <h5>Знижка: {{ $product->discount }}</h5>
-                                                </div>
-                                            </div>
-                                        </a>
-                                        <div style="text-align: center;">
+
+                                    <a href="{{ route('product.details', ['slug' => $product->slug]) }}">
+                                        <div class="productinfo text-center">
+                                            <img src="{{ asset('storage/images/shop') }}/{{ $product->image}}" alt="{{ $product->name }}" />
+                                            <h4>{{ $product->name }}</h4>
+                                            <h2>{{ $product->sale_price}}</h2>
                                             <hr>
-                                            <button type="button" class="btn btn-warning" wire:click.prevent="store_to_cart({{$product->id}},'{{$product->name}}',{{$product->sale_price}})">
-                                                <i class="fa fa-shopping-cart"></i>
-                                                > Додати в кошик
-                                            </button>
+                                            <div style="text-align: left; padding-left:8px;">
+                                                <p>{{ $product->short_description }}</p>
+                                                <p>Наявність: {{ $product->stock_status }}</p>
+                                                <h5>Знижка: {{ $product->discount }}</h5>
+                                            </div>
                                         </div>
+                                    </a>
+                                    <div style="text-align: center;">
+                                        <hr>
+                                        <button type="button" class="btn btn-warning" wire:click.prevent="store_to_cart({{$product->id}},'{{$product->name}}',{{$product->sale_price}})">
+                                            <i class="fa fa-shopping-cart"></i>
+                                            > Додати в кошик
+                                        </button>
                                     </div>
+
                                 </div>
                             </div>
                         </div>
