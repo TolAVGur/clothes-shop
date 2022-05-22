@@ -70,10 +70,18 @@
                                             <img src="{{ asset('storage/images/shop') }}/{{ $product->image}}" alt="{{ $product->name }}" />
                                             <h4>{{ $product->name }}</h4>
                                             <h2>{{ $product->sale_price}}</h2>
+                                            <p>Категорія:
+                                                @foreach ($categories as $category)
+                                                @if ($product->category_id == $category->id )
+                                                {{ $category->name }}
+                                                @endif
+                                                @endforeach
+                                                <br>Бренд:
+                                                {{ $brand_name }}
+                                            </p>
                                             <hr>
                                             <div style="text-align: left; padding-left:8px;">
                                                 <p>{{ $product->short_description }}</p>
-                                                <p>Наявність: {{ $product->stock_status }}</p>
                                                 <h5>Знижка: {{ $product->discount }}</h5>
                                             </div>
                                         </div>
