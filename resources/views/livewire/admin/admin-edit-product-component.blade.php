@@ -89,7 +89,7 @@
                         <div class="form-group">
                             <label class="col-md-4 control-label">Розмір: </label>
                             <div class="col-md-6">
-                                <input type="text" placeholder="{{$this->sku}}" class="form-control input-md" wire:model="sizes">
+                                <input type="text" placeholder="" class="form-control input-md" wire:model="sizes">
                             </div>
                         </div>
 
@@ -113,7 +113,7 @@
                         <div class="form-group">
                             <label class="col-md-4 control-label">* Код товару: </label>
                             <div class="col-md-6">
-                                <input type="text" placeholder="" class="form-control input-md" wire:model="sku" required>
+                                <input type="text" placeholder="" class="form-control input-md" wire:model="SKU" required>
                             </div>
                         </div>
 
