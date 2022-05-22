@@ -61,6 +61,14 @@
                             </div>
                         </div>
 
+                        <!-- sku -->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Код товару: </label>
+                            <div class="col-md-6">
+                                <input type="text" placeholder="" class="form-control input-md" wire:model="SKU" readonly>
+                            </div>
+                        </div>
+
                         <!-- name -->
                         <div class="form-group">
                             <label class="col-md-4 control-label">* Назва: </label>
@@ -106,14 +114,6 @@
                             <label class="col-md-4 control-label">Знижка: </label>
                             <div class="col-md-6">
                                 <input type="text" placeholder="" class="form-control input-md" wire:model="discount">
-                            </div>
-                        </div>
-
-                        <!-- sku -->
-                        <div class="form-group">
-                            <label class="col-md-4 control-label">* Код товару: </label>
-                            <div class="col-md-6">
-                                <input type="text" placeholder="" class="form-control input-md" wire:model="SKU" required>
                             </div>
                         </div>
 

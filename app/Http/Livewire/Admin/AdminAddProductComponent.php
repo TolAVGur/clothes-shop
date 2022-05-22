@@ -30,7 +30,7 @@ class AdminAddProductComponent extends Component
         $new_product->sizes = $this->sizes;
         $new_product->sale_price = $this->sale_price;
         $new_product->discount = $this->discount;
-        $new_product->sku = $this->sku;
+        $new_product->sku = 'pr-'.$this->slug;
         $new_product->stock_status = 'instock';
         $new_product->featured = 0;
         $new_product->quantity = $this->quantity;

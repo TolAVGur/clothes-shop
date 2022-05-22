@@ -75,6 +75,15 @@
                             </div>
                         </div>
 
+                        <!-- sku -->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Код товару: </label>
+                            <div class="col-md-6">
+                                <input type="text" placeholder="{{$this->slug}}" class="form-control input-md" wire:model="sku" readonly>
+                                <span>заповнюеться автоматично</span>
+                            </div>
+                        </div>
+
                         <!-- short_description -->
                         <div class="form-group">
                             <label class="col-md-4 control-label">Коротке визначення: </label>
@@ -112,14 +121,6 @@
                             <label class="col-md-4 control-label">Знижка: </label>
                             <div class="col-md-6">
                                 <input type="text" placeholder="" class="form-control input-md" wire:model="discount">
-                            </div>
-                        </div>
-
-                        <!-- sku -->
-                        <div class="form-group">
-                            <label class="col-md-4 control-label">* Код товару: </label>
-                            <div class="col-md-6">
-                                <input type="text" placeholder="Введіть код товару..." class="form-control input-md" wire:model="sku" required>
                             </div>
                         </div>
 

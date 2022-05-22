@@ -32,7 +32,7 @@
                     <table class="table-striped" width="100%">
                         <thead>
                             <tr>
-                                <th width="3%">Код</th>
+                                <th width="10%">Код</th>
                                 <th width="5%">Фото</th>
                                 <th>Категорія</th>
                                 <th>Виробник</th>
@@ -52,7 +52,7 @@
                                 <td>{{ $product->SKU }}</td>
                                 <td>
                                     @if(!empty($product->image))
-                                    <img src="{{ asset('storage/images/shop') }}/{{ $product->image}}" width="80px" alt="{{ $product->image }}">
+                                    <img src="{{ asset('storage/images/shop') }}/{{ $product->image}}" width="50px" alt="{{ $product->image }}">
                                     @else
                                     Файлу немає
                                     @endif

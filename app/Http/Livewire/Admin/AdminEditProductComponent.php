@@ -65,7 +65,7 @@ class AdminEditProductComponent extends Component
         $product->category_id = $this->category_id;
         $product->brand_id = $this->brand_id;
         $product->save();
-        session()->flash('message', 'Інформація про товар '.$this->name.' оновлена успішно!');
+        session()->flash('message', 'Товар з кодом '.$this->SKU.' оновлен успішно!');
         return redirect()->route('admin.products');
     }
     
