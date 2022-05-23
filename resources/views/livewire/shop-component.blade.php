@@ -59,7 +59,7 @@
 
                     <div class="row">
                         <div class="col-sm-2">
-                            <p align="right"> Фільтрування: </p>
+                            <p align="right">Сортувати</p>
                         </div>
                         <div class="col-sm-3">
                             <select wire:model="sorting">
