@@ -864,8 +864,8 @@ h2.title {
 .productinfo h2{
 	color: #FE980F;
 	font-family: 'Roboto', sans-serif;
-	font-size: 24px;
-	font-weight: 700;
+	font-size: 18px;
+	font-weight: 500;
 }
 .product-overlay h2{
 	color: #fff;
@@ -2594,5 +2594,5 @@ svg {
 
 /*my*/
 .my-card {
-  height: 480px;
+  height: 450px;
 }
