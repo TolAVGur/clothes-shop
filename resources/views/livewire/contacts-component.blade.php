@@ -6,30 +6,7 @@
     <div id="contact-page" class="container">
         <div class="bg">
             <div class="row">
-                <div class="col-sm-8">
-                    <div class="contact-form">
-                        <h2 class="title text-center">Напишіть нам</h2>
-                        <div class="status alert alert-warning" style="display: none"></div>
-                        <form id="main-contact-form" class="contact-form row" name="contact-form" method="post">
-                            <div class="form-group col-md-6">
-                                <input type="text" name="name" class="form-control" required="required" placeholder="Ваше ім'я">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <input type="email" name="email" class="form-control" required="required" placeholder="Email">
-                            </div>
-                            <div class="form-group col-md-12">
-                                <input type="text" name="subject" class="form-control" required="required" placeholder="Тема">
-                            </div>
-                            <div class="form-group col-md-12">
-                                <textarea name="message" id="message" required="required" class="form-control" rows="8" placeholder="Введіть ваше повідомлення"></textarea>
-                            </div>
-                            <div class="form-group col-md-12">
-                                <input type="submit" name="submit" class="btn btn-primary pull-right" value="Надіслати">
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <div class="col-sm-4">
+                <div class="col-sm-3">
                     <div class="contact-info">
                         <h2 class="title text-center">Контактна інформація</h2>
                         <address>
@@ -55,6 +32,30 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-sm-9">
+                    <div class="contact-form">
+                        <h2 class="title text-center">Напишіть нам</h2>
+                        <div class="status alert alert-warning" style="display: none"></div>
+                        <form id="main-contact-form" class="contact-form row" name="contact-form" method="post">
+                            <div class="form-group col-md-6">
+                                <input type="text" name="name" class="form-control" required="required" placeholder="Ваше ім'я">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <input type="email" name="email" class="form-control" required="required" placeholder="Email">
+                            </div>
+                            <div class="form-group col-md-12">
+                                <input type="text" name="subject" class="form-control" required="required" placeholder="Тема">
+                            </div>
+                            <div class="form-group col-md-12">
+                                <textarea name="message" id="message" required="required" class="form-control" rows="8" placeholder="Введіть ваше повідомлення"></textarea>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <input type="submit" name="submit" class="btn btn-primary pull-right" value="Надіслати">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
             </div>
         </div>
 
