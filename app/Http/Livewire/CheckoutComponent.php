@@ -21,7 +21,7 @@ class CheckoutComponent extends Component
     public $zipcode;
     public $city;
     public $adress;
-    public $notes_text;
+    public $message;
     //
     public $thankyou;
 
@@ -29,102 +29,120 @@ class CheckoutComponent extends Component
     // обновление заказа 
     public function updated($fields)
     {
-        $this->validateOnly($fields, [
+        /*$this->validateOnly($fields, [
             'name' => 'required',
             'email' => 'required|email',
             'phone' => 'required|numeric',
             //'zipcode' => 'required',
             'city' => 'required',
             'adress' => 'required',
-            'notes_text' => 'required',
+            'message' => 'required',
             'shippingchoice' => 'required',
             'paymentmode' => 'required'
-        ]);
+        ]);*/
     }
 
     // сохранение заказа
     public function placeOrder()
     {
-        $this->validate([
+       /* $this->validate([
             'name' => 'required',
             'email' => 'required|email',
             'phone' => 'required|numeric',
             //'zipcode' => 'required',
             'city' => 'required',
             'adress' => 'required',
-            'notes_text' => 'required',
-            'shippingchoice' => 'required',
-            'paymentmode' => 'required'
-        ]);
+            'message' => 'required',
+            //'shippingchoice' => 'required'
+        ]);*/
 
         $order = new Order();
-        $order_id = Auth::user()->id;
+
+        $order->user_id = Auth::user()->id;
         $order->subtotal = session()->get('checkout')['subtotal'];
         $order->discount = session()->get('checkout')['discount'];
         $order->tax = session()->get('checkout')['tax'];
         $order->total = session()->get('checkout')['total'];
+        
+        /*fix: "," из decimal */ 
+        $order->subtotal = str_replace(',', '', $order->subtotal);
+        $order->discount = str_replace(',', '', $order->discount);
+        $order->tax = str_replace(',', '', $order->tax);
+        $order->total = str_replace(',', '', $order->total);
 
-        $order->shippingchoice = $this->shippingchoice;
+
         $order->name = Auth::user()->name;
         $order->email = Auth::user()->email;
-        $order->phone = Auth::user()->phone;
-
+        if (Auth::user()->phone != 'no'){
+            $order->phone = Auth::user()->phone;
+        } else {
+            // *** додати phone у профіль юзера
+            $order->phone = $this->phone;
+        }
+        
         // доставка
-        if ($this->shippingchoice == 'courier_kiev') {
-            $order->zipcode = '02222';
-            $order->city = 'Київ';
-            $order->adress = $this->adress;
+        if ($this->shippingchoice == 'across_ukr') {
+            $order->shippingchoice = $this->shippingchoice;
             $order->tax = 5;
-        } elseif ($this->shippingchoice == 'across_ukr') {
             $order->zipcode = $this->zipcode;
             $order->city = $this->city;
             $order->adress = $this->adress;
+        } elseif ($this->shippingchoice == 'courier_kiev') {
+            $order->shippingchoice = $this->shippingchoice;
             $order->tax = 10;
+            $order->zipcode = 'Київ';
+            $order->city = 'Київ';
+            $order->adress = $this->adress;
         } else {
-            $order->zipcode = '02222';
+            $order->shippingchoice = 'selfpickup';
+            $order->zipcode = 'Київ';
             $order->city = 'Київ';
             $order->adress = 'Самовивіз';
             $order->tax = 0;
         }
-
-        $order->notes_text = $this->notes_text;
+        $order->message = $this->message;
         $order->status = 'ordered';
+
         $order->save();
 
+        // товар
         foreach (Cart::instance('cart')->content() as $item) {
             $orderItem = new OrderItem();
+
             $orderItem->product_id = $item->id;
             $orderItem->order_id = $order->id;
-            $orderItem->price = $item->price;
-            $orderItem->quentity = $item->qty;
+            $orderItem->price = $item->price; // price
+            $orderItem->quantity = $item->qty;
+
             $orderItem->save();
         }
 
         // сохранение в таблице доставки
         $shipping = new Shipping();
+
         $shipping->order_id = $order->id;
-        $shipping->name = $this->name;
-        $shipping->email = $this->email;
-        $shipping->phone = $this->phone;
-        $shipping->zipcode = $this->zipcode;
-        $shipping->city = $this->city;
-        $shipping->adress = $this->adress;
+        $shipping->name = Auth::user()->name;
+        $shipping->phone = $order->phone;
+        $shipping->email = Auth::user()->email;
+        $shipping->adress = $order->adress;
+        $shipping->city = $order->city;
+        $shipping->zipcode = $order->zipcode;
+        $shipping->message = $order->message;
+
         $shipping->save();
 
-        // транзакция
+        // транзакция - выбранная оплата
         $transaction = new Transaction();
-        $transaction->user_id = Auth::user()->id;
-        $transaction->order_id = $order->id;
-        $transaction->status = 'pending';
 
-        if ($this->paymentmode == 'cod') {
+        $transaction->user_id = $order->user_id;
+        $transaction->order_id = $order->id;
+        if ($this->paymentmode == 'paypal') {
             $transaction->mode = $this->paymentmode;
         } elseif ($this->paymentmode == 'card') {
             $transaction->mode = $this->paymentmode;
         } else
-            $transaction->mode = $this->paymentmode;
+            $transaction->mode = 'cod';
         $transaction->save();
-
 
         $this->thankyou = 1;
         Cart::instance('cart')->destroy();
@@ -140,7 +158,7 @@ class CheckoutComponent extends Component
 
     public function render()
     {
-        //$this->verifyForThankyou();
+        $this->verifyForThankyou();
         return view('livewire.checkout-component')->layout('layouts.base');
     }
 }
