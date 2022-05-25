@@ -17,7 +17,7 @@
                             <p>Email: clothes.shop@domain.com</p>
                         </address>
                         <div class="social-networks">
-                            <h2 class="title text-center">наші акаунти</h2>
+                            <h2 class="title text-center">акаунти</h2>
                             <ul>
                                 <li>
                                     <a href="#"><i class="fa fa-facebook"></i></a>
