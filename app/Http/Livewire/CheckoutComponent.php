@@ -25,46 +25,43 @@ class CheckoutComponent extends Component
     //
     public $thankyou;
 
-
     // обновление заказа 
     public function updated($fields)
     {
-        /*$this->validateOnly($fields, [
-            'name' => 'required',
-            'email' => 'required|email',
+        $this->validateOnly($fields, [
+            //'name' => 'required',
+            //'email' => 'required|email',
             'phone' => 'required|numeric',
             //'zipcode' => 'required',
-            'city' => 'required',
-            'adress' => 'required',
-            'message' => 'required',
-            'shippingchoice' => 'required',
-            'paymentmode' => 'required'
-        ]);*/
+            //'city' => 'required',
+            //'adress' => 'required',
+            //'message' => 'required',
+            //'shippingchoice' => 'required',
+            //'paymentmode' => 'required'
+        ]);
     }
 
     // сохранение заказа
     public function placeOrder()
     {
-       /* $this->validate([
-            'name' => 'required',
-            'email' => 'required|email',
+        $this->validate([
+            //'name' => 'required',
+            //'email' => 'required|email',
             'phone' => 'required|numeric',
             //'zipcode' => 'required',
-            'city' => 'required',
-            'adress' => 'required',
-            'message' => 'required',
+            //'city' => 'required',
+            //'adress' => 'required',
             //'shippingchoice' => 'required'
-        ]);*/
+        ]);
 
         $order = new Order();
-
         $order->user_id = Auth::user()->id;
         $order->subtotal = session()->get('checkout')['subtotal'];
         $order->discount = session()->get('checkout')['discount'];
         $order->tax = session()->get('checkout')['tax'];
         $order->total = session()->get('checkout')['total'];
-        
-        /*fix: "," из decimal */ 
+
+        /*fix: без "," в decimal */
         $order->subtotal = str_replace(',', '', $order->subtotal);
         $order->discount = str_replace(',', '', $order->discount);
         $order->tax = str_replace(',', '', $order->tax);
@@ -73,13 +70,13 @@ class CheckoutComponent extends Component
 
         $order->name = Auth::user()->name;
         $order->email = Auth::user()->email;
-        if (Auth::user()->phone != 'no'){
+        if (Auth::user()->phone != 'no') {
             $order->phone = Auth::user()->phone;
         } else {
             // *** додати phone у профіль юзера
             $order->phone = $this->phone;
         }
-        
+
         // доставка
         if ($this->shippingchoice == 'across_ukr') {
             $order->shippingchoice = $this->shippingchoice;
@@ -108,7 +105,6 @@ class CheckoutComponent extends Component
         // товар
         foreach (Cart::instance('cart')->content() as $item) {
             $orderItem = new OrderItem();
-
             $orderItem->product_id = $item->id;
             $orderItem->order_id = $order->id;
             $orderItem->price = $item->price; // price
@@ -119,7 +115,6 @@ class CheckoutComponent extends Component
 
         // сохранение в таблице доставки
         $shipping = new Shipping();
-
         $shipping->order_id = $order->id;
         $shipping->name = Auth::user()->name;
         $shipping->phone = $order->phone;
@@ -133,7 +128,6 @@ class CheckoutComponent extends Component
 
         // транзакция - выбранная оплата
         $transaction = new Transaction();
-
         $transaction->user_id = $order->user_id;
         $transaction->order_id = $order->id;
         if ($this->paymentmode == 'paypal') {
@@ -144,6 +138,12 @@ class CheckoutComponent extends Component
             $transaction->mode = 'cod';
         $transaction->save();
 
+        // отправка email
+        /* Mail::to($order->email)->send(new OrderPlaced(
+                $order->name, $order->phone, $this->shippingchoice, $this->paymentmode, 
+                $shipping->city, $shipping->adress, $shipping->message
+            ));
+        */
         $this->thankyou = 1;
         Cart::instance('cart')->destroy();
         session()->forget('checkout');
