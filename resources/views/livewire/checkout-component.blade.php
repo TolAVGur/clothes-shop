@@ -90,7 +90,7 @@
                                         @if(Auth::user()->phone != 'no')
                                         <input type="text" value="{{Auth::user()->phone}}" placeholder="{{Auth::user()->phone}}" wire:model="phone" readonly>
                                         @else
-                                        <input type="text" placeholder="обов'язково додайте номер телефону" wire:model="phone" required>
+                                        <input type="text" placeholder="Телефон *" wire:model="phone" required>
                                         @error('phone')<span class="text-danger">{{ $message }}</span> @enderror
                                         @endif
                                     </div>
@@ -108,8 +108,9 @@
                                         </div>
 
                                         @if ($shippingchoice == 'across_ukr')
-                                        <input type="text" placeholder="Поштовий індекс" wire:model="zipcode">
-                                        <select wire:model="city">
+                                        <input type="text" placeholder="Поштовий індекс *" wire:model="zipcode" required>
+                                        <!-- як зробити обов'язковим? ------------------ ??????????????? -->
+                                        <select wire:model="city" required>
                                             <option value="Kиїв" selected>Київ</option>
                                             <option value="Одеса">Одеса</option>
                                             <option value="Дніпро">Дніпро</option>
@@ -160,7 +161,7 @@
                                 <!-- /доставка/оплата -->
                                 @endif
                                 <div class="col-md-12" style="padding-bottom: 2%;">
-                                    <!-- ??  создать заказ и отправить на стр благодарности -->
+                                    <!--  создать заказ и отправить на стр благодарности -->
                                     @if(Session::has('checkout'))
                                     <button type="submit" class="btn btn-success pull-right"> Замовити </button>
                                     @endif
@@ -168,7 +169,6 @@
                                 </div>
 
                             </form>
-
                         </div>
                         <!-- /cart_items -->
                         @else
