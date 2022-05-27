@@ -2,7 +2,9 @@
 
 namespace App\Http\Livewire;
 
+use App\Mail\OrderMail;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use App\Models\Transaction;
 use App\Models\OrderItem;
 use App\Models\Shipping;
@@ -32,7 +34,7 @@ class CheckoutComponent extends Component
             //'name' => 'required',
             //'email' => 'required|email',
             'phone' => 'required|numeric',
-            //'zipcode' => 'required',
+            //'zipcode' => 'required|numeric',
             //'city' => 'required',
             //'adress' => 'required',
             //'message' => 'required',
@@ -48,7 +50,7 @@ class CheckoutComponent extends Component
             //'name' => 'required',
             //'email' => 'required|email',
             'phone' => 'required|numeric',
-            //'zipcode' => 'required',
+            //'zipcode' => 'required|numeric',
             //'city' => 'required',
             //'adress' => 'required',
             //'shippingchoice' => 'required'
@@ -72,6 +74,7 @@ class CheckoutComponent extends Component
         $order->email = Auth::user()->email;
         if (Auth::user()->phone != 'no') {
             $order->phone = Auth::user()->phone;
+            // *** ----------------------------------------??? не працює якщо в юзера вже є телефон ?????
         } else {
             // *** додати phone у профіль юзера
             $order->phone = $this->phone;
@@ -87,14 +90,14 @@ class CheckoutComponent extends Component
         } elseif ($this->shippingchoice == 'courier_kiev') {
             $order->shippingchoice = $this->shippingchoice;
             $order->tax = 10;
-            $order->zipcode = 'Київ';
+            $order->zipcode = '02222';
             $order->city = 'Київ';
             $order->adress = $this->adress;
         } else {
             $order->shippingchoice = 'selfpickup';
-            $order->zipcode = 'Київ';
+            $order->zipcode = '02222';
             $order->city = 'Київ';
-            $order->adress = 'Самовивіз';
+            $order->adress = 'Магазин';
             $order->tax = 0;
         }
         $order->message = $this->message;
@@ -107,7 +110,7 @@ class CheckoutComponent extends Component
             $orderItem = new OrderItem();
             $orderItem->product_id = $item->id;
             $orderItem->order_id = $order->id;
-            $orderItem->price = $item->price; // price
+            $orderItem->price = $item->price;
             $orderItem->quantity = $item->qty;
 
             $orderItem->save();
@@ -138,12 +141,18 @@ class CheckoutComponent extends Component
             $transaction->mode = 'cod';
         $transaction->save();
 
-        // отправка email
-        /* Mail::to($order->email)->send(new OrderPlaced(
-                $order->name, $order->phone, $this->shippingchoice, $this->paymentmode, 
-                $shipping->city, $shipping->adress, $shipping->message
-            ));
-        */
+        // відправка email покупцю
+        Mail::to($order->email)->send(new OrderMail(
+            $order->id, 
+            $order->name, 
+            $order->phone, 
+            $this->shippingchoice, 
+            $this->paymentmode, 
+            $shipping->city,
+            $shipping->adress,
+            $shipping->message
+        ));
+        
         $this->thankyou = 1;
         Cart::instance('cart')->destroy();
         session()->forget('checkout');

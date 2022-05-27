@@ -7,9 +7,9 @@ return [
     | Default Mailer
     |--------------------------------------------------------------------------
     |
-    | This option controls the default mailer that is used to send any email
-    | messages sent by your application. Alternative mailers may be setup
-    | and used as needed; however, this mailer will be used by default.
+    | Цей параметр керує розсилкою за замовчуванням, яка використовується для надсилання будь-якої електронної пошти
+    | повідомлення, надіслані вашою програмою. Можуть бути налаштовані альтернативні розсилники
+    | і використовується в міру необхідності; однак цей лист буде використовуватися за замовчуванням.
     |
     */
 
@@ -20,13 +20,13 @@ return [
     | Mailer Configurations
     |--------------------------------------------------------------------------
     |
-    | Here you may configure all of the mailers used by your application plus
-    | their respective settings. Several examples have been configured for
-    | you and you are free to add your own as your application requires.
+    | Тут ви можете налаштувати всі поштові програми, які використовує ваша програма,
+    | а також їх відповідні налаштування. Для вас було налаштовано кілька прикладів, 
+    | і ви можете додати свої власні, як того вимагає ваша програма.
     |
-    | Laravel supports a variety of mail "transport" drivers to be used while
-    | sending an e-mail. You will specify which one you are using for your
-    | mailers below. You are free to add additional mailers as required.
+    | Laravel підтримує різноманітні драйвери «транспортування» пошти, які можна використовувати під час
+    | надсилання електронного листа. Ви вкажете, який з них ви використовуєте для свого
+    | листівки нижче. За потреби ви можете додавати додаткові листівки.
     |
     | Supported: "smtp", "sendmail", "mailgun", "ses",
     |            "postmark", "log", "array", "failover"
@@ -85,14 +85,14 @@ return [
     | Global "From" Address
     |--------------------------------------------------------------------------
     |
-    | You may wish for all e-mails sent by your application to be sent from
-    | the same address. Here, you may specify a name and address that is
-    | used globally for all e-mails that are sent by your application.
+    | Ви можете побажати, щоб усі електронні листи, надіслані вашою заявкою, надсилалися з
+    | ту саму адресу. Тут ви можете вказати назву та адресу
+    | використовується глобально для всіх електронних листів, які надсилає ваша програма.
     |
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
+        'address' => env('MAIL_FROM_ADDRESS', 'clothes.shop@domain.com'),
         'name' => env('MAIL_FROM_NAME', 'Example'),
     ],
 
@@ -101,9 +101,9 @@ return [
     | Markdown Mail Settings
     |--------------------------------------------------------------------------
     |
-    | If you are using Markdown based email rendering, you may configure your
-    | theme and component paths here, allowing you to customize the design
-    | of the emails. Or, you may simply stick with the Laravel defaults!
+    | Якщо ви використовуєте рендеринг електронної пошти на основі Markdown, ви можете налаштувати свій
+    | шляхи теми та компонентів тут, що дозволяє налаштувати дизайн
+    | електронних листів. Або ви можете просто дотримуватися стандартних значень Laravel!
     |
     */
 
