@@ -31,31 +31,13 @@ class CheckoutComponent extends Component
     public function updated($fields)
     {
         $this->validateOnly($fields, [
-            //'name' => 'required',
-            //'email' => 'required|email',
-            'phone' => 'required|numeric',
-            //'zipcode' => 'required|numeric',
-            //'city' => 'required',
-            //'adress' => 'required',
-            //'message' => 'required',
-            //'shippingchoice' => 'required',
-            //'paymentmode' => 'required'
+           'phone' => 'required|numeric'
         ]);
     }
 
     // сохранение заказа
     public function placeOrder()
     {
-        $this->validate([
-            //'name' => 'required',
-            //'email' => 'required|email',
-            'phone' => 'required|numeric',
-            //'zipcode' => 'required|numeric',
-            //'city' => 'required',
-            //'adress' => 'required',
-            //'shippingchoice' => 'required'
-        ]);
-
         $order = new Order();
         $order->user_id = Auth::user()->id;
         $order->subtotal = session()->get('checkout')['subtotal'];
@@ -74,9 +56,8 @@ class CheckoutComponent extends Component
         $order->email = Auth::user()->email;
         if (Auth::user()->phone != 'no') {
             $order->phone = Auth::user()->phone;
-            // *** ----------------------------------------??? не працює якщо в юзера вже є телефон ?????
         } else {
-            // *** додати phone у профіль юзера
+            // *** додати phone у профіль юзера 
             $order->phone = $this->phone;
         }
 
