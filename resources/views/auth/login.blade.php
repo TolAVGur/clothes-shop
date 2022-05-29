@@ -56,8 +56,8 @@
     <section>
         <div class="container">
             <div class="row">
-                <div class="col-sm-2"></div>
-                <div class="col-sm-6 col-sm-offset-1">
+                <div class="col-sm-3"></div>
+                <div class="col-sm-6">
                     <div class="login-form">
                         <!--login form-->
                         <h2 class="title text-center">Вхід до облікового запису</h2>
@@ -66,9 +66,8 @@
                         <form name="frm-login" action="{{ route('login') }}" method="POST">
                             @csrf
                             <input type="email" name="email" placeholder="Email" :value="old('email')" required autofocus />
-
                             <input type="password" name="password" placeholder="**********" required autocomplete="current-password" />
-                            <div style="margin-top: 40px; margin-bottom: 40px;">
+                            <div style="margin-top: 50px; margin-bottom: 50px;">
                                 <span>
                                     <input type="checkbox" name="remember" class="checkbox" value="forever">
                                     Запам'ятати мене

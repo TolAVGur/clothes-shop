@@ -1433,11 +1433,13 @@ h2.title {
 }
 
 .login-form {
-
+  margin-top: 30px;
+  margin-bottom: 100px;
 }
 
 .signup-form {
-
+  margin-top: 30px;
+  margin-bottom: 100px;
 }
 
 .login-form h2, .signup-form h2 {
