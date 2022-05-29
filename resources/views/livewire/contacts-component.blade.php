@@ -35,14 +35,22 @@
                 <div class="col-sm-9">
                     <div class="contact-form">
                         <h2 class="title text-center">Напишіть нам</h2>
-                        <div class="status alert alert-warning" style="display: none"></div>
                         <form wire:submit.prevent="feedbackMail" id="main-contact-form" class="contact-form row" name="contact-form">
+                            @if(!Auth::check())
                             <div class="form-group col-md-6">
                                 <input type="text" class="form-control" placeholder="Ваше ім'я" wire:model="name" required>
                             </div>
                             <div class="form-group col-md-6">
                                 <input type="email" class="form-control" placeholder="Email" wire:model="email" required>
                             </div>
+                            @else
+                            <div class="form-group col-md-6">
+                                <input type="text" class="form-control" placeholder="{{Auth::user()->name}}" value="{{Auth::user()->name}}" wire:model="name" readonly>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <input type="email" class="form-control" placeholder="{{Auth::user()->email}}" value="{{Auth::user()->email}}" wire:model="email" readonly>
+                            </div>
+                            @endif
                             <div class="form-group col-md-12">
                                 <input type="text" class="form-control" placeholder="Тема" wire:model="subject" required>
                             </div>
