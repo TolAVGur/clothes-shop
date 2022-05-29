@@ -13,15 +13,15 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-sm-4">
-                            <a class="btn btn-warning btn_adminpanel" href="#">Користувачи</a>
+                            <a class="btn btn-success btn_adminpanel" href="#">Користувачи</a>
                             <a class="btn btn-warning btn_adminpanel" href="{{ route('admin.products') }}">Товари</a>
                         </div>
                         <div class="col-sm-4">
-                            <a class="btn btn-warning btn_adminpanel" href="{{ route('admin.categories') }}">Категорії</a>
+                            <a class="btn btn-success btn_adminpanel" href="{{ route('admin.categories') }}">Категорії</a>
                             <a class="btn btn-warning btn_adminpanel" href="{{ route('admin.brands') }}">Бренди</a>
                         </div>
                         <div class="col-sm-4">
-                            <a class="btn btn-warning btn_adminpanel" href="#">Пошта</a>
+                            <a class="btn btn-success btn_adminpanel" href="#">Пошта</a>
                             <a class="btn btn-warning btn_adminpanel" href="#">Peклама</a>
                         </div>
                     </div>

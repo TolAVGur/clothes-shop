@@ -12,10 +12,10 @@
                             <h5 style="color: #8a6d3b">Зміна інформації про бренд</h5>
                         </div>
                         <div class="col-md-6">
-                            <a href="{{ route('admin.brands')}}" class="btn btn-warning pull-right">
+                            <a href="{{ route('admin.brands')}}" class="btn btn-warning btn_adminpanel pull-right">
                                 До списку Брендів
                             </a>
-                            <a href="{{ route('admin.dashboard')}}" class="btn btn-warning pull-right">
+                            <a href="{{ route('admin.dashboard')}}" class="btn btn-warning btn_adminpanel pull-right">
                                 Адмін-панель
                             </a>
                         </div>
@@ -45,7 +45,7 @@
                         <div class="form-group">
                             <label class="col-md-4 control-label"></label>
                             <div class="col-md-4">
-                                <button type="submit" style="width: 100%;" class="btn btn-warning pull-right">Оновити Бренд</button>
+                                <button type="submit" style="width: 100%;" class="btn btn-success pull-right">Оновити Бренд</button>
                             </div>
                         </div>
                     </form>

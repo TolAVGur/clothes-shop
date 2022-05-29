@@ -12,10 +12,10 @@
                             <h4 style="color: #8a6d3b">Список товарів</h4>
                         </div>
                         <div class="col-md-6">
-                            <a href="{{ route('admin.addproduct')}}" class="btn btn-success pull-right">
-                                Додати новий товар
+                            <a href="{{ route('admin.addproduct')}}" class="btn btn-success btn_adminpanel pull-right">
+                                Додати товар
                             </a>
-                            <a href="{{ route('admin.dashboard')}}" class="btn btn-warning pull-right">
+                            <a href="{{ route('admin.dashboard')}}" class="btn btn-warning btn_adminpanel pull-right">
                                 Адмін-панель
                             </a>
                         </div>
@@ -90,9 +90,8 @@
                         </tbody>
 
                     </table>
-                    <hr>
-                    <div style="margin-top: 30px; text-align: center;">
-                        {{ $products->links()}}
+                    <div class="wrap-pagination-info">
+                        {{ $products->render('pagination::bootstrap-4') }}
                     </div>
                 </div>
             </div>

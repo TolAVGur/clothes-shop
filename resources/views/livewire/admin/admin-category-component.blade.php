@@ -12,10 +12,10 @@
                             <h4 style="color: #8a6d3b">Категорії</h4>
                         </div>
                         <div class="col-md-6">
-                            <a href="{{ route('admin.addcategory')}}" class="btn btn-success pull-right">
+                            <a href="{{ route('admin.addcategory')}}" class="btn btn-success btn_adminpanel pull-right">
                                 Додати Категорію
                             </a>
-                            <a href="{{ route('admin.dashboard')}}" class="btn btn-warning pull-right">
+                            <a href="{{ route('admin.dashboard')}}" class="btn btn-warning btn_adminpanel pull-right">
                                 Адмін-панель
                             </a>
                         </div>
@@ -56,9 +56,8 @@
                         </tr>
                         @endforeach
                     </table>
-                    <hr>
-                    <div style="margin-top: 30px; text-align: center;">
-                        {{ $categories->links()}}
+                    <div class="wrap-pagination-info">
+                        {{ $categories->render('pagination::bootstrap-4') }}
                     </div>
                 </div>
             </div>

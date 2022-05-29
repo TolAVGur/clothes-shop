@@ -12,10 +12,10 @@
                             <h4 style="color: #8a6d3b">Зміна інформації про категорію</h4>
                         </div>
                         <div class="col-md-6">
-                            <a href="{{ route('admin.categories')}}" class="btn btn-warning pull-right">
+                            <a href="{{ route('admin.categories')}}" class="btn btn-warning btn_adminpanel pull-right">
                                 До списку
                             </a>
-                            <a href="{{ route('admin.dashboard')}}" class="btn btn-warning pull-right">
+                            <a href="{{ route('admin.dashboard')}}" class="btn btn-warning btn_adminpanel pull-right">
                                 Адмін-панель
                             </a>
                         </div>
@@ -47,7 +47,7 @@
                         <div class="form-group">
                             <label class="col-md-4 control-label"></label>
                             <div class="col-md-4">
-                                <button type="submit" style="width: 100%;" class="btn btn-warning pull-right">Оновити</button>
+                                <button type="submit" style="width: 100%;" class="btn btn-success pull-right">Оновити</button>
                             </div>
                         </div>
                     </form>

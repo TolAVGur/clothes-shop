@@ -8,12 +8,14 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <div class="row">
-                        <div class="col-md-6"><h4 style="color: #8a6d3b">Бренди</h4></div>
                         <div class="col-md-6">
-                            <a href="{{ route('admin.addbrand')}}" class="btn btn-success pull-right">
+                            <h4 style="color: #8a6d3b">Бренди</h4>
+                        </div>
+                        <div class="col-md-6">
+                            <a href="{{ route('admin.addbrand')}}" class="btn btn-success btn_adminpanel pull-right">
                                 Додати Бренд
                             </a>
-                            <a href="{{ route('admin.dashboard')}}" class="btn btn-warning pull-right">
+                            <a href="{{ route('admin.dashboard')}}" class="btn btn-warning btn_adminpanel pull-right">
                                 Адмін-панель
                             </a>
                         </div>
@@ -44,7 +46,7 @@
                             <td>{{ $brand->country }}</td>
                             <td>{{ $brand->updated_at }}</td>
                             <td align="right">
-                            <a href="{{ route('admin.editbrand', ['brand_id' => $brand->id]) }}">
+                                <a href="{{ route('admin.editbrand', ['brand_id' => $brand->id]) }}">
                                     <i class="fa fa-edit fa-2x"></i>
                                 </a> |
                                 <a href="#" wire:click.prevent="delete_brand({{$brand->id}})">
@@ -54,9 +56,8 @@
                         </tr>
                         @endforeach
                     </table>
-                    <hr>
-                    <div style="margin-top: 30px; text-align: center;">
-                        {{$brands->links()}}
+                    <div class="wrap-pagination-info">
+                        {{ $brands->render('pagination::bootstrap-4') }}
                     </div>
                 </div>
             </div>

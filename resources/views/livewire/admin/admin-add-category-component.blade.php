@@ -12,10 +12,10 @@
                             <h4 style="color: #8a6d3b">Додавання Категорії</h4>
                         </div>
                         <div class="col-md-6">
-                            <a href="{{ route('admin.categories')}}" class="btn btn-warning pull-right">
+                            <a href="{{ route('admin.categories')}}" class="btn btn-warning btn_adminpanel pull-right">
                                 До списку
                             </a>
-                            <a href="{{ route('admin.dashboard')}}" class="btn btn-warning pull-right">
+                            <a href="{{ route('admin.dashboard')}}" class="btn btn-warning btn_adminpanel pull-right">
                                 Адмін-панель
                             </a>
                         </div>
