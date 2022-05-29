@@ -9,7 +9,7 @@
                 <div class="panel-heading">
                     <div class="row">
                         <div class="col-md-6">
-                            <h4>Додавання нового товару</h4>
+                            <h4 style="color: #8a6d3b">Додавання нового товару</h4>
                         </div>
                         <div class="col-md-6">
                             <a href="{{ route('admin.products')}}" class="btn btn-warning pull-right">

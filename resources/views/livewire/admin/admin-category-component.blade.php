@@ -9,7 +9,7 @@
                 <div class="panel-heading">
                     <div class="row">
                         <div class="col-md-6">
-                            <h4>Категорії</h4>
+                            <h4 style="color: #8a6d3b">Категорії</h4>
                         </div>
                         <div class="col-md-6">
                             <a href="{{ route('admin.addcategory')}}" class="btn btn-success pull-right">

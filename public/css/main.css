@@ -2598,3 +2598,8 @@ svg {
 .my-card {
   height: 450px;
 }
+
+.btn_adminpanel {
+  width: 150px;
+  margin: 10px;
+}

@@ -8,7 +8,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <div class="row">
-                        <div class="col-md-6"><h4>Бренди</h4></div>
+                        <div class="col-md-6"><h4 style="color: #8a6d3b">Бренди</h4></div>
                         <div class="col-md-6">
                             <a href="{{ route('admin.addbrand')}}" class="btn btn-success pull-right">
                                 Додати Бренд
