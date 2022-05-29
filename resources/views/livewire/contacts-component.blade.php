@@ -20,13 +20,13 @@
                             <h2 class="title text-center">акаунти</h2>
                             <ul>
                                 <li>
-                                    <a href="#"><i class="fa fa-facebook"></i></a>
+                                    <a href="https://www.facebook.com"><i class="fa fa-facebook"></i></a>
                                 </li>
                                 <li>
-                                    <a href="#"><i class="fa fa-twitter"></i></a>
+                                    <a href="https://twitter.com/"><i class="fa fa-twitter"></i></a>
                                 </li>
                                 <li>
-                                    <a href="#"><i class="fa fa-youtube"></i></a>
+                                    <a href="https://www.youtube.com/"><i class="fa fa-youtube"></i></a>
                                 </li>
                             </ul>
                         </div>
@@ -36,21 +36,21 @@
                     <div class="contact-form">
                         <h2 class="title text-center">Напишіть нам</h2>
                         <div class="status alert alert-warning" style="display: none"></div>
-                        <form id="main-contact-form" class="contact-form row" name="contact-form" method="post">
+                        <form wire:submit.prevent="feedbackMail" id="main-contact-form" class="contact-form row" name="contact-form">
                             <div class="form-group col-md-6">
-                                <input type="text" name="name" class="form-control" required="required" placeholder="Ваше ім'я">
+                                <input type="text" class="form-control" placeholder="Ваше ім'я" wire:model="name" required>
                             </div>
                             <div class="form-group col-md-6">
-                                <input type="email" name="email" class="form-control" required="required" placeholder="Email">
+                                <input type="email" class="form-control" placeholder="Email" wire:model="email" required>
                             </div>
                             <div class="form-group col-md-12">
-                                <input type="text" name="subject" class="form-control" required="required" placeholder="Тема">
+                                <input type="text" class="form-control" placeholder="Тема" wire:model="subject" required>
                             </div>
                             <div class="form-group col-md-12">
-                                <textarea name="message" id="message" required="required" class="form-control" rows="8" placeholder="Введіть ваше повідомлення"></textarea>
+                                <textarea name="message" id="message" class="form-control" rows="5" placeholder="Введіть ваше повідомлення" wire:model="message" required></textarea>
                             </div>
-                            <div class="form-group col-md-12">
-                                <input type="submit" name="submit" class="btn btn-primary pull-right" value="Надіслати">
+                            <div class="form-group col-md-11">
+                                <button type="submit" class="btn btn-primary pull-right"> Надіслати </button>
                             </div>
                         </form>
                     </div>

@@ -12,6 +12,7 @@ use App\Http\Livewire\DetailsComponent;
 use App\Http\Livewire\CategoryComponent;
 use App\Http\Livewire\BrandComponent;
 use App\Http\Livewire\ThankyouComponent;
+use App\Http\Livewire\FeedbackComponent;
 //
 use App\Http\Livewire\User\UserDashboardComponent;
 //
@@ -48,6 +49,7 @@ Route::get('/help', HelppageComponent::class);
 Route::get('/cart', CartComponent::class)->name('product.cart');
 Route::get('/checkout', CheckoutComponent::class)->name('checkout');
 Route::get('/thank-you', ThankyouComponent::class)->name('thankyou');
+Route::get('/feedback', FeedbackComponent::class)->name('feedback');
 Route::get('/product/details{slug}', DetailsComponent::class)->name('product.details');
 Route::get('/product-category/{category_slug}', CategoryComponent::class)->name('product.category');
 Route::get('/product-brand/{brand_id}', BrandComponent::class)->name('product.brand');
