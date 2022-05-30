@@ -8,7 +8,6 @@ subject: {{ $subject }} <br>
 message: {{ $message }} <br>
 <br>Найближчим часом з Вами зв'яжеться відповідальний менеджер.
 <hr>
-
-Thanks,<br>
-{{ config('app.name') }}
+Дякуемо,<br>
+Clothes-Shop
 @endcomponent
