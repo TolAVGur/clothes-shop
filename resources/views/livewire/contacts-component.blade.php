@@ -45,10 +45,12 @@
                             </div>
                             @else
                             <div class="form-group col-md-6">
-                                <input type="text" class="form-control" placeholder="{{Auth::user()->name}}" value="{{Auth::user()->name}}" wire:model="name" readonly>
+                                <input type="text" class="form-control" placeholder="{{Auth::user()->name}}"
+                                        value="{{Auth::user()->name}}" wire:model="name" readonly>
                             </div>
                             <div class="form-group col-md-6">
-                                <input type="email" class="form-control" placeholder="{{Auth::user()->email}}" value="{{Auth::user()->email}}" wire:model="email" readonly>
+                                <input type="email" class="form-control" placeholder="{{Auth::user()->email}}"
+                                    value="{{Auth::user()->email}}" wire:model="email" readonly>
                             </div>
                             @endif
                             <div class="form-group col-md-12">

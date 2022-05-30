@@ -14,9 +14,16 @@ class ContactsComponent extends Component
     public $subject;                // тема повідомлення
     public $message;                // текст повідомлення
 
-    public function feedbackMail() {
-        $name = $this->name;
-        $email = $this->email;
+    public function feedbackMail()
+    {
+        if (!Auth::check()) {
+            $name = $this->name;
+            $email = $this->email;
+        } else {
+            $name = Auth::user()->name;
+            $email = Auth::user()->email;
+        }
+
         $subject = $this->subject;
         $message = $this->message;
         Mail::to('clothes.shop@domain.com')->send(new FeedbackMail($name, $email, $subject, $message));
