@@ -15,17 +15,7 @@ class AdminDashboardComponent extends Component
     use WithPagination;
 
     public function render()
-    {
-        $products = Product::orderBy('updated_at', 'DESC')->paginate();
-        $users = User::orderBy('updated_at', 'DESC')->paginate();
-        $categories = Category::orderBy('updated_at', 'DESC')->paginate();
-        $brands = Brand::orderBy('updated_at', 'DESC')->paginate();
-        
-        return view('livewire.admin.admin-dashboard-component', [
-            'products' => $products,
-            'users' => $users,
-            'brands'=> $brands,
-            'categories' => $categories
-            ])->layout('layouts.base');
+    {    
+        return view('livewire.admin.admin-dashboard-component')->layout('layouts.base');
     }
 }
