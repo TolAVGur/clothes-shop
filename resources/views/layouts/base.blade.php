@@ -91,6 +91,7 @@
                                             <ul class="dropdown-menu">
                                                 <li><a href="{{ route('admin.dashboard') }}"> Адмін панель</a></li>
                                                 <hr>
+                                                <li><a href="{{ route('admin.users') }}"> Користувачи </a></li>
                                                 <li><a href="{{ route('admin.categories') }}"> Управління Категоріями</a></li>
                                                 <li><a href="{{ route('admin.brands') }}"> Управління Брендами</a></li>
                                                 <li><a href="{{ route('admin.products') }}"> Управління Товарами</a></li>
