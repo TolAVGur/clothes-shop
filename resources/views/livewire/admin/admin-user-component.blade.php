@@ -12,8 +12,8 @@
                             <h4 style="color: #8a6d3b">Список користувачів</h4>
                         </div>
                         <div class="col-md-6">
-                            <a href="#" class="btn btn-success btn_adminpanel pull-right">
-                                Новий
+                            <a href="{{ route('admin.adduser')}}" class="btn btn-success btn_adminpanel pull-right">
+                                Додати нового
                             </a>
                             <a href="{{ route('admin.dashboard')}}" class="btn btn-warning btn_adminpanel pull-right">
                                 Адмін-панель
@@ -38,7 +38,8 @@
                                 <th>Телефон</th>
                                 <th>Роль</th>
                                 <th>Дата регистрації</th>
-                                <th>оновлено</th>
+                                <th>Оновлено</th>
+                                <th></th>
                             </tr>
                         </thead>
                         @foreach ($users as $u)
@@ -50,6 +51,14 @@
                             <td>{{ $u->role_name }}</td>
                             <td>{{ $u->created_at }}</td>
                             <td>{{ $u->updated_at }}</td>
+                            <td>
+                                <a href="#">
+                                    <i class="fa fa-edit fa-2x"></i>
+                                </a> |
+                                <a href="#">
+                                    <i class="fa fa-times fa-2x text-danger"></i>
+                                </a>
+                            </td>
                         </tr>
                         @endforeach
                     </table>
