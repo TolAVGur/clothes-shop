@@ -28,6 +28,8 @@ use App\Http\Livewire\Admin\AdminAddProductComponent;
 use App\Http\Livewire\Admin\AdminEditProductComponent;
 use App\Http\Livewire\Admin\AdminUserComponent;
 use App\Http\Livewire\Admin\AdminRoleComponent;
+use App\Http\Livewire\Admin\AdminAddRoleComponent;
+use App\Http\Livewire\Admin\AdminAddUserComponent;
 
 /*
 |--------------------------------------------------------------------------
@@ -78,6 +80,9 @@ Route::middleware(['auth:sanctum', 'verified', 'authadmin'])->group(function() {
     Route::get('/admin/products/add', AdminAddProductComponent::class)->name('admin.addproduct');
     Route::get('/admin/products/edit{product_id}', AdminEditProductComponent::class)->name('admin.editproduct');
     Route::get('/admin/users', AdminUserComponent::class)->name('admin.users');
+    Route::get('/admin/users/add', AdminAddUserComponent::class)->name('admin.adduser');
     Route::get('/admin/roles', AdminRoleComponent::class)->name('admin.roles');
+    Route::get('/admin/roles/add', AdminAddRoleComponent::class)->name('admin.addrole');
+
 });
 
