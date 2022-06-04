@@ -80,7 +80,6 @@ Route::middleware(['auth:sanctum', 'verified', 'authadmin'])->group(function() {
     Route::get('/admin/products/add', AdminAddProductComponent::class)->name('admin.addproduct');
     Route::get('/admin/products/edit{product_id}', AdminEditProductComponent::class)->name('admin.editproduct');
     Route::get('/admin/users', AdminUserComponent::class)->name('admin.users');
-    Route::get('/admin/users/add', AdminAddUserComponent::class)->name('admin.adduser');
     Route::get('/admin/roles', AdminRoleComponent::class)->name('admin.roles');
     Route::get('/admin/roles/add', AdminAddRoleComponent::class)->name('admin.addrole');
 

@@ -12,9 +12,6 @@
                             <h4 style="color: #8a6d3b">Список користувачів</h4>
                         </div>
                         <div class="col-md-6">
-                            <a href="{{ route('admin.adduser')}}" class="btn btn-success btn_adminpanel pull-right">
-                                Додати нового
-                            </a>
                             <a href="{{ route('admin.dashboard')}}" class="btn btn-warning btn_adminpanel pull-right">
                                 Адмін-панель
                             </a>
