@@ -32,15 +32,26 @@
                     <table class="table-striped" width="100%">
                         <thead>
                             <tr>
-                                <th>Назва</th>
+                                <th>ID</th>
+                                <th>Назва ролі</th>
                                 <th>Дозволи</th>
+                                <th></th>
                             </tr>
                         </thead>
                         @foreach ($roles as $role)
                         <tr>
+                            <td>{{ $role->id }}</td>
                             <td>{{ $role->name }}</td>
                             <td>
-                               
+                                -- --
+                            </td>
+                            <td align="right">
+                                <a href="#">
+                                    <i class="fa fa-edit fa-2x"></i>
+                                </a> |
+                                <a href="#">
+                                    <i class="fa fa-times fa-2x text-danger"></i>
+                                </a>
                             </td>
                         </tr>
                         @endforeach
