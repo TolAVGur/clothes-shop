@@ -29,17 +29,28 @@
                     </div>
                     @endif
 
-                    <form class="form-horizontal" >
+                    <form class="form-horizontal">
                         <div class="form-group">
                             <label class="col-md-4 control-label">Назва: </label>
                             <div class="col-md-4">
                                 <input type="text" placeholder="Введіть назву ролі" class="form-control input-md" wire:model="name">
                             </div>
                         </div>
-                        <div class="form-group">
+                        <div class="row">
                             <label class="col-md-4 control-label">Дозволи: </label>
                             <div class="col-md-4">
-                               
+                                @foreach( $permissions as $permission)
+                                <div class="row">
+                                    <div class="col-md-10 pull-right">
+                                        <label for="{{ $permission->id }}">
+                                            {{ $permission->name }}
+                                        </label>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <input type="checkbox" value="{{ $permission->id }}" name="permissions[]" id="{{ $permission->id }}">
+                                    </div>
+                                </div>
+                                @endforeach
                             </div>
                         </div>
                         <div class="form-group">
