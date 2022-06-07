@@ -33,10 +33,8 @@
                                 <th>Ім'я/Nic</th>
                                 <th>E-mail</th>
                                 <th>Телефон</th>
+                                <th>Дата оновлення</th>
                                 <th>Роль</th>
-                                <th>Дата регистрації</th>
-                                <th>Оновлено</th>
-                                <th></th>
                             </tr>
                         </thead>
                         @foreach ($users as $u)
@@ -45,16 +43,12 @@
                             <td>{{ $u->name }}</td>
                             <td>{{ $u->email }}</td>
                             <td>{{ $u->phone }}</td>
-                            <td>{{ $u->role_name }}</td>
-                            <td>{{ $u->created_at }}</td>
                             <td>{{ $u->updated_at }}</td>
                             <td>
-                                <a href="#">
-                                    <i class="fa fa-edit fa-2x"></i>
-                                </a> |
-                                <a href="#">
-                                    <i class="fa fa-times fa-2x text-danger"></i>
-                                </a>
+                                <label style="width: 50px;">
+                                    {{ $u->role_name }}
+                                </label>
+                                <a href="#">Змінити роль</a>
                             </td>
                         </tr>
                         @endforeach
