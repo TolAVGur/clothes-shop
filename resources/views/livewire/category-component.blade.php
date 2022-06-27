@@ -24,7 +24,11 @@
                                 <div class="panel-heading">
                                     <h4 class="panel-title">
                                         <a href="{{ route('product.category',['category_slug'=>$category->slug]) }}">
-                                            <span class="badge pull-right"><i class="fa fa-plus"></i></span>
+                                            <span class="badge pull-right">
+                                                @if($category->name == $category_name)
+                                                <i class="fa fa-check"></i>
+                                                @endif  
+                                            </span>
                                             {{ $category->name }}
                                         </a>
                                     </h4>
@@ -42,7 +46,8 @@
                                     <li>
                                         @foreach ($brands as $brand)
                                         <a href="{{ route('product.brand',['brand_id'=>$brand->id]) }}">
-                                            <!--<span class="pull-right">(50)</span>-->{{ $brand->name }}</a>
+                                            <!--<span class="pull-right">(50)</span>-->{{ $brand->name }}
+                                        </a>
                                         @endforeach
                                     </li>
                                 </ul>
