@@ -4,7 +4,8 @@
 
 <section>
     <div id="contact-page" class="container">
-        <div class="bg">
+        <hr>
+        <div class="bg" style="margin-top: 30px;">
             <div class="row">
                 <div class="col-sm-3">
                     <div class="contact-info">
@@ -14,7 +15,7 @@
                             <p>Київ, вул.Вулична</p>
                             <p>будинок №1, 1 поверх</p>
                             <p>телефон: +38 067 111-11-11</p>
-                            <p>Email: clothes.shop@domain.com</p>
+                            <p>Email: avgur923.shop@avgur.pp.ua</p>
                         </address>
                         <div class="social-networks">
                             <h2 class="title text-center">акаунти</h2>
@@ -45,12 +46,10 @@
                             </div>
                             @else
                             <div class="form-group col-md-6">
-                                <input type="text" class="form-control" placeholder="{{Auth::user()->name}}"
-                                        value="{{Auth::user()->name}}" wire:model="name" readonly>
+                                <input type="text" class="form-control" placeholder="{{Auth::user()->name}}" value="{{Auth::user()->name}}" wire:model="name" readonly>
                             </div>
                             <div class="form-group col-md-6">
-                                <input type="email" class="form-control" placeholder="{{Auth::user()->email}}"
-                                    value="{{Auth::user()->email}}" wire:model="email" readonly>
+                                <input type="email" class="form-control" placeholder="{{Auth::user()->email}}" value="{{Auth::user()->email}}" wire:model="email" readonly>
                             </div>
                             @endif
                             <div class="form-group col-md-12">
