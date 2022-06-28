@@ -14,10 +14,10 @@ class AdminRoleComponent extends Component
 
     public function render()
     {
-        $roles = Role::orderBy('id', 'DESC')->paginate(5);
+        $roles = Role::orderBy('name')->paginate(5);
        
         return view('livewire.admin.admin-role-component', [
-            'roles' => $roles,
+            'roles' => $roles
         ])->layout('layouts.base');
     }
 }
