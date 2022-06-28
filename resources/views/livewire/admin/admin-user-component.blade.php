@@ -30,25 +30,19 @@
                         <thead>
                             <tr>
                                 <th width="5%">Id</th>
-                                <th>Ім'я/Nic</th>
-                                <th>E-mail</th>
-                                <th>Телефон</th>
-                                <th>Дата оновлення</th>
-                                <th>Роль</th>
+                                <th width="20%">Ім'я/Nic</th>
+                                <th width="20%">E-mail</th>
+                                <th width="20%">Роль</th>
                             </tr>
                         </thead>
-                        @foreach ($users as $u)
+                        @foreach ($users as $user)
                         <tr>
-                            <td>{{ $u->id}}</td>
-                            <td>{{ $u->name }}</td>
-                            <td>{{ $u->email }}</td>
-                            <td>{{ $u->phone }}</td>
-                            <td>{{ $u->updated_at }}</td>
+                            <td>{{ $user->id}}</td>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->email }}</td>
                             <td>
-                                <label style="width: 50px;">
-                                    {{ $u->role_name }}
-                                </label>
-                                <a href="#">Змінити роль</a>
+                                <em> {{ $user->role_name }} </em>
+                                <a href="{{ route('admin.roleedit', ['user_id' => $user->id]) }}"> - Змінити роль</a>
                             </td>
                         </tr>
                         @endforeach

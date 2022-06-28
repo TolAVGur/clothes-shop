@@ -12,9 +12,6 @@
                             <h4 style="color: #8a6d3b">Список ролей</h4>
                         </div>
                         <div class="col-md-6">
-                            <a href="{{ route('admin.addrole') }}" class="btn btn-success btn_adminpanel pull-right">
-                                Створити роль
-                            </a>
                             <a href="{{ route('admin.dashboard') }}" class="btn btn-warning btn_adminpanel pull-right">
                                 Адмін-панель
                             </a>
@@ -35,7 +32,6 @@
                                 <th>ID</th>
                                 <th>Назва ролі</th>
                                 <th>Дозволи</th>
-                                <th></th>
                             </tr>
                         </thead>
                         @foreach ($roles as $role)
@@ -44,14 +40,6 @@
                             <td>{{ $role->name }}</td>
                             <td>
                                 -- --
-                            </td>
-                            <td align="right">
-                                <a href="#">
-                                    <i class="fa fa-edit fa-2x"></i>
-                                </a> |
-                                <a href="#">
-                                    <i class="fa fa-times fa-2x text-danger"></i>
-                                </a>
                             </td>
                         </tr>
                         @endforeach
