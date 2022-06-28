@@ -33,8 +33,8 @@
                     <div class="col-sm-6">
                         <div class="contactinfo">
                             <ul class="nav nav-pills">
-                                <li><a href="#"><i class="fa fa-phone"></i> +38 067 111-11-11</a></li>
-                                <li><a href="/contacts"><i class="fa fa-envelope"></i> clothes.shop@domain.com</a></li>
+                                <li><a href="#"><i class="fa fa-phone"></i> +38 000 111-22-33 </a></li>
+                                <li><a href="/contacts"><i class="fa fa-envelope"></i> avgur923@avgur.pp.ua </a></li>
                             </ul>
                         </div>
                     </div>
@@ -92,7 +92,7 @@
                                                 <li><a href="{{ route('admin.dashboard') }}">Адмін панель</a></li>
                                                 <hr>
                                                 <li><a href="{{ route('admin.users') }}">Користувачи </a></li>
-                                                <li><a href="{{ route('admin.roles') }}">Управління доступом</a></li>
+                                                <li><a href="{{ route('admin.roles') }}">Ролі</a></li>
                                                 <hr>
                                                 <li><a href="{{ route('admin.categories') }}">Управління Категоріями</a></li>
                                                 <li><a href="{{ route('admin.brands') }}">Управління Брендами</a></li>
