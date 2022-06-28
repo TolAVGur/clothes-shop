@@ -160,6 +160,7 @@
                                 </div>
                                 <!-- /доставка/оплата -->
                                 @endif
+                                @if(Auth::check())
                                 <div class="col-md-12" style="padding-bottom: 2%;">
                                     <!--  создать заказ и отправить на стр благодарности -->
                                     @if(Session::has('checkout'))
@@ -167,6 +168,7 @@
                                     @endif
                                     <a href="{{ route('product.cart')}}" class="btn btn-warning pull-right">Повернутись до кошику</a>
                                 </div>
+                                @endif
 
                             </form>
                         </div>
