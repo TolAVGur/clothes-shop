@@ -28,8 +28,7 @@ use App\Http\Livewire\Admin\AdminAddProductComponent;
 use App\Http\Livewire\Admin\AdminEditProductComponent;
 use App\Http\Livewire\Admin\AdminUserComponent;
 use App\Http\Livewire\Admin\AdminRoleComponent;
-use App\Http\Livewire\Admin\AdminAddRoleComponent;
-use App\Http\Livewire\Admin\AdminAddUserComponent;
+use App\Http\Livewire\Admin\AdminUserRoleEdit;
 
 /*
 |--------------------------------------------------------------------------
@@ -60,7 +59,8 @@ Route::get('/product-brand/{brand_id}', BrandComponent::class)->name('product.br
 
 /*Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
-})->name('dashboard');*/
+})->name('dashboard');
+*/
 
 // For USR:
 Route::middleware(['auth:sanctum', 'verified'])->group(function() {
@@ -81,7 +81,28 @@ Route::middleware(['auth:sanctum', 'verified', 'authadmin'])->group(function() {
     Route::get('/admin/products/edit{product_id}', AdminEditProductComponent::class)->name('admin.editproduct');
     Route::get('/admin/users', AdminUserComponent::class)->name('admin.users');
     Route::get('/admin/roles', AdminRoleComponent::class)->name('admin.roles');
-    Route::get('/admin/roles/add', AdminAddRoleComponent::class)->name('admin.addrole');
+    //Route::get('/admin/roles/add', AdminAddRoleComponent::class)->name('admin.addrole');
+    Route::get('/admin/role/edit{user_id}', AdminUserRoleEdit::class)->name('admin.roleedit');
 
 });
 
+
+
+/*// Spatie Permission:
+Route::middleware(['auth:sanctum', 'verified'])->group(function() {
+    Route::get('/user/dashboard', UserDashboardComponent::class)->name('user.dashboard');
+    Route::get('/admin/dashboard', AdminDashboardComponent::class)->name('admin.dashboard');
+    Route::get('/admin/categories', AdminCategoryComponent::class)->name('admin.categories');
+    Route::get('/admin/category/add', AdminAddCategoryComponent::class)->name('admin.addcategory');
+    Route::get('/admin/category/edit{category_slug}', AdminEditCategoryComponent::class)->name('admin.editcategory');
+    Route::get('/admin/brands', AdminBrandComponent::class)->name('admin.brands');
+    Route::get('/admin/brands/add', AdminAddBrandComponent::class)->name('admin.addbrand');
+    Route::get('/admin/brands/edit{brand_id}', AdminEditBrandComponent::class)->name('admin.editbrand');
+    Route::get('/admin/products', AdminProductComponent::class)->name('admin.products');
+    Route::get('/admin/products/add', AdminAddProductComponent::class)->name('admin.addproduct');
+    Route::get('/admin/products/edit{product_id}', AdminEditProductComponent::class)->name('admin.editproduct');
+    Route::get('/admin/users', AdminUserComponent::class)->name('admin.users');
+    Route::get('/admin/roles', AdminRoleComponent::class)->name('admin.roles');
+    Route::get('/admin/role/edit{user_id}', AdminUserRoleEdit::class)->name('admin.roleedit');
+
+});*/
